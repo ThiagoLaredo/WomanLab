@@ -1,21 +1,27 @@
 .header {
   width: 100%;
   z-index: 1000;
-  background-color: var(--primary);
+  background-color: #fff;
   border-bottom: 0.5px solid var(--bg);
   position: fixed;
   top: 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .header_menu {
   box-sizing: border-box;
   height: 100%;
-  padding: 0.5rem 0;
+  padding: 1rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  gap: 20px;
+  gap: 10px;
+}
+
+[data-menu="logo"] {
+  width: 25%;    /* Largura é 50% do seu contêiner */
+  height: auto;  /* Altura ajusta automaticamente para manter a proporção */
 }
 
 nav.menu {
@@ -42,30 +48,10 @@ ul[data-menu="list"] {
   align-self: center;
 }
 
-#menu li a[data-translate="menuFaleConosco"] {
-  display: inline-block;
-  padding: 10px 20px; /* Ajuste o padding conforme necessário */
-  background-color: var(--secondary); /* Cor de fundo mais escura ao passar o mouse */
-  color: white; /* Cor do texto */
-  border-radius: 20px; /* Bordas arredondadas */
-  text-decoration: none; /* Remove o sublinhado do link */
-  transition: background-color 0.3s, transform 0.3s; /* Suaviza a transição de cores e transformação */
-}
-
-#menu li a[data-translate="menuFaleConosco"]:hover {
-  background-color: var(--alerta); /* Cor de fundo mais escura ao passar o mouse */
-  transform: scale(1.05); /* Aumenta ligeiramente o botão */
-  opacity: 1;
-}
-
-#menu li a[data-translate="menuFaleConosco"]:active {
-  transform: scale(0.95); /* Reduz ligeiramente o botão ao clicar */
-}
-
-
 .menu a {
-  color: var(--bg);
-  font: 1rem/1 'inter', sans-serif;;
+  color: var(--roxo);
+  font-weight: 600;
+  text-transform: uppercase;
   display: flex;
   justify-content: center;
   text-decoration: none;
@@ -79,59 +65,17 @@ ul[data-menu="list"] {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.language-switch {
-  position: relative;
+.social-icons-header {
+  display: flex;
+  gap: 0.8rem; 
 }
 
-.language-options {
-  display: none;
-  position: absolute;
-  background-color: white;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  padding: 5px 0;
-}
-
-.language-button {
+.social-icons-header a {
   display: flex;
   align-items: center;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 5px 10px;
+  justify-content: center;
 }
 
-.language-button img.language-icon {
-  width: 16px; /* Ajuste conforme necessário */
-  height: auto;
-  margin-left: 5px;
-}
-
-.language-button:hover, .language-button:focus {
-  opacity: 0.6;
-}
-
-#current-lang {
-  color: var(--textwhite);
-}
-
-
-
-@media (min-width: 768px) and (max-width: 1080px) {
-
-  .menu ul {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    }
-
-  .menu a {
-    font-size: 1rem;
-    text-decoration: none;
-    padding: 10px 4px;
-  }
-
-}
 
 @media (max-width: 768px) { 
   .header {
@@ -142,6 +86,11 @@ ul[data-menu="list"] {
     top: 0; /* Alinha o cabeçalho ao topo da página */
     left: 0; /* Alinha o cabeçalho à esquerda da página */
     border-bottom: 1px solid var(--bg);
+    padding: 10px 0px;
+  }
+
+  [data-menu="logo"] {
+    width: 70%;    /* Largura é 50% do seu contêiner */
   }
 
   .header a > img {
@@ -155,53 +104,6 @@ ul[data-menu="list"] {
   .menu-button {
     display: none;
   }
-/* 
-  ul[data-menu="list"] {
-    margin-right: 0;
-  } */
-
-  .language-options {
-    top: 30px;
-  }
-
-  .language-button {
-    font-size: 16px;
-  }
-
-  .language-switch {
-    position: relative;
-    display: flex;
-    justify-content: center;
-  }
-
-  #menu li a[data-translate=menuFaleConosco] {
-    background-color: transparent;
-  }
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1180px) {
-  .header_menu {
-    box-sizing: border-box;
-    height: 100%;
-    padding: 1rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 12px;
-  }
 
-  .menu ul {
-    gap: 1.2rem;     
-  }
-
-  .menu a {
-    font-size: 1rem;     
-  }
-}
-
-@media only screen and (min-width: 1180px) {
-  .menu a {
-    font-size: 1rem;
-  }
-}

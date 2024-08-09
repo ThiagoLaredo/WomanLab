@@ -1,116 +1,67 @@
 
  .introducao {
   display: flex;
+  justify-content: center;
   height: 100vh;
-  width: 100%; /* Isso garantirá que a div principal ocupe toda a largura da viewport */
+  width: 100%;
+  background: url('../img/capa-womanlab.webp') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 500px; /* Ajuste conforme necessário */
+  margin-top: 60px;
 }
 
+
 .introducao-texto {
-  width: 50%; /* Isso define que o texto ocupa 50% da largura da viewport */
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 0 5%; /* Adicione um pouco de padding para não colar o texto na borda */
+  align-items: center;
+  padding: 0 20px; /* Adicione um pouco de padding para não colar o texto na borda */
   gap: 20px;
 }
 
-.introducao-texto h1 {
-  font-size: 3.2rem;
-  color: var(--text);
-  text-align: left;
+.wave-text {
+  font-size: 4rem;
+  line-height: 5rem;
+  font-weight: normal;
+  font-family: 'OpenDyslexic';
+  color: var(--textwhite);
+  text-align: center;
   max-width: 20ch;
+  z-index: 2;
 }
 
-.introducao-texto p {
-  font: 300 1.2rem/1.5 "Inter", sans-serif;
-  color: var(--text);
-  text-align: left;
-  max-width: 50ch;
-}
 
-.img-intro {
-  width: 50%;
-  height: 100vh;
-  position: relative;
-  object-fit: cover;
-  border-top: 0.5px solid var(--textwhite);
-}
-
-.background-image {
-  content: "";
+.img-circulo {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: url('../img/intro-img.png') no-repeat center center;
-  background-size: cover;
-  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%); 
-  background-blend-mode: lighten;
-  background-color: #A00000;
-  background-position: 30% 90%;
-  border-top: 0.5px solid var(--bg);
-
-  /* border-bottom-left-radius: 20px; */
-  /* box-shadow: inset 0 -10px 10px -10px rgba(0, 0, 0, 0.5);  */
+  width: 40vw; /* 50% da largura da viewport */
+  height: 40vw; /* Mantém a proporção para formar um círculo perfeito */
+  background-color: var(--roxo);
+  opacity: 40%;
+  border-radius: 50%;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 60px;
 }
+
+
 
 @media (max-width: 768px) { 
-    .introducao {
-      display: flex;
-      flex-direction: column; /* Empilha os elementos verticalmente */
-      position: relative;
-    }
-  
-    .introducao-texto {
-      width: 100%;
-      gap: 20px;
-      align-items: center;
-      padding-top: 120px;
-    }
-  
-    .introducao-texto h1 {
-      font-size: 2rem;
-      color: var(--textwhite);
-      text-align: center;
-    }
-  
-    .introducao-texto p {
-      max-width: 100%;
-      color: var(--textwhite);
-      text-align: center;
 
-    }
-  
-    .img-intro {
-      width: 100%;
-      object-fit: cover;
-      border-top: none;
-      position: absolute;
-      top: 0;
-      z-index: -1;
-    }
-  
-    .background-image {
-      clip-path: none;
-      background-position: center;
-      background-size: cover;
-      /* clip-path: polygon(0 0, 100% 0, 100% calc(100% - 25%), 0 100%); */
-      background-position: 36% 10%;
-    }
-
-    .btn.btn-intro {
-      border: 1px solid var(--alerta);
-      background-color: var(--alerta45);
-    }
-  
-}
-
-@media only screen and (min-device-width: 768px) and (max-device-width: 1180px) {
-
-}
-
-@media only screen and (min-width: 1180px) {
-
+  .img-circulo {
+    width: 90vw; /* 50% da largura da viewport */
+    height: 90vw; /* Mantém a proporção para formar um círculo perfeito */
   }
+
+  .wave-text {
+    font-size: 2.4rem;
+    line-height: 3.4rem;
+  }
+ 
+}
 

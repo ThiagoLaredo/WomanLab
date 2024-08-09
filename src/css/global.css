@@ -3,20 +3,35 @@ body, h1, h2, h3, h4, p, ul, li, a {
   padding: 0;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'coolvetica', sans-serif;
-  font-weight: 800; /* Usando 'black' */
+p, a {
+  font-family: 'OpenSans', sans-serif;
 }
 
-
-body {
-  background-color: #fff;
-}
-
-html,
-body {
-  position: relative;
+html, body {
   height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  all: unset;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.container {
+  max-width: 1200px; /* Largura máxima do container */
+  margin: 0 auto;
+  width: 100%; /* Faz o container ocupar toda a largura disponível */
+  padding: 0 20px; /* Espaço interno do container */
+  box-sizing: border-box; /* Inclui padding na largura total */
 }
 
 ul {
@@ -27,7 +42,7 @@ a {
   text-decoration: none;
 }
 
-img {
+img, iframe {
   max-width: 100%;
   height: auto;
   display: block;
@@ -37,52 +52,18 @@ img {
   box-sizing: border-box;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  max-width: 1200px; /* Largura máxima do container */
-  margin: 0 auto; /* Centraliza o container horizontalmente */
-  padding: 0 20px; /* Espaço interno do container */
-  box-sizing: border-box; /* Inclui padding na largura total */
-}
 
-/* Importando Coolvetica */
 @font-face {
-  font-family: 'Coolvetica';
-  src: url('../fonts/coolvetica\ rg.otf') format('opentype');
+  font-family: 'OpenDyslexic';
+  src: url('../fonts/OpenDyslexic-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
-/* Importando Odisseia Test Black */
 @font-face {
-  font-family: 'Odisseia';
-  src: url('../fonts/OdisseiaTest-Black.otf') format('opentype');
-  font-weight: 800; /* valor estimado para 'black' */
-  font-style: normal;
-}
-
-/* Importando Odisseia Test Bold */
-@font-face {
-  font-family: 'Odisseia';
-  src: url('../fonts/OdisseiaTest-Bold.otf') format('opentype');
-  font-weight: bold; /* geralmente 700 */
-  font-style: normal;
-}
-
-/* Importando Odisseia Test Regular */
-@font-face {
-  font-family: 'Odisseia';
-  src: url('../fonts/OdisseiaTest-Regular.otf') format('opentype');
-  font-weight: normal; /* geralmente 400 */
-  font-style: normal;
-}
-
-/* Importando Odisseia Test Light */
-@font-face {
-  font-family: 'Odisseia';
-  src: url('../fonts/OdisseiaTest-Light.otf') format('opentype');
-  font-weight: 300; /* valor estimado para 'light' */
+  font-family: 'OpenDyslexic';
+  src: url('../fonts/OpenDyslexic-Bold.otf') format('opentype');
+  font-weight: bold; /* ou use 700 se preferir */
   font-style: normal;
 }
 
@@ -105,27 +86,4 @@ img {
   position: absolute;
   width: 0;
   height: 0;
-}
-
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    max-height: 0;
-  }
-  to {
-    max-height: 200px;
-    opacity: 1;
-  }
-}
-
-.js [data-anime="scroll"] {
-  opacity: 0;
-  transform: translate3d(-30px, 0, 0);
-  transition: .3s;
-}
-
-.js [data-anime="scroll"].ativo {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
 }

@@ -1,0 +1,60 @@
+.bio-back {
+  padding: 120px 20px;
+  background-color: var(--bg-cinza);
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+  position: relative;
+}
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.curriculo {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.curriculo h2 {
+  font: 600 2rem/1.2 'OpenSans', sans-serif;
+  color: var(--roxo);
+}
+
+.curriculo ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font: 300 1rem/1.4 'OpenSans', sans-serif;
+  color: var(--roxo);
+  max-width: 70ch;
+}
+
+.selos {
+  display: flex;
+  gap: 10px;
+}
+
+.foto-marina {
+  position: absolute; /* Posicionamento absoluto em relação ao container mais próximo com posição relativa */
+  right: 0; /* Alinha à direita */
+  bottom: 0; /* Ajuste o valor negativo para posicionar abaixo da section */
+  width: 390px; /* ou o tamanho desejado */
+  height: auto; /* mantém a proporção */
+  object-fit: cover;
+}
+
+@media (max-width: 768px) { 
+
+  .bio-back {
+    padding: 60px 10px;
+  }
+
+  .bio {
+    margin-bottom: 80vh;
+  }
+
+}

@@ -1,0 +1,241 @@
+.processo {
+  padding: 120px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  position: relative;
+}
+
+
+.processo h2 {
+  font: 600 2rem/1.2 'OpenSans', sans-serif;
+  color: var(--roxo);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.servicos {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px;
+  padding: 200px 0px;
+}
+
+
+.servicos h3 {
+  font: 600 1.4rem/1.2 'OpenSans', sans-serif;
+  color: var(--textwhite);
+  max-width: 30ch;
+  text-align: center;
+}
+
+.voce {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+  justify-content: center;
+}
+
+.voce::before {
+  content: ""; /* Necessário para gerar o pseudoelemento */
+  position: absolute;
+  top: 50%; /* Centraliza verticalmente */
+  left: 50%; /* Centraliza horizontalmente */
+  width: 700px; /* Largura do círculo */
+  height: 700px; /* Altura do círculo */
+  background-color: var(--lilas-claro); /* Cor do círculo */
+  border-radius: 50%; /* Torna a forma um círculo perfeito */
+  transform: translate(-50%, -50%); /* Ajusta a centralização exata */
+  z-index: -1; /* Coloca o pseudoelemento atrás do conteúdo */
+}
+
+
+.voce-titulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;  
+}
+
+
+.voce-badge, .empresa-badge {
+  font: normal 1rem/1.2 'OpenDyslexic', sans-serif;
+  color: var(--textwhite);
+  background-color: var(--lilas-escuro);
+  border-radius: 100px;
+  padding: 8px 12px;
+}
+
+.programas-voce {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
+}
+
+.programas-voce p, .empresas p {
+  font: normal 1rem/1.6 'OpenSans', sans-serif;
+  color: var(--textwhite);
+  max-width: 30ch;
+  align-self: flex-start;
+}
+
+.programa-voce {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1 1 auto; /* Isso faz cada item de programa ocupar espaço igual se necessário */
+}
+
+.programa-titulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.programa-icone {
+  width: 15%;
+  height: auto;
+}
+
+.programa-titulo h4 {
+  font: 600 1rem 'OpenSans', sans-serif;
+  color: var(--textwhite);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-programa {
+  display: inline-flex; 
+  align-items: center;
+  font: 500 0.8rem/1 'OpenSans', sans-serif;
+  color: var(--textwhite); 
+  cursor: pointer; 
+  transition: background-color 0.3s; /* Transição suave para mudanças de fundo */
+  align-self: flex-start;
+}
+
+.btn-programa::after {
+  content: ''; /* Necessário para que o pseudo-elemento seja gerado */
+  position: absolute; /* Posiciona absolutamente em relação ao seu pai que tem position: relative */
+  left: 0; /* Começa do lado esquerdo do botão */
+  right: 0; /* Estende até o lado direito do botão */
+  bottom: 0; /* Posiciona na parte inferior do botão */
+  height: 2px; /* Altura do sublinhado */
+  background-color: var(--textwhite); /* Cor do sublinhado, aqui usando a mesma cor do texto */
+  transition: width 0.3s ease; /* Transição suave da largura para efeitos de hover */
+  width: 0; /* Inicia sem sublinhado visível */
+}
+
+.btn-programa:hover::after {
+  width: 100%; /* Expande o sublinhado para a largura total do botão ao passar o mouse */
+}
+
+.btn-programa svg {
+  margin-left: 2px; /* Espaçamento entre o texto e o ícone */
+  fill: currentColor; /* Garante que o ícone use a mesma cor do texto */
+}
+
+.empresas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  flex: 1;
+}
+
+.empresas::before {
+  content: ""; /* Necessário para gerar o pseudoelemento */
+  position: absolute;
+  top: 50%; /* Centraliza verticalmente */
+  left: 50%; /* Centraliza horizontalmente */
+  width: 500px; /* Largura do círculo */
+  height: 500px; /* Altura do círculo */
+  background-color: var(--lilas-escuro); /* Cor do círculo */
+  border-radius: 50%; /* Torna a forma um círculo perfeito */
+  transform: translate(-50%, -50%); /* Ajusta a centralização exata */
+  z-index: -1; /* Coloca o pseudoelemento atrás do conteúdo */
+}
+
+.empresa-badge {
+  background-color: var(--lilas-claro);
+}
+
+.grade {
+  position: absolute;
+    bottom: -15vh;  
+    right: 20vw;  
+    width: 200px;  
+    height: 200px;  
+    z-index: 10;  
+}
+
+
+@media (max-width: 768px) { 
+
+  .processo {
+    padding: 60px 20px;
+    gap: 40px;
+  }
+
+  .servicos {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+  }
+
+  .servicos h3 {
+    max-width: none;
+  }
+
+  .voce {
+    flex: 1;
+  }
+
+  .programas-voce {
+    flex-direction: column;
+  }
+
+  .empresas {
+    flex: 1;
+  }
+
+  .programas-voce p, .empresas p {
+    max-width: none;
+  }
+
+  .voce::before {
+    width: 100%;
+    height: 100%; 
+    border-radius: 0; 
+  }
+
+  .voce, .empresas {
+    padding: 20px;
+  }
+
+  .voce::before, .empresas::before {
+    width: 100%;
+    height: 100%; 
+    border-radius:10px; 
+  }
+
+  .grade {
+    position: absolute;
+      bottom: -8vh;  
+      right: 20vw;  
+      width: 100px;  
+      height: 100px;  
+      z-index: 10;  
+  }
+  
+
+}
