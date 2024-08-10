@@ -22,6 +22,10 @@
   display: none;
 }
 
+[data-menu="instagram"] {
+  display: none;
+}
+
 @media (max-width: 700px) {
 
   .social-icons-header {
@@ -134,9 +138,9 @@
     display: block;
     width: 100%;
     top: 10px;
-    height: 2px;
+    height: 1px;
     border-radius: 5px;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(52, 40, 64, 0.2);
     position: relative;
   }
 
@@ -144,7 +148,7 @@
     display: none;
   }
 
-  [data-menu="contato-mobile"], [data-menu="linkedin"] {
+  [data-menu="contato-mobile"], [data-menu="linkedin"], [data-menu="instagram"] {
     display: none;
   }
 
@@ -167,6 +171,17 @@
     display: block;
     bottom: 0;
     right: 0;
+    z-index: 999;
+    padding: 1rem;
+    opacity: 0;
+  }
+  [data-menu="instagram"].active {
+    position: fixed;
+    font: 500 1rem "Hind", sans-serif;
+    color: var(--bg);
+    display: block;
+    bottom: 0;
+    right: 40px;
     z-index: 999;
     padding: 1rem;
     opacity: 0;
