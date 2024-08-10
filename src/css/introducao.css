@@ -11,6 +11,8 @@
   background-repeat: no-repeat;
   min-height: 500px; /* Ajuste conforme necessário */
   margin-top: 60px;
+  opacity: 0;  
+
 }
 
 

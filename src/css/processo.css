@@ -42,17 +42,41 @@
   justify-content: center;
 }
 
-.voce::before {
-  content: ""; /* Necessário para gerar o pseudoelemento */
+/* .voce::before {
+  content: ""; 
   position: absolute;
-  top: 50%; /* Centraliza verticalmente */
-  left: 50%; /* Centraliza horizontalmente */
-  width: 700px; /* Largura do círculo */
-  height: 700px; /* Altura do círculo */
-  background-color: var(--lilas-claro); /* Cor do círculo */
-  border-radius: 50%; /* Torna a forma um círculo perfeito */
-  transform: translate(-50%, -50%); /* Ajusta a centralização exata */
-  z-index: -1; /* Coloca o pseudoelemento atrás do conteúdo */
+  top: 50%; 
+  left: 50%; 
+  width: 700px; 
+  height: 700px; 
+  background-color: var(--lilas-claro); 
+  border-radius: 50%; 
+  transform: translate(-50%, -50%); 
+  z-index: -1; 
+} */
+
+.circle-lilas-claro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  background-color: var(--lilas-claro);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.circle-lilas-escuro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  background-color: var(--lilas-escuro);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }
 
 
@@ -152,18 +176,6 @@
   flex: 1;
 }
 
-.empresas::before {
-  content: ""; /* Necessário para gerar o pseudoelemento */
-  position: absolute;
-  top: 50%; /* Centraliza verticalmente */
-  left: 50%; /* Centraliza horizontalmente */
-  width: 500px; /* Largura do círculo */
-  height: 500px; /* Altura do círculo */
-  background-color: var(--lilas-escuro); /* Cor do círculo */
-  border-radius: 50%; /* Torna a forma um círculo perfeito */
-  transform: translate(-50%, -50%); /* Ajusta a centralização exata */
-  z-index: -1; /* Coloca o pseudoelemento atrás do conteúdo */
-}
 
 .empresa-badge {
   background-color: var(--lilas-claro);
@@ -222,7 +234,7 @@
     padding: 20px;
   }
 
-  .voce::before, .empresas::before {
+  .circle-lilas-escuro,  .circle-lilas-claro {
     width: 100%;
     height: 100%; 
     border-radius:10px; 

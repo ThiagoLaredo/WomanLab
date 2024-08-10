@@ -40,6 +40,20 @@ export const initAnimations = () => {
       ease: "power1.inOut"
   });
 
+// Animação inicial quando a página carrega
+gsap.fromTo(".introducao", {
+  clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+  opacity: 0
+}, {
+  clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+  opacity: 1,
+  duration: 2.5,
+  ease: "power2.out",
+  onComplete: () => {
+    document.querySelector('.introducao').style.clipPath = 'none'; // Limpa o clip-path após a animação
+  }
+});
+
   // Animação do círculo SVG
   gsap.to(".img-circulo", {
       duration: 1,
@@ -72,18 +86,45 @@ export const initAnimations = () => {
     gsap.from(section.querySelectorAll('h2, p, img, h3, ul, button, #contact-form, #send-button'), {
       scrollTrigger: {
         trigger: section,
-        start: "top 80%", // Inicia um pouco antes de entrar completamente na viewport
-        end: "bottom 100%", // Termina um pouco depois de estar totalmente visível
+        start: "top 70%", // Começa um pouco depois dos círculos
+        end: "bottom 100%",
         toggleActions: "play none none none",
-        markers: false // Defina como true para debugging
+        markers: false
       },
       duration: 0.5,
       opacity: 0,
       y: 20,
-      stagger: 0.2, // Efeito dominó
+      stagger: 0.2,
       ease: "power1.out"
     });
   });
+  
+  // Animação para o círculo lilás claro
+  gsap.from(".circle-lilas-claro", {
+    scrollTrigger: {
+      trigger: ".voce",
+      start: "top 90%", // Ajuste conforme necessário
+      end: "top 50%",
+      // scrub: true,
+      toggleActions: "play none none none" // Não reage ao scroll up
+    },
+    opacity: 0,
+    duration: 0.7
+  });
+
+  // Animação para o círculo lilás escuro
+  gsap.from(".circle-lilas-escuro", {
+    scrollTrigger: {
+      trigger: ".voce",
+      start: "top 90%",
+      end: "top 50%",
+      // scrub: true,
+      toggleActions: "play none none none" // Não reage ao scroll up
+    },
+    opacity: 0,
+    duration: 0.7
+  });
+
 
 
   const circles = document.querySelectorAll('.grade circle');
@@ -102,5 +143,7 @@ export const initAnimations = () => {
     duration: 0.5,       // Duração da animação para cada círculo
     ease: "elastic.out(1, 0.3)"  // Elastic easing para um efeito "pop"
   });
+
+
 
 
