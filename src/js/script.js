@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM completamente carregado.");
     
     // Inicialização de componentes
-    const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]');
+    const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]', '[data-menu="instagram"]');
     menuMobile.init();
   
     // const formHandler = new FormHandler('contact-form');

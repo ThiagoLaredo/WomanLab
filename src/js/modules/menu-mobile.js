@@ -1,12 +1,13 @@
 import gsap from "gsap";
 
 export default class MenuMobile {
-  constructor(logoMobile, menuButton, menuList, contatoMobile, linkedinMobile, events) {
+  constructor(logoMobile, menuButton, menuList, contatoMobile, linkedinMobile, instagramMobile,  events) {
     this.logoMobile = document.querySelector(logoMobile);
     this.menuButton = document.querySelector(menuButton);
     this.menuList = document.querySelector(menuList);
     this.contatoMobile = document.querySelector(contatoMobile);
     this.linkedinMobile = document.querySelector(linkedinMobile);
+    this.instagramMobile = document.querySelector(instagramMobile);
     this.activeClass = "active";
     this.events = events || ["click"];
     this.menuOpened = false; // Flag para controle de estado
@@ -33,6 +34,7 @@ export default class MenuMobile {
         this.menuButton.classList.add(this.activeClass);
         this.contatoMobile.classList.add(this.activeClass);
         this.linkedinMobile.classList.add(this.activeClass);
+        this.instagramMobile.classList.add(this.activeClass);
         this.animateMenuItems();
         this.toggleMenuAnimation(true);
       }
@@ -47,6 +49,7 @@ export default class MenuMobile {
       this.menuButton.classList.remove(this.activeClass);
       this.contatoMobile.classList.remove(this.activeClass);
       this.linkedinMobile.classList.remove(this.activeClass);
+      this.instagramMobile.classList.remove(this.activeClass);
       this.toggleMenuAnimation(false);
     }
   }
@@ -130,7 +133,14 @@ export default class MenuMobile {
     gsap.fromTo( this.linkedinMobile, 
       { opacity: 0, y: 10 }, 
       { opacity: 1, y: 0, duration: 0.5, ease: "power1.out", delay: 0.1 + (menuItems.length + 1) * 0.1,
-        onComplete: () => console.log('Instagram animation complete')
+        onComplete: () => console.log('Linkedin animation complete')
+      }
+    );
+
+    gsap.fromTo( this.instagramMobile, 
+      { opacity: 0, y: 10 }, 
+      { opacity: 1, y: 0, duration: 0.5, ease: "power1.out", delay: 0.1 + (menuItems.length + 1) * 0.1,
+        onComplete: () => console.log('Linkedin animation complete')
       }
     );
   }
@@ -161,7 +171,7 @@ export default class MenuMobile {
   }
 
   init() {
-    if (this.logoMobile && this.menuButton && this.menuList  && this.contatoMobile && this.linkedinMobile) {
+    if (this.logoMobile && this.menuButton && this.menuList  && this.contatoMobile && this.linkedinMobile && this.instagramMobile) {
       this.addMenuMobileEvents();
       this.addLinkClickEvents(); 
     }
