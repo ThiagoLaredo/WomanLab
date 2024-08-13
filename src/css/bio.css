@@ -27,7 +27,7 @@
 .curriculo ul {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   font: 300 1rem/1.4 'OpenSans', sans-serif;
   color: var(--roxo);
   max-width: 70ch;
@@ -39,11 +39,11 @@
 }
 
 .foto-marina {
-  position: absolute; /* Posicionamento absoluto em relação ao container mais próximo com posição relativa */
-  right: 0; /* Alinha à direita */
-  bottom: 0; /* Ajuste o valor negativo para posicionar abaixo da section */
-  width: 390px; /* ou o tamanho desejado */
-  height: auto; /* mantém a proporção */
+  position: absolute; 
+  right: 0; 
+  bottom: 0; 
+  width: 400px; 
+  height: auto; 
   object-fit: cover;
 }
 
@@ -60,5 +60,4 @@
   .foto-marina {
     width: 260px; 
   }
-
 }

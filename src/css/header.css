@@ -24,6 +24,13 @@
   height: auto;  /* Altura ajusta automaticamente para manter a proporção */
 }
 
+.header-direita {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+}
+
 nav.menu {
   display: flex;
   align-items: center; /* Alinha os itens do menu verticalmente */
