@@ -21,7 +21,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 0 20px; /* Adicione um pouco de padding para não colar o texto na borda */
+  padding: 0 20px; 
   gap: 20px;
 }
 

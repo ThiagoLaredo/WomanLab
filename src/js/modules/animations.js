@@ -5,7 +5,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const initAnimations = () => {
   // Assegurar que tudo começa invisível para a animação
-  gsap.set([".header", "[data-menu='logo']", "#menu li", ".social-icons-header a", ".img-circulo", ".introducao-texto h1"], { opacity: 0 });
+  gsap.set([".header", "[data-menu='logo']", "#menu li", ".social-icons-header a", ".img-circulo", ".programa__badge", ".introducao-texto h1"], { opacity: 0 });
 
   // Embrulhar cada letra do h1 em um span para animação
   const h1 = document.querySelector('.wave-text');
@@ -21,6 +21,9 @@ export const initAnimations = () => {
 
   // Animação para o logo
   gsap.to("[data-menu='logo']", { duration: 1, delay: 0.5, opacity: 1, ease: "power1.inOut" });
+
+  gsap.to(".programa__badge", { duration: 1, delay: 0.5, opacity: 1, ease: "power1.inOut" });
+
 
   // Animação dos itens do menu
   gsap.to("#menu li", {
@@ -80,10 +83,29 @@ gsap.fromTo(".introducao", {
   });
 };
 
+if (document.querySelectorAll(".highlight").length > 0) {
+  document.querySelectorAll(".highlight").forEach(function(element) {
+    gsap.to(element, {
+      scrollTrigger: {
+        trigger: element,
+        start: "top center",
+        toggleActions: "play none none none",
+        markers: false
+      },
+      duration: 2,
+      width: "100%",
+      ease: "none",
+      repeat: 0,
+      yoyo: false
+    });
+  });
+} else {
+  console.error("Nenhum elemento '.highlight' encontrado");
+}
 
   const sections = document.querySelectorAll('section, footer');
   sections.forEach(section => {
-    gsap.from(section.querySelectorAll('h2, p, img, h3, ul, button, #contact-form, #send-button'), {
+    gsap.from(section.querySelectorAll('h2, p, img, h3, ul, ol, li, .programa__circle, button, #contact-form, #send-button'), {
       scrollTrigger: {
         trigger: section,
         start: "top 70%", // Começa um pouco depois dos círculos
@@ -99,7 +121,6 @@ gsap.fromTo(".introducao", {
     });
   });
   
-  // Animação para o círculo lilás claro
   gsap.from(".circle-lilas-claro", {
     scrollTrigger: {
       trigger: ".voce",
@@ -112,7 +133,6 @@ gsap.fromTo(".introducao", {
     duration: 0.7
   });
 
-  // Animação para o círculo lilás escuro
   gsap.from(".circle-lilas-escuro", {
     scrollTrigger: {
       trigger: ".voce",
@@ -124,8 +144,6 @@ gsap.fromTo(".introducao", {
     opacity: 0,
     duration: 0.7
   });
-
-
 
   const circles = document.querySelectorAll('.grade circle');
 
@@ -145,5 +163,6 @@ gsap.fromTo(".introducao", {
   });
 
 
-
-
+  
+  
+  
