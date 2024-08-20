@@ -13,6 +13,7 @@ import "../css/sobre-2.css";
 import "../css/processo.css";
 import "../css/bio.css";
 import "../css/frase.css";
+import "../css/servicos.css";
 import "../css/footer.css";
 import "../css/text-typing.css";
 import "../css/menu-mobile.css";

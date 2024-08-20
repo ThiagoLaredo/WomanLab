@@ -65,6 +65,13 @@ module.exports = {
         removeRedundantAttributes: false,
       },
   }),
+    new HtmlWebpackPlugin({
+      template: './src/para-mulheres.html',
+      filename: 'para-mulheres.html',
+      minify: {
+        removeRedundantAttributes: false,
+      },
+  }),
     new CopyWebpackPlugin({
       patterns: [
         { from: 'src/img', to: 'img' }, // Copia tudo de src/img para dist/img
