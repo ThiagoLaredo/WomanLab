@@ -137,35 +137,43 @@
 }
 
 .btn-programa {
-  display: inline-flex; 
+  display: inline-flex;
   align-items: center;
   font: 500 0.8rem/1 'OpenSans', sans-serif;
-  color: var(--textwhite); 
-  cursor: pointer; 
-  transition: background-color 0.3s; /* Transição suave para mudanças de fundo */
+  color: var(--textwhite);
+  cursor: pointer;
+  transition: background-color 0.3s; 
   align-self: flex-start;
+  position: relative; /* Necessário para o posicionamento correto do ::after */
+  padding: 0; /* Remove padding para que o sublinhado não cubra o espaço adicional */
 }
 
 .btn-programa::after {
-  content: ''; /* Necessário para que o pseudo-elemento seja gerado */
-  position: absolute; /* Posiciona absolutamente em relação ao seu pai que tem position: relative */
-  left: 0; /* Começa do lado esquerdo do botão */
-  right: 0; /* Estende até o lado direito do botão */
-  bottom: 0; /* Posiciona na parte inferior do botão */
-  height: 2px; /* Altura do sublinhado */
-  background-color: var(--textwhite); /* Cor do sublinhado, aqui usando a mesma cor do texto */
-  transition: width 0.3s ease; /* Transição suave da largura para efeitos de hover */
-  width: 0; /* Inicia sem sublinhado visível */
+  content: '';
+  position: absolute;
+  left: 0;
+  right: auto; /* Desativa o lado direito para evitar que o sublinhado se estenda */
+  bottom: 0;
+  height: 2px;
+  background-color: var(--textwhite);
+  transition: width 0.3s ease;
+  width: 0;
 }
 
 .btn-programa:hover::after {
-  width: 100%; /* Expande o sublinhado para a largura total do botão ao passar o mouse */
+  width: 100%; /* Expande o sublinhado para a largura do texto */
+}
+
+.btn-programa span {
+  display: inline-block; /* Garante que o pseudo-elemento fique restrito ao texto */
+  position: relative; /* Para que o ::after seja aplicado corretamente */
 }
 
 .btn-programa svg {
-  margin-left: 2px; /* Espaçamento entre o texto e o ícone */
-  fill: currentColor; /* Garante que o ícone use a mesma cor do texto */
+  margin-left: 2px;
+  fill: currentColor;
 }
+
 
 .empresas {
   display: flex;

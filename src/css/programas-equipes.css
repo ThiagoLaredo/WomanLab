@@ -1,13 +1,13 @@
 
-.introducao.pg-interna {
+.introducao.pg-interna.equipes {
   display: flex;
   justify-content: flex-start;
-  height: 10vh;
+  height: 60vh;
   width: 100%;
-  background: url('../img/capa-womanlab.webp') no-repeat center center;
+  background: url('../img/ondas.webp');
   background-size: cover;
   background-attachment: fixed;
-  background-position: center;
+  background-position: 0 300%;
   background-repeat: no-repeat;
   min-height: 300px; 
   opacity: 0;  
@@ -21,23 +21,22 @@
   padding: 0 20px;
   gap: 6px;
   margin-top: 60px;
-
 }
 
 .programa__badge {
-  font: 300 0.8rem/1.2 'OpenSans', sans-serif;
-  color: var(--textwhite);
+  font: 600 0.8rem/1 'OpenSans', sans-serif;
+  color: var(--roxo);
   border-radius: 50px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  background-color: var(--lilas-claro);
+  background-color: var(--textwhite);
   padding: 8px 12px;
   z-index: 2;
 
 }
 
 .wave-text.pg-interna {
-  font-size:3rem;
+  font-size:4rem;
   line-height: 4rem;
   font-weight: normal;
   font-family: 'OpenDyslexic';
@@ -55,7 +54,7 @@
 }
 
 .programa__background {
-  background-color: var(--bg-cinza);
+  background-color: #f5f5fa;
   z-index: -2;
   position: relative;
   }
@@ -79,14 +78,28 @@
   letter-spacing: 2px;
 }
 
-.programa__texto ul {
+/* .programa__texto ul {
   display: flex;
   flex-direction: column;
   gap: 6px;
   font: 300 1rem/1.2 'OpenSans', sans-serif;
-  color: var(--roxo);
-  list-style-type: disc; 
-  padding-left: 20px;
+} */
+
+.programa__texto li {
+  font: 300 1rem/1.6 OpenSans,sans-serif;
+  color: var(--roxo); /* Cor suave e legível */
+  margin-bottom: 0.5rem; /* Espaçamento entre as respostas */
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.programa__texto li::before {
+  content: '\2022'; /* Ponto como marcador */
+  font-size: 1rem;
+  color: #537322; /* Cor correspondente à barra da pergunta */
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .programa__duracao {
@@ -96,8 +109,12 @@
 #text-to-highlight-deep, #text-to-highlight-action  {
   font: 300 1rem 'OpenSans', sans-serif;
   color: var(--roxo);
-  padding: 8px;
+  padding: 8px 12px;
   z-index: 3;
+}
+
+#text-to-highlight-deep strong, #text-to-highlight-action strong  {
+  font: 400 1rem 'OpenSans', sans-serif;
 }
 
 .highlight {
@@ -110,6 +127,7 @@
   background-color: var(--rosa);
   pointer-events: none; /* Isso impede que a div de highlight intercepte cliques. */
   z-index: -1;
+  border-radius: 6px;
 }
 
 .programa__conteudo {

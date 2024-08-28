@@ -105,7 +105,7 @@ if (document.querySelectorAll(".highlight").length > 0) {
 
   const sections = document.querySelectorAll('section, footer');
   sections.forEach(section => {
-    gsap.from(section.querySelectorAll('h2, p, img, h3, ul, ol, li, .programa__circle, button, #contact-form, #send-button'), {
+    gsap.from(section.querySelectorAll('h2, p, img, h3, h4, ul, ol, li, .programa__circle, button, #contact-form, #send-button'), {
       scrollTrigger: {
         trigger: section,
         start: "top 70%", // Começa um pouco depois dos círculos

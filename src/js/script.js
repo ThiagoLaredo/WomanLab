@@ -3,6 +3,8 @@ import MenuMobile from './modules/menu-mobile.js';
 // import FormHandler from './modules/formHandler.js';
 import translations from '../translations.json'
 import { initAnimations } from './modules/animations.js';
+import { SubMenu } from './modules/subMenu.js';
+
 
 
 import "../css/global.css";
@@ -13,7 +15,10 @@ import "../css/sobre-2.css";
 import "../css/processo.css";
 import "../css/bio.css";
 import "../css/frase.css";
-import "../css/servicos.css";
+import "../css/para-mulheres.css";
+import "../css/para-equipes.css";
+import "../css/programas-mulheres.css";
+import "../css/programas-equipes.css";
 import "../css/footer.css";
 import "../css/text-typing.css";
 import "../css/menu-mobile.css";
@@ -29,6 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicialização de componentes
     const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]', '[data-menu="instagram"]');
     menuMobile.init();
+
+    const subMenu = new SubMenu('#menu');
+
   
     // const formHandler = new FormHandler('contact-form');
   

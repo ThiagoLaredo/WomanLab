@@ -1,0 +1,212 @@
+
+.introducao.pg-interna {
+  display: flex;
+  justify-content: flex-start;
+  height: 60vh;
+  width: 100%;
+  background: url('../img/espuma.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 0 300%;
+  background-repeat: no-repeat;
+  min-height: 300px; 
+  opacity: 0;  
+}
+
+.introducao-texto.pg-interna {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 20px;
+  gap: 6px;
+  margin-top: 60px;
+}
+
+.programa__badge {
+  font: 600 0.8rem/1 'OpenSans', sans-serif;
+  color: var(--roxo);
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-color: var(--textwhite);
+  padding: 8px 12px;
+  z-index: 2;
+
+}
+
+.wave-text.pg-interna {
+  font-size:4rem;
+  line-height: 4rem;
+  font-weight: normal;
+  font-family: 'OpenDyslexic';
+  color: var(--textwhite);
+  text-align: left;
+  z-index: 2;
+  max-width: none;
+}
+
+.programa {
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.programa__background {
+  background-color: #f5f5fa;
+  z-index: -2;
+  position: relative;
+  }
+
+.programa__sobre {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.programa__texto  {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.programa__texto h2 {
+  font: 600 1.4rem/1.8 'OpenSans', sans-serif;
+  color: var(--roxo);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* .programa__texto ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font: 300 1rem/1.2 'OpenSans', sans-serif;
+} */
+
+.programa__texto li {
+  font: 300 1rem/1.6 OpenSans,sans-serif;
+  color: var(--roxo); /* Cor suave e legível */
+  margin-bottom: 0.5rem; /* Espaçamento entre as respostas */
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.programa__texto li::before {
+  content: '\2022'; /* Ponto como marcador */
+  font-size: 1rem;
+  color: #537322; /* Cor correspondente à barra da pergunta */
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.programa__duracao {
+  position: relative;
+}
+
+#text-to-highlight-deep, #text-to-highlight-action  {
+  font: 300 1rem 'OpenSans', sans-serif;
+  color: var(--roxo);
+  padding: 8px 12px;
+  z-index: 3;
+}
+
+#text-to-highlight-deep strong, #text-to-highlight-action strong  {
+  font: 400 1rem 'OpenSans', sans-serif;
+}
+
+.highlight {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: var(--rosa);
+  pointer-events: none; /* Isso impede que a div de highlight intercepte cliques. */
+  z-index: -1;
+  border-radius: 6px;
+}
+
+.programa__conteudo {
+  display: flex;
+  align-items: center;  
+  gap: 60px;
+}
+
+.programa__conteudo__img {
+  flex: 1;
+  display: block;
+  height: auto;
+  max-width: 40vw;
+}
+
+.programa__conteudo__lista {
+  flex: 1;
+}
+
+.programa__conteudo__lista {
+  font: 300 1rem/1.4 'OpenSans', sans-serif;
+  color: var(--roxo);
+  display: flex;
+  flex-direction: column;
+  gap: 20px
+}
+
+.programa__circles {
+  display: flex;
+  flex: 1;
+}
+
+.programa__circle {
+  width: 160px; 
+  height: 160px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 5px; 
+  font-family: Arial, sans-serif; 
+  color: var(--textwhite);
+  background-color: var(--verde-claro);
+}
+
+@media (max-width: 768px) { 
+
+  .wave-text.pg-interna {
+    font-size: 2.4rem;
+    max-width: 20ch;
+    line-height: 3rem;
+  } 
+
+  .programa {
+    padding: 60px 20px;
+  }
+
+  .programa__sobre {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .programa__sobre, .programa__conteudo {
+    flex-direction: column;
+  }
+
+  .programa__circle {
+    width: 100px; 
+    height: 100px;
+  }
+
+  .programa__conteudo__img {
+    max-width: 60vw;
+  }
+
+  .programa__texto ul, .programa__conteudo ol {
+    margin: 0; 
+    padding-left: 20px;
+  }
+}
+
