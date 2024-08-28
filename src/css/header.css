@@ -20,8 +20,8 @@
 }
 
 [data-menu="logo"] {
-  width: 25%;    /* Largura é 50% do seu contêiner */
-  height: auto;  /* Altura ajusta automaticamente para manter a proporção */
+  width: 25%;   
+  height: auto;  
 }
 
 .header-direita {
@@ -33,25 +33,31 @@
 
 nav.menu {
   display: flex;
-  align-items: center; /* Alinha os itens do menu verticalmente */
-  justify-content: flex-end; /* Alinha os itens à direita */
-  /* width: 100%;  */
+  align-items: center; 
+  justify-content: flex-end; 
 }
 
 ul[data-menu="list"] {
   display: flex; 
   list-style: none;
   padding: 0; 
-  /* margin-right: 20px;  */
 }
 
 .menu ul {
   display: flex;
   gap: 1.4rem;
   align-items: center;
-  }
+}
 
-.menu  li {
+.menu > ul {
+  display: flex;
+  gap: 1.4rem;
+  align-items: center;
+  padding: 0;
+  list-style: none;
+}
+
+.menu li {
   align-self: center;
 }
 
@@ -64,12 +70,53 @@ ul[data-menu="list"] {
   text-decoration: none;
   padding: 10px 8px;
   position: relative;     
-  line-height: 1; /* Reduz o line-height para remover espaços extras */
+  line-height: 1; 
 }
 
 .menu a:hover {
   opacity: 0.6;
   transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Esconder submenu por padrão */
+.submenu {
+  display: none !important; /* Força o submenu a não exibir flex */
+  position: absolute;
+  background-color: #fff;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-radius: 12px;
+  top: 100%; 
+  left: 0;   
+  width: 200px;
+}
+
+/* Exibir submenu ao passar o mouse sobre o item pai */
+.has-submenu:hover .submenu {
+  display: block !important;
+}
+
+/* Estilos para itens do submenu */
+.submenu li {
+  margin: 0;
+  padding: 10px 20px;
+}
+
+.submenu li a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+}
+
+.submenu li a:hover {
+  background-color: #f5f5f5;
+}
+
+.has-submenu {
+  position: relative;
 }
 
 .social-icons-header {
@@ -83,21 +130,20 @@ ul[data-menu="list"] {
   justify-content: center;
 }
 
-
 @media (max-width: 768px) { 
   .header {
-    position: fixed; /* Mantém o cabeçalho fixo no topo */
-    width: 100%; /* Ocupa a largura total da tela */
+    position: fixed; 
+    width: 100%; 
     background-color: none;
-    z-index: 10; /* Garante que o cabeçalho fique acima de outros elementos */
-    top: 0; /* Alinha o cabeçalho ao topo da página */
-    left: 0; /* Alinha o cabeçalho à esquerda da página */
+    z-index: 10; 
+    top: 0; 
+    left: 0; 
     border-bottom: 1px solid var(--bg);
     padding: 6px 0px;
   }
 
   [data-menu="logo"] {
-    width: 70%;    /* Largura é 50% do seu contêiner */
+    width: 70%;   
   }
 
   .header a > img {
@@ -112,5 +158,3 @@ ul[data-menu="list"] {
     display: none;
   }
 }
-
-
