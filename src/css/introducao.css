@@ -1,5 +1,5 @@
 
- .introducao {
+.introducao {
   display: flex;
   justify-content: center;
   height: 100vh;
@@ -9,12 +9,9 @@
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 500px; /* Ajuste conforme necessário */
-  /* margin-top: 60px; */
+  min-height: 500px; 
   opacity: 0;  
-
 }
-
 
 .introducao-texto {
   display: flex;
@@ -50,8 +47,6 @@
   transform: translate(-50%, -50%);
 }
 
-
-
 @media (max-width: 768px) { 
 
   .img-circulo {
@@ -63,6 +58,5 @@
     font-size: 2.4rem;
     line-height: 3.4rem;
   }
- 
 }
 
