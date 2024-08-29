@@ -88,6 +88,14 @@ module.exports = {
 }),
 
 new HtmlWebpackPlugin({
+  template: './src/manifesto.html',
+  filename: 'manifesto.html',
+  minify: {
+    removeRedundantAttributes: false,
+  },
+}),
+
+new HtmlWebpackPlugin({
   template: './src/para-equipes.html',
   filename: 'para-equipes.html',
   minify: {

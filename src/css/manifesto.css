@@ -1,0 +1,28 @@
+.introducao.pg-interna.manifesto {
+  display: flex;
+  justify-content: flex-start;
+  height: 60vh;
+  width: 100%;
+  background: url('../img/manifesto2.webp');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 0 90%;
+  background-repeat: no-repeat;
+  min-height: 300px; 
+  opacity: 0;  
+}
+
+.manifesto {
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 60px;
+  position: relative;
+}
+
+.manifesto p {
+  font: 300 1rem/1.4 'OpenSans', sans-serif;
+  color: var(--roxo);
+}

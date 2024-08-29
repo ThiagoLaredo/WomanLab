@@ -19,6 +19,7 @@ import "../css/para-mulheres.css";
 import "../css/para-equipes.css";
 import "../css/programas-mulheres.css";
 import "../css/programas-equipes.css";
+import "../css/manifesto.css";
 import "../css/footer.css";
 import "../css/text-typing.css";
 import "../css/menu-mobile.css";
