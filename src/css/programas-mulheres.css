@@ -69,7 +69,7 @@
 .programa__texto  {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 
 .programa__texto h2 {
