@@ -61,7 +61,8 @@ ul[data-menu="list"] {
   align-self: center;
 }
 
-.menu a {
+.menu a, .menu span {
+  font: 400 1rem/1.4 'OpenSans', sans-serif;
   color: var(--roxo);
   font-weight: 600;
   text-transform: uppercase;
@@ -73,7 +74,7 @@ ul[data-menu="list"] {
   line-height: 1; 
 }
 
-.menu a:hover {
+.menu a:hover, .menu span:hover {
   opacity: 0.6;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
