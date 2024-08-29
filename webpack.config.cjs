@@ -96,6 +96,14 @@ new HtmlWebpackPlugin({
 }),
 
 new HtmlWebpackPlugin({
+  template: './src/depoimentos.html',
+  filename: 'depoimentos.html',
+  minify: {
+    removeRedundantAttributes: false,
+  },
+}),
+
+new HtmlWebpackPlugin({
   template: './src/para-equipes.html',
   filename: 'para-equipes.html',
   minify: {
