@@ -1,44 +1,51 @@
-.introducao.pg-interna.depoimentos {
+.introducao-texto.depoimentos {
   display: flex;
-  justify-content: flex-start;
-  height: 60vh;
-  width: 100%;
-  background: url('../img/manifesto2.webp');
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: 0 90%;
-  background-repeat: no-repeat;
-  min-height: 300px; 
-  opacity: 0;  
-}
-
-.depoimentos-background {
-  background-color: #f5f5fa;
+  flex-direction: column;
+  justify-content: center; /* Centraliza o texto verticalmente dentro do container */
+  align-items: flex-start; /* Alinha o texto à esquerda */
+  gap: 5px;
+  padding: 0 20px;
+  z-index: 2; /* Garante que o texto apareça sobre a imagem */
+  max-width: 1200px; /* Ajusta o tamanho máximo do container para centralizar */
+  width: 100%; /* Garante que o conteúdo não ultrapasse os limites do container */
+  position: relative; /* Mantém o texto na hierarquia correta */
+  /* transform: translateY(33px);  */
+  height: calc(100% - 66px); 
 }
 
 .depoimentos {
   padding: 80px 20px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap; /* Permite que os cards quebrem para a linha seguinte */
+  align-items: stretch; /* Garante que todos os cards tenham a mesma altura */
   justify-content: center;
   gap: 60px;
-  position: relative;
 }
 
-.depoimento  {
+.depoimento {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 40px;
-  flex: 1;
+  justify-content: space-between; /* Distribui o h2 e p uniformemente */
+  gap: 20px; /* Ajuste conforme necessário */
+  flex: 1 1 calc(33.33% - 40px); /* Ajusta o tamanho dos cards e permite quebra */
   background-color: #fff;
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-width: 250px;
+  min-height: 300px; /* Define uma altura mínima para todos os cards */
+}
+
+.depoimento h2 {
+  font: 600 1.2rem/1.4 'OpenSans', sans-serif;
+  color: var(--roxo);
+  margin-bottom: auto; /* Mantém o espaço consistente entre h2 e p */
+
 }
 
 .depoimento p {
+  flex-grow: 1; /* Permite que o parágrafo ocupe o espaço disponível */
   font: 300 1rem/1.4 'OpenSans', sans-serif;
   color: var(--roxo);
 }

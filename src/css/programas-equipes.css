@@ -1,14 +1,2 @@
 
-.introducao.pg-interna.equipes {
-  display: flex;
-  justify-content: flex-start;
-  height: 60vh;
-  width: 100%;
-  background: url('../img/ondas.webp');
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: 0 300%;
-  background-repeat: no-repeat;
-  min-height: 300px; 
-  opacity: 0;  
-}
+

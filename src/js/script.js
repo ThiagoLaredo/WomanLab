@@ -10,6 +10,7 @@ import { SubMenu } from './modules/subMenu.js';
 import "../css/global.css";
 import "../css/header.css";
 import "../css/introducao.css";
+import "../css/introducao-pg-interna.css";
 import "../css/sobre.css";
 import "../css/sobre-2.css";
 import "../css/processo.css";
