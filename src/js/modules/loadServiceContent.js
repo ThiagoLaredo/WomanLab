@@ -143,11 +143,11 @@ export function loadServiceContent() {
   // Se não houver hash na URL, defina um hash padrão e redirecione
   if (!serviceId) {
     if (isProgramaMulheresPage) {
-      serviceId = 'programa-deep';
+      serviceId = 'programa-deep'; // Hash padrão para programa-mulheres
     } else if (isProgramaEquipesPage) {
-      serviceId = 'programa-spt-basico';
+      serviceId = 'programa-spt-basico'; // Hash padrão para programa-equipes
     }
-    window.location.hash = serviceId;
+    window.location.hash = serviceId; // Adiciona o hash na URL
     console.log("Novo Hash Definido:", serviceId);
   }
 
@@ -166,127 +166,66 @@ export function loadServiceContent() {
       console.log('Serviço encontrado:', service);
 
       if (service) {
-        if (isProgramaEquipesPage) {
-          console.log('Atualizando conteúdo para programa-equipes.html');
+        // Selecionar o elemento `section` usando o ID dynamic-content
+        const dynamicContent = document.getElementById('dynamic-content');
+        console.log('Elemento dynamic-content:', dynamicContent);
 
-          // Verifique a existência dos elementos
-          const h2Element = document.querySelector('.pg-seguranca-psicologica h2');
-          const pElement = document.querySelector('.pg-seguranca-psicologica p');
-          const h3Element = document.querySelector('.pg-seguranca-psicologica h3');
-          const ulElement = document.querySelector('.pg-seguranca-psicologica ul');
-          const imgElement = document.querySelector('.svg-seguranca-psicologica-programa');
+        if (dynamicContent) {
+          dynamicContent.innerHTML = ''; // Limpar o conteúdo existente
 
-          console.log('Elementos encontrados:', {
-            h2Element,
-            pElement,
-            h3Element,
-            ulElement,
-            imgElement
-          });
+          if (isProgramaEquipesPage) {
+            console.log('Atualizando conteúdo para programa-equipes.html');
 
-          // Atualizar conteúdo para a página programa-equipes.html
-          if (h2Element && pElement && h3Element && ulElement && imgElement) {
-            h2Element.textContent = service.title;
-            pElement.textContent = service.description;
-            h3Element.textContent = service.stepsTitle;
-
-            ulElement.innerHTML = ''; // Limpar conteúdo existente
-            service.steps.forEach(step => {
-              const li = document.createElement('li');
-              li.textContent = step;
-              ulElement.appendChild(li);
-            });
-
-            imgElement.src = service.image;
-          } else {
-            console.warn("Alguns elementos do DOM não foram encontrados.");
-          }
-
-        } else if (isProgramaMulheresPage) {
-          console.log('Atualizando conteúdo para programa-mulheres.html');
-
-          const dynamicContent = document.getElementById('dynamic-content');
-          console.log('Elemento dynamic-content:', dynamicContent);
-
-          if (dynamicContent) {
-            dynamicContent.innerHTML = ''; // Limpar o conteúdo existente
-
-            const programContainer = document.createElement('div');
-            programContainer.className = 'programa__sobre';
-
-            const programText = document.createElement('div');
-            programText.className = 'programa__texto';
-
-            const serviceTitle = document.createElement('div');
-            serviceTitle.className = 'pg-servico-titulo';
-            serviceTitle.innerHTML = `
-              <img class="pg-servico-icone" src="${service.icon}" alt="Ícone do ${service.title}">
-              <h2>${service.title}</h2>
+            dynamicContent.innerHTML = `
+              <div class="seguranca-psicologica-programa">
+                <h2>${service.title}</h2>
+                <p>${service.description}</p>
+                <h3>${service.stepsTitle}</h3>
+                <ul>
+                  ${service.steps.map(step => `<li>${step}</li>`).join('')}
+                </ul>
+              </div>
+              <img class="svg-seguranca-psicologica-programa" src="${service.image}" alt="Imagem do serviço">
             `;
 
-            const descriptionList = document.createElement('ul');
-            service.description.forEach(item => {
-              const li = document.createElement('li');
-              li.textContent = item;
-              descriptionList.appendChild(li);
-            });
+          } else if (isProgramaMulheresPage) {
+            console.log('Atualizando conteúdo para programa-mulheres.html');
 
-            programText.appendChild(serviceTitle);
-            programText.appendChild(descriptionList);
-
-            const duration = document.createElement('div');
-            duration.className = 'programa__duracao';
-            duration.innerHTML = `
-              <p id="text-to-highlight-deep">${service.duration}</p>
-              <div class="highlight"></div>
+            dynamicContent.innerHTML = `
+              <div class="programa__sobre">
+                <div class="programa__texto">
+                  <div class="pg-servico-titulo">
+                    <img class="pg-servico-icone" src="${service.icon}" alt="Ícone do serviço">
+                    <h2>${service.title}</h2>
+                  </div>
+                  <ul>
+                    ${service.description.map(item => `<li>${item}</li>`).join('')}
+                  </ul>
+                </div>
+                <div class="programa__duracao">
+                  <p id="text-to-highlight">${service.duration}</p>
+                  <div class="highlight"></div>
+                </div>
+              </div>
+              <div class="programa__conteudo">
+                ${serviceId === 'programa-deep' ? `
+                  <img class="programa__conteudo__img" src="${service.contentImage}" alt="Imagem do conteúdo">
+                  <ol class="programa__conteudo__lista">
+                    ${service.contentSteps.map(step => `<li>${step}</li>`).join('')}
+                  </ol>
+                ` : `
+                  <div class="programa__circles">
+                    ${service.contentCircles.map(circle => `<div class="programa__circle">${circle}</div>`).join('')}
+                  </div>
+                  <ol class="programa__conteudo__lista">
+                    ${service.contentSteps.map(step => `<li>${step}</li>`).join('')}
+                  </ol>
+                `}
+              </div>
             `;
-
-            programContainer.appendChild(programText);
-            programContainer.appendChild(duration);
-            dynamicContent.appendChild(programContainer);
-
-            const programContent = document.createElement('div');
-            programContent.className = 'programa__conteudo';
-
-            if (serviceId === 'programa-deep') {
-              const contentImage = document.createElement('img');
-              contentImage.className = 'programa__conteudo__img';
-              contentImage.src = service.contentImage;
-              programContent.appendChild(contentImage);
-
-              const contentSteps = document.createElement('ol');
-              contentSteps.className = 'programa__conteudo__lista';
-              service.contentSteps.forEach(step => {
-                const li = document.createElement('li');
-                li.innerHTML = `<strong>${step.split(':')[0]}:</strong> ${step.split(':')[1]}`;
-                contentSteps.appendChild(li);
-              });
-              programContent.appendChild(contentSteps);
-            } else if (serviceId === 'programa-action') {
-              const contentCircles = document.createElement('div');
-              contentCircles.className = 'programa__circles';
-              service.contentCircles.forEach(circle => {
-                const div = document.createElement('div');
-                div.className = 'programa__circle';
-                div.textContent = circle;
-                contentCircles.appendChild(div);
-              });
-              programContent.appendChild(contentCircles);
-
-              const contentSteps = document.createElement('ol');
-              contentSteps.className = 'programa__conteudo__lista';
-              service.contentSteps.forEach(step => {
-                const li = document.createElement('li');
-                li.innerHTML = `<strong>${step.split(':')[0]}:</strong> ${step.split(':')[1]}`;
-                contentSteps.appendChild(li);
-              });
-              programContent.appendChild(contentSteps);
-            }
-
-            dynamicContent.appendChild(programContent);
-          } else {
-            console.warn("Elemento 'dynamic-content' não encontrado.");
           }
+        } else {
+          console.warn("Elemento 'dynamic-content' não encontrado.");
         }
       } else {
         console.error('Serviço não encontrado:', serviceId);
@@ -294,4 +233,5 @@ export function loadServiceContent() {
     })
     .catch(error => console.error('Erro ao carregar serviços:', error));
 }
+
 
