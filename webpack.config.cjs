@@ -6,6 +6,24 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+// Função para criar instâncias do HtmlWebpackPlugin
+const pages = [
+  'index',
+  'programa-mulheres',
+  'programa-equipes',
+  'para-mulheres',
+  'manifesto',
+  'depoimentos',
+  'blog'
+];
+
+const htmlPlugins = pages.map(page => new HtmlWebpackPlugin({
+  template: `./src/${page}.html`,
+  filename: `${page}.html`,
+  minify: {
+    removeRedundantAttributes: false,
+  },
+}));
 
 module.exports = {
   entry: './src/js/script.js',
@@ -32,10 +50,10 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',  // Webpack 5 maneira de lidar com recursos estáticos
+        type: 'asset/resource',
         generator: {
-          filename: 'assets/images/[hash][ext][query]'  // Local e nome do arquivo no output
-      }
+          filename: 'assets/images/[hash][ext][query]'
+        }
       },
     ],
   },
@@ -58,72 +76,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'style.css',
     }),
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-      filename: 'index.html',
-      minify: {
-        removeRedundantAttributes: false,
-      },
-  }),
-    new HtmlWebpackPlugin({
-      template: './src/programa-mulheres.html',
-      filename: 'programa-mulheres.html',
-      minify: {
-        removeRedundantAttributes: false,
-      },
-  }),
-  new HtmlWebpackPlugin({
-    template: './src/programa-equipes.html',
-    filename: 'programa-equipes.html',
-    minify: {
-      removeRedundantAttributes: false,
-    },
-}),
-  new HtmlWebpackPlugin({
-    template: './src/para-mulheres.html',
-    filename: 'para-mulheres.html',
-    minify: {
-      removeRedundantAttributes: false,
-    },
-}),
-
-new HtmlWebpackPlugin({
-  template: './src/manifesto.html',
-  filename: 'manifesto.html',
-  minify: {
-    removeRedundantAttributes: false,
-  },
-}),
-
-new HtmlWebpackPlugin({
-  template: './src/depoimentos.html',
-  filename: 'depoimentos.html',
-  minify: {
-    removeRedundantAttributes: false,
-  },
-}),
-
-new HtmlWebpackPlugin({
-  template: './src/blog.html',
-  filename: 'blog.html',
-  minify: {
-    removeRedundantAttributes: false,
-  },
-}),
-
-new HtmlWebpackPlugin({
-  template: './src/para-equipes.html',
-  filename: 'para-equipes.html',
-  minify: {
-    removeRedundantAttributes: false,
-  },
-}),
-  
+    ...htmlPlugins,
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'src/img', to: 'img' }, // Copia tudo de src/img para dist/img
-        { from: 'src/translations.json', to: 'translations.json' }, // Copia seu arquivo JSON para dist
-        { from: 'src/services.json', to: 'services.json' } // Copia o arquivo services.json para dist
+        { from: 'src/img', to: 'img' },
+        { from: 'src/translations.json', to: 'translations.json' },
+        { from: 'src/services.json', to: 'services.json' }
       ]
     }),
   ],
@@ -139,7 +97,7 @@ new HtmlWebpackPlugin({
     port: 9000,
     open: true,
     hot: true,
-    proxy: [{  // Usar um array aqui
+    proxy: [{
       context: () => true,
       target: 'http://localhost:5005',
       secure: false,
@@ -147,5 +105,4 @@ new HtmlWebpackPlugin({
       timeout: 120000
     }]
   }
-}
-  
+};
