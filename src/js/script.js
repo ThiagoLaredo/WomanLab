@@ -1,11 +1,10 @@
 import MenuMobile from './modules/menu-mobile.js';
 // import ConsoleTextEffect from './modules/text-effect.js';
 // import FormHandler from './modules/formHandler.js';
-import translations from '../translations.json'
+// import translations from '../translations.json'
 import { initAnimations } from './modules/animations.js';
 import { SubMenu } from './modules/subMenu.js';
-
-
+import { loadServiceContent } from './modules/loadServiceContent.js'; // Importar o novo módulo
 
 import "../css/global.css";
 import "../css/header.css";
@@ -40,9 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const subMenu = new SubMenu('#menu');
 
-  
+    // Carregar conteúdo do serviço dinamicamente
+    loadServiceContent();
+
     // const formHandler = new FormHandler('contact-form');
-  
   
     // Verifique se está chegando até aqui
     console.log("Iniciando animações GSAP...");
@@ -52,3 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("Animações GSAP iniciadas.");
   });
   
+  window.addEventListener('hashchange', () => {
+    loadServiceContent();
+  });
