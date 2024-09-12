@@ -1,5 +1,3 @@
-
-
 export function loadServiceContent() {
   // Obter o identificador do serviço da URL
   let serviceId = window.location.hash.substring(1);
@@ -22,7 +20,7 @@ export function loadServiceContent() {
   }
 
   // Fazer fetch dos dados do arquivo JSON
-  fetch('services.json')
+  fetch('/services.json')
     .then(response => {
       if (!response.ok) {
         throw new Error(`Erro ao carregar JSON: ${response.status} - ${response.statusText}`);
@@ -103,5 +101,3 @@ export function loadServiceContent() {
     })
     .catch(error => console.error('Erro ao carregar serviços:', error));
 }
-
-
