@@ -23,7 +23,7 @@
     
     <script>document.documentElement.className += ' js';</script>
   </head>
-  <body>
+  <body id="bg-cinza">
     <header class="header">
       <div class="container">
       <div class="header_menu">
@@ -39,15 +39,30 @@
             <ul data-menu="list" id="menu">
               <li><a href="./manifesto.html">Manifesto</a></li>
               <li class="has-submenu">
-                <span>Serviços</span> 
+                <span>Serviços</span>
                 <ul class="submenu">
-                  <li><a href="./para-mulheres.html">Para Mulheres</a></li>
-                  <li><a href="./para-equipes.html">Para Equipes</a></li>
+                  <li class="has-submenu">
+                    <a href="./para-mulheres.html">Para Mulheres</a>
+                    <ul class="sub-menu-programas
+">
+                      <li><a href="./programa-mulheres.html#programa-deep">Programa Deep</a></li>
+                      <li><a href="./programa-mulheres.html#programa-action">Programa Action</a></li>
+                    </ul>
+                  </li>
+                  <li class="has-submenu">
+                    <a href="./para-equipes.html">Para Equipes</a>
+                    <ul class="sub-menu-programas
+">
+                           <li><a href="./programa-equipes.html#programa-spt-basico">Programa SPT Básico</a></li>
+                      <li><a href="./programa-equipes.html#programa-spt-integral">Programa SPT Integral</a></li>
+                    </ul>
+                  </li>
                 </ul>
               </li>
               <li><a href="./depoimentos.html">Depoimentos e Parceiros</a></li>
-              <li><a href="">Blog</a></li>
+              <li><a href="./blog.html">Blog</a></li>
             </ul>
+            
              
           </nav>
           <div class="social-icons-header">
@@ -78,6 +93,31 @@
         <span class="programa__badge">Processos de desenvolvimento</span>
         <h1 class="wave-text pg-interna">Programas para mulheres</h1>
       </div>
+      <div class="wave-bottom">
+    
+        <svg
+        version="1.1"
+        id="Layer_1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 595.3 60"
+        style="enable-background:new 0 0 595.3 73.7;"
+        xml:space="preserve"
+        preserveAspectRatio="none"
+      >
+        <style type="text/css">
+          .st0 {
+            fill: #f5f5fa;
+          }
+        </style>
+        <path
+          class="st0"
+          d="M0,46.9 C70,35 140,20 210,30 C280,40 350,70 420,45 C490,20 560,50 595.3,40 L595.3,73.7 L0,73.7 Z"
+        />
+      </svg>   
+    </div>
     </section>
     
       <!-- <div class="img-circulo pg-interna"></div> -->
@@ -117,7 +157,7 @@
                 </ul>
               </div>
             </div>      
-            <a href="./programa-mulheres.html#deep" class="btn-pg-servico">Saiba mais sobre o Deep</a>
+            <a href="./programa-mulheres.html#programa-deep" class="btn-pg-servico">Saiba mais sobre o Deep</a>
           </div>
           <div class="pg-servico">
             <div class="pg-servico-conteudo">
@@ -143,7 +183,7 @@
                 </ul>
               </div>
             </div>
-            <a href="./programa-mulheres.html#action" class="btn-pg-servico">Saiba mais sobre o Action</a>
+            <a href="./programa-mulheres.html#programa-action" class="btn-pg-servico">Saiba mais sobre o Action</a>
           </div>
         </div>
        </div> 

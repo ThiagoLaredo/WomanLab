@@ -104,6 +104,14 @@ new HtmlWebpackPlugin({
 }),
 
 new HtmlWebpackPlugin({
+  template: './src/blog.html',
+  filename: 'blog.html',
+  minify: {
+    removeRedundantAttributes: false,
+  },
+}),
+
+new HtmlWebpackPlugin({
   template: './src/para-equipes.html',
   filename: 'para-equipes.html',
   minify: {
@@ -114,7 +122,8 @@ new HtmlWebpackPlugin({
     new CopyWebpackPlugin({
       patterns: [
         { from: 'src/img', to: 'img' }, // Copia tudo de src/img para dist/img
-        { from: 'src/translations.json', to: 'translations.json' } // Copia seu arquivo JSON para dist
+        { from: 'src/translations.json', to: 'translations.json' }, // Copia seu arquivo JSON para dist
+        { from: 'src/services.json', to: 'services.json' } // Copia o arquivo services.json para dist
       ]
     }),
   ],

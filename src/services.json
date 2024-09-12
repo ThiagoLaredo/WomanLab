@@ -1,0 +1,68 @@
+{
+  "services": [
+    {
+      "id": "programa-spt-basico",
+      "title": "Programa SPT Básico",
+      "description": "Para todos os tamanhos de times",
+      "stepsTitle": "3 Etapas",
+      "steps": [
+        "Conexão: Sensibilização sobre o tema, com fatos e dados para demonstrar a importância de SPT",
+        "Desenvolvimento: Desenvolvimento de liderança humanizada",
+        "Crescimento: Construção de planos de melhoria baseada nas dores atuais do time"
+      ],
+      "image": "./img/spt-basico.svg"
+    },
+    {
+      "id": "programa-spt-integral",
+      "title": "Programa SPT Integral",
+      "description": "Para times a partir de 5 pessoas.",
+      "stepsTitle": "7 Etapas",
+      "steps": [
+        "Conceitos e Sensibilização",
+        "Assessment",
+        "Análise de Resultados e Definição de Prioridades",
+        "Aprofundamento nas Prioridades",
+        "Roda de Conversa e Revisão",
+        "Reassessment",
+        "Encerramento e Avaliação Final"
+      ],
+      "image": "./img/spt-integral.svg"
+    },
+    {
+      "id": "programa-deep",
+      "title": "Programa Deep",
+      "icon": "./img/programa-deep-verde.png",
+      "description": [
+        "Foco em autoconhecimento para alcançar objetivos",
+        "Processo orientado por perguntas, não por respostas prontas"
+      ],
+      "duration": "Duração do Programa: <strong>12 sessões de 1h</strong>",
+      "contentImage": "./img/deep.png",
+      "contentSteps": [
+        "Mapeamento da Intenção: Identificamos e mapeamos as intenções e expectativas, estabelecendo uma base clara para a jornada do programa.",
+        "Jornada de Descoberta: Exploramos os fatos, as possibilidades, reconhecendo cenários e cultivando a autoconsciência.",
+        "Ressonância dos Valores: Sintonizamos com o que realmente importa, descobrindo o significado e os valores que dão propósito.",
+        "Essência e Autenticidade: Conectamos com a verdadeira essência, revelando o ser autêntico e singular.",
+        "Espelho do Desafio: Reconhecemos desafios e bloqueios, promovendo a transformação e novos caminhos.",
+        "Fluxo de Ação: Definimos movimentos com propósito e direção, transformando intenções em ações concretas.",
+        "Colheita e Reflexão: Colhemos os frutos do trabalho conjunto, refletindo sobre o crescimento e celebrando as conquistas."
+      ]
+    },
+    {
+      "id": "programa-action",
+      "title": "Programa Action",
+      "icon": "./img/programa-action-verde.png",
+      "description": [
+        "Orientações específicas para desafios profissionais e pessoais",
+        "Técnicas e ferramentas práticas para construção conjunta de soluções"
+      ],
+      "duration": "Duração do Programa: <strong>8h, sessões de 1h a 1h30</strong>",
+      "contentCircles": ["Inspiração", "Expiração", "Renovação"],
+      "contentSteps": [
+        "Inspiração: Iniciamos com o alinhamento de expectativas e a definição de objetivos e metas claras. Esta etapa estabelece a base para o trabalho a ser desenvolvido.",
+        "Expiração: Na fase central do programa, focamos em um novo objetivo a cada sessão. Realizamos o diagnóstico da situação atual, desenvolvemos conteúdo e ferramentas, definimos ações concretas e verificamos métricas de progresso.",
+        "Renovação: Concluímos o programa revisando todos os aprendizados e ações concluídas. Definimos os próximos passos com base no progresso alcançado, com o objetivo de que as participantes estejam preparadas para continuar avançando."
+      ]
+    }
+  ]
+}
