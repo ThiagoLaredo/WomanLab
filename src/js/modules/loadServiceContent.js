@@ -19,7 +19,7 @@ export function loadServiceContent() {
   }
 
   // Fazer fetch dos dados do arquivo JSON
-  fetch('./services.json')
+  fetch('services.json')
     .then(response => response.json())
     .then(data => {
       const service = data.services.find(s => s.id === serviceId);
