@@ -36,7 +36,7 @@ export function loadServiceContent() {
       console.log('Serviço encontrado:', service);
 
       if (service) {
-        // Selecionar o elemento `section` usando o ID dynamic-content
+        // Selecionar o elemento `div` usando o ID dynamic-content
         const dynamicContent = document.getElementById('dynamic-content');
         console.log('Elemento dynamic-content:', dynamicContent);
 
