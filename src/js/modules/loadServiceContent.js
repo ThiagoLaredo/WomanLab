@@ -22,7 +22,7 @@ export function loadServiceContent() {
   }
 
   // Fazer fetch dos dados do arquivo JSON
-  fetch('./services.json')
+  fetch('services.json')
     .then(response => {
       if (!response.ok) {
         throw new Error(`Erro ao carregar JSON: ${response.status} - ${response.statusText}`);
