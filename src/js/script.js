@@ -52,6 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("Animações GSAP iniciadas.");
   });
   
-  window.addEventListener('hashchange', () => {
-    loadServiceContent();
-  });
+ // Ouvir por mudanças no hash da URL para atualizar o conteúdo dinamicamente
+window.addEventListener('hashchange', () => {
+  console.log("Hash mudou, carregando novo conteúdo...");
+  loadServiceContent();
+});
