@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "type": "module",
-"scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "start": "node src/server.mjs",
-  "dev": "webpack serve --mode development --open",
-  "build": "cross-env NODE_ENV=production webpack --mode production",
-  "preinstall": "npx npm-force-resolutions"
-},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.mjs",
+    "dev": "webpack serve --mode development --open",
+    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "preinstall": "npx npm-force-resolutions"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ThiagoLaredo/WomanLab.git"
