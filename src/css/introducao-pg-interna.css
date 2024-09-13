@@ -12,7 +12,7 @@
   overflow: hidden; /* Garante que o filtro não transborde da seção */
 }
 
-.introducao .wave-bottom {
+.introducao .wave-bottom, .introducao .wave-bottom-intro  {
   position: absolute;
   bottom: -10px; 
   left: 0;
@@ -93,7 +93,11 @@
     bottom: -5px; 
   }
 
+  .introducao .wave-bottom-intro {
+   display: none; 
+  }
+
   .introducao-texto.pg-interna {
-    transform: translateY(80px); 
+    transform: translateY(50px); 
   }
 }
