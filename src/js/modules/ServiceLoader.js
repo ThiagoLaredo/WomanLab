@@ -1,4 +1,4 @@
-// import { animateDynamicContent } from './animations.js';
+import { animateDynamicContent } from './animations.js';
 
 export class ServiceLoader {
   constructor(data) {
@@ -75,7 +75,7 @@ export class ServiceLoader {
     }
 
     // Reaplica as animações apenas para o conteúdo dinâmico carregado
-    // animateDynamicContent();
+    animateDynamicContent();
   }
 
   updateUrlHash(serviceId) {

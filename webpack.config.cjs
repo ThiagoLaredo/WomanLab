@@ -53,7 +53,7 @@
           test: /\.(png|svg|jpg|webp|jpeg|gif)$/i,
           type: 'asset/resource',
           generator: {
-            filename: 'assets/images/[hash][ext][query]'
+            filename: 'img/[name][ext][query]',
           }
         },
         // Regra para processar fontes
@@ -101,16 +101,19 @@
       static: {
         directory: path.join(__dirname, 'dist'),
       },
+      historyApiFallback: true,
       compress: true,
       port: 9000,
       open: true,
       hot: true,
-      proxy: [{
-        context: () => true,
-        target: 'http://localhost:5005',
-        secure: false,
-        changeOrigin: true,
-        timeout: 120000
-      }]
+      proxy: [
+        {
+          context: ['/api'],
+          target: 'http://localhost:5005',
+          secure: false,
+          changeOrigin: true,
+          timeout: 120000
+        }
+      ]
     }
   };
