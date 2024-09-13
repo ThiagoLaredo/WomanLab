@@ -1,5 +1,5 @@
 import MenuMobile from './modules/menu-mobile.js';
-import { initStaticAnimations } from './modules/animations.js';
+import { initStaticAnimations, animateDynamicContent } from './modules/animations.js';
 import { SubMenu } from './modules/subMenu.js';
 import { ServiceLoader } from './modules/ServiceLoader.js';
 import servicesData from '../services.json'; // Importa o JSON diretamente
@@ -26,12 +26,13 @@ import "../css/cores.css";
 import "../css/componentes.css";
 import "../css/embreve.css";
 
-let serviceLoader;
+let serviceLoader; // Variável global para armazenar a instância de ServiceLoader
 
+// Função para inicializar o carregador de serviços
 function initializeServiceLoader(data) {
-  serviceLoader = new ServiceLoader(data);
+  serviceLoader = new ServiceLoader(data); // Cria uma nova instância de ServiceLoader
 
-  const serviceId = window.location.hash.substring(1);
+  const serviceId = window.location.hash.substring(1); // Captura o ID do serviço do hash da URL
   if (serviceId) {
     serviceLoader.loadService(serviceId);
   } else {
@@ -39,24 +40,33 @@ function initializeServiceLoader(data) {
   }
 }
 
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   console.log("DOM completamente carregado.");
 
+  // Inicializa o menu mobile
   const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]', '[data-menu="instagram"]');
   menuMobile.init();
 
   const subMenu = new SubMenu('#menu');
 
+  // Inicializa o carregador de serviços usando os dados JSON importados
   initializeServiceLoader(servicesData);
 
+  // Ouve por mudanças no hash da URL para atualizar o conteúdo dinamicamente
   window.addEventListener('hashchange', () => {
     const newServiceId = window.location.hash.substring(1);
     if (newServiceId && serviceLoader) {
       console.log('Hash mudou, carregando novo serviço com ID:', newServiceId);
       serviceLoader.loadService(newServiceId);
+      animateDynamicContent(); // Reaplica as animações dinâmicas quando o conteúdo muda
     }
   });
 
   // Inicializa as animações para o conteúdo estático
   initStaticAnimations();
+});
+
+// Reaplica as animações dinâmicas após o carregamento inicial do serviço
+window.addEventListener('load', () => {
+  animateDynamicContent();
 });
