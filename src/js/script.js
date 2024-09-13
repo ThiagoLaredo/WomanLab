@@ -1,10 +1,9 @@
 import MenuMobile from './modules/menu-mobile.js';
 // import ConsoleTextEffect from './modules/text-effect.js';
 // import FormHandler from './modules/formHandler.js';
-// import translations from '../translations.json'
 import { initAnimations } from './modules/animations.js';
 import { SubMenu } from './modules/subMenu.js';
-import { loadServiceContent } from './modules/loadServiceContent.js'; // Importar o novo módulo
+import { ServiceLoader } from './modules/ServiceLoader.js';
 
 import "../css/global.css";
 import "../css/header.css";
@@ -28,32 +27,64 @@ import "../css/cores.css";
 import "../css/componentes.css";
 import "../css/embreve.css";
 
+let serviceLoader; // Variável para armazenar a instância de ServiceLoader
 
+// Função para carregar os dados do JSON
+function loadServiceData() {
+  return fetch('/services.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Erro ao carregar JSON: ${response.status} - ${response.statusText}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Dados JSON carregados:', data);
+      return data; // Retorna os dados JSON carregados
+    })
+    .catch(error => {
+      console.error('Erro ao carregar serviços:', error);
+    });
+}
 
+// Função para inicializar o carregamento de serviço com base no JSON carregado
+function initializeServiceLoader(data) {
+  serviceLoader = new ServiceLoader(data); // Inicializa a instância de ServiceLoader
+
+  // Carrega o serviço baseado no hash atual da URL na inicialização da página
+  const serviceId = window.location.hash.substring(1); // Captura o ID do serviço do hash da URL
+  if (serviceId) {
+    serviceLoader.loadService(serviceId);
+  } else {
+    console.info('Nenhum Service ID encontrado na URL. Carregando conteúdo padrão...');
+  }
+}
+
+// Inicialização da página
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM completamente carregado.");
-    
-    // Inicialização de componentes
-    const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]', '[data-menu="instagram"]');
-    menuMobile.init();
+  console.log("DOM completamente carregado.");
 
-    const subMenu = new SubMenu('#menu');
+  // Inicializa componentes
+  const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]', '[data-menu="instagram"]');
+  menuMobile.init();
 
-    // Carregar conteúdo do serviço dinamicamente
-    loadServiceContent();
+  const subMenu = new SubMenu('#menu');
 
-    // const formHandler = new FormHandler('contact-form');
-  
-    // Verifique se está chegando até aqui
-    console.log("Iniciando animações GSAP...");
-  
-    initAnimations();
-  
-    console.log("Animações GSAP iniciadas.");
+  // Carregar dados do JSON e então inicializar o carregador de serviços
+  loadServiceData().then(data => {
+    if (data) {
+      initializeServiceLoader(data);
+    }
   });
-  
- // Ouvir por mudanças no hash da URL para atualizar o conteúdo dinamicamente
-window.addEventListener('hashchange', () => {
-  console.log("Hash mudou, carregando novo conteúdo...");
-  loadServiceContent();
+
+  // Ouve por mudanças no hash da URL para atualizar o conteúdo dinamicamente
+  window.addEventListener('hashchange', () => {
+    const newServiceId = window.location.hash.substring(1);
+    if (newServiceId && serviceLoader) {
+      console.log('Hash mudou, carregando novo serviço com ID:', newServiceId);
+      serviceLoader.loadService(newServiceId);
+    }
+  });
+
+  initAnimations();
 });
