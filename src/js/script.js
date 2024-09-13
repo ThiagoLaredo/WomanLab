@@ -3,6 +3,8 @@ import MenuMobile from './modules/menu-mobile.js';
 import { initAnimations } from './modules/animations.js';
 import { SubMenu } from './modules/subMenu.js';
 import { ServiceLoader } from './modules/ServiceLoader.js';
+import servicesData from '../services.json'; // Importa o JSON diretamente
+
 
 import "../css/global.css";
 import "../css/header.css";
@@ -25,27 +27,10 @@ import "../css/menu-mobile.css";
 import "../css/cores.css";
 import "../css/componentes.css";
 import "../css/embreve.css";
+
 let serviceLoader; // Variável para armazenar a instância de ServiceLoader
 
-// Função para carregar os dados do JSON
-function loadServiceData() {
-  return fetch('/services.json')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`Erro ao carregar JSON: ${response.status} - ${response.statusText}`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log('Dados JSON carregados:', data);
-      return data; // Retorna os dados JSON carregados
-    })
-    .catch(error => {
-      console.error('Erro ao carregar serviços:', error);
-    });
-}
-
-// Função para inicializar o carregamento de serviço com base no JSON carregado
+// Função para inicializar o carregamento de serviço com base nos dados JSON importados
 function initializeServiceLoader(data) {
   serviceLoader = new ServiceLoader(data); // Inicializa a instância de ServiceLoader
 
@@ -68,12 +53,8 @@ window.addEventListener('load', () => {
 
   const subMenu = new SubMenu('#menu');
 
-  // Carregar dados do JSON e então inicializar o carregador de serviços
-  loadServiceData().then(data => {
-    if (data) {
-      initializeServiceLoader(data);
-    }
-  });
+  // Inicializa o carregador de serviços usando os dados JSON importados
+  initializeServiceLoader(servicesData);
 
   // Ouve por mudanças no hash da URL para atualizar o conteúdo dinamicamente
   window.addEventListener('hashchange', () => {
