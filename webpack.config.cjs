@@ -50,11 +50,19 @@
           use: [MiniCssExtractPlugin.loader, 'css-loader'],
         },
         {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          test: /\.(png|svg|jpg|webp|jpeg|gif)$/i,
           type: 'asset/resource',
           generator: {
             filename: 'assets/images/[hash][ext][query]'
           }
+        },
+        // Regra para processar fontes
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/i,
+          type: 'asset/resource',
+          generator: {
+            filename: 'fonts/[name][ext]', // Salva as fontes na pasta 'fonts'
+          },
         },
       ],
     },
