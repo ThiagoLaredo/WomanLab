@@ -1,5 +1,4 @@
 import MenuMobile from './modules/menu-mobile.js';
-// import ConsoleTextEffect from './modules/text-effect.js';
 // import FormHandler from './modules/formHandler.js';
 import { initAnimations } from './modules/animations.js';
 import { SubMenu } from './modules/subMenu.js';
@@ -26,7 +25,6 @@ import "../css/menu-mobile.css";
 import "../css/cores.css";
 import "../css/componentes.css";
 import "../css/embreve.css";
-
 let serviceLoader; // Variável para armazenar a instância de ServiceLoader
 
 // Função para carregar os dados do JSON
@@ -60,8 +58,8 @@ function initializeServiceLoader(data) {
   }
 }
 
-// Inicialização da página
-document.addEventListener('DOMContentLoaded', () => {
+// Inicialização da página após o carregamento completo
+window.addEventListener('load', () => {
   console.log("DOM completamente carregado.");
 
   // Inicializa componentes
@@ -86,5 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Inicialize as animações GSAP
   initAnimations();
 });

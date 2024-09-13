@@ -58,18 +58,18 @@
       ],
     },
     optimization: {
-      minimize: true,
-      minimizer: [
-        new TerserPlugin({
-          terserOptions: {
-            format: {
-              comments: false,
-            },
-          },
-          extractComments: false,
-        }),
-        new CssMinimizerPlugin(),
-      ],
+      minimize: false,
+      // minimizer: [
+      //   new TerserPlugin({
+      //     terserOptions: {
+      //       format: {
+      //         comments: false,
+      //       },
+      //     },
+      //     extractComments: false,
+      //   }),
+      //   new CssMinimizerPlugin(),
+      // ],
     },
     plugins: [
       new CleanWebpackPlugin(),
