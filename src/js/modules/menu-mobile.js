@@ -81,29 +81,40 @@ export default class MenuMobile {
   }
 
   // Função para adicionar evento de clique a um link
-  addLinkEventListener(link) {
-    link.addEventListener('click', (event) => {
-      // Checa se está em um dispositivo móvel
-      if (this.isMobile()) {
-        event.preventDefault(); // Previne a navegação padrão apenas em dispositivos móveis
-        this.menuList.classList.remove(this.activeClass); // Fecha o menu
-        this.menuButton.classList.remove(this.activeClass); // Altera o botão do menu para o estado não ativo
+  // addLinkEventListener(link) {
+  //   link.addEventListener('click', (event) => {
+  //     // Checa se está em um dispositivo móvel
+  //     if (this.isMobile()) {
+  //       event.preventDefault(); // Previne a navegação padrão apenas em dispositivos móveis
+  //       this.menuList.classList.remove(this.activeClass); // Fecha o menu
+  //       this.menuButton.classList.remove(this.activeClass); // Altera o botão do menu para o estado não ativo
 
-        // Extrai o ID do href do link para mobile ou desktop
-        const modifiedTargetId = `mobile-${link.getAttribute('href').substring(1)}`;
-        const targetSection = document.getElementById(modifiedTargetId);
+  //       // Extrai o ID do href do link para mobile ou desktop
+  //       const modifiedTargetId = `mobile-${link.getAttribute('href').substring(1)}`;
+  //       const targetSection = document.getElementById(modifiedTargetId);
 
-        if (targetSection) {
-          // Calcula o offsetTop considerando a altura de um possível cabeçalho fixo
-          const offsetTop = targetSection.offsetTop - (document.querySelector('.header')?.offsetHeight || 0);
-          window.scrollTo({
-            top: offsetTop,
-            behavior: 'smooth'
-          });
+  //       if (targetSection) {
+  //         // Calcula o offsetTop considerando a altura de um possível cabeçalho fixo
+  //         const offsetTop = targetSection.offsetTop - (document.querySelector('.header')?.offsetHeight || 0);
+  //         window.scrollTo({
+  //           top: offsetTop,
+  //           behavior: 'smooth'
+  //         });
+  //       }
+  //     } // Não é necessário um else, pois a navegação padrão em desktop deve funcionar
+  //   });
+  // }
+
+     // Função para adicionar evento de clique a um link
+     addLinkEventListener(link) {
+      link.addEventListener('click', (event) => {
+        if (this.isMobile()) {
+          this.closeMenu(); // Fecha o menu
+  
+          // Comportamento padrão de redirecionamento agora será permitido
         }
-      } // Não é necessário um else, pois a navegação padrão em desktop deve funcionar
-    });
-  }
+      });
+    }
 
   animateMenuItems() {
     // Seleciona todos os itens do menu principal que você deseja animar
