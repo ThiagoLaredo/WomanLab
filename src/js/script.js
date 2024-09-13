@@ -2,7 +2,6 @@ import MenuMobile from './modules/menu-mobile.js';
 import { initStaticAnimations, animateDynamicContent } from './modules/animations.js';
 import { SubMenu } from './modules/subMenu.js';
 import { ServiceLoader } from './modules/ServiceLoader.js';
-import servicesData from '../services.json'; // Importa o JSON diretamente
 
 import "../css/global.css";
 import "../css/header.css";
@@ -43,14 +42,25 @@ function initializeServiceLoader(data) {
 document.addEventListener('DOMContentLoaded', () => {
   console.log("DOM completamente carregado.");
 
-  // Inicializa o menu mobile
   const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]', '[data-menu="instagram"]');
   menuMobile.init();
 
   const subMenu = new SubMenu('#menu');
 
-  // Inicializa o carregador de serviços usando os dados JSON importados
-  initializeServiceLoader(servicesData);
+  // Use fetch para carregar o JSON
+  fetch('./services.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Erro ao carregar o JSON: ' + response.statusText);
+      }
+      return response.json();
+    })
+    .then(data => {
+      initializeServiceLoader(data); // Inicializa o carregador de serviços com os dados carregados
+    })
+    .catch(error => {
+      console.error('Erro ao carregar o JSON:', error);
+    });
 
   // Ouve por mudanças no hash da URL para atualizar o conteúdo dinamicamente
   window.addEventListener('hashchange', () => {
@@ -58,15 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (newServiceId && serviceLoader) {
       console.log('Hash mudou, carregando novo serviço com ID:', newServiceId);
       serviceLoader.loadService(newServiceId);
-      animateDynamicContent(); // Reaplica as animações dinâmicas quando o conteúdo muda
     }
   });
 
   // Inicializa as animações para o conteúdo estático
   initStaticAnimations();
-});
-
-// Reaplica as animações dinâmicas após o carregamento inicial do serviço
-window.addEventListener('load', () => {
-  animateDynamicContent();
 });
