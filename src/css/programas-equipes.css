@@ -1,15 +1,15 @@
 
-.pg-seguranca-psicologica {
+.seguranca-psicologica-programa {
   padding: 80px 20px;
   display: flex;
   gap: 80px;
 }
 
-.seguranca-psicologica-programa {
+.seguranca-psicologica-conteudo {
   flex: 1;
 }
 
-.seguranca-psicologica-programa h2 {
+.seguranca-psicologica-conteudo h2 {
   color: var(--roxo);
   font: 600 1.6rem/1.2 OpenSans,sans-serif;
   text-transform: uppercase;
@@ -17,20 +17,20 @@
 }
 
 
-.seguranca-psicologica-programa p {
+.seguranca-psicologica-conteudo p {
   color: var(--roxo);
   font: 300 1rem/1.2 OpenSans,sans-serif;
   margin-bottom: 40px;
 }
 
-.seguranca-psicologica-programa h3 {
+.seguranca-psicologica-conteudo h3 {
   color: var(--verde-claro);
   font: 600 1rem/1.2 OpenSans,sans-serif;
   text-transform: uppercase;
   margin-bottom: 20px;
 }
 
-.seguranca-psicologica-programa li {
+.seguranca-psicologica-conteudo li {
   position: relative;
   padding-left: 30px; /* Espaço à esquerda para o bullet customizado */
   font: 400 1rem/1.4 OpenSans,sans-serif;
@@ -41,7 +41,7 @@
   margin-bottom: .8rem;
 }
 
-.seguranca-psicologica-programa li::before {
+.seguranca-psicologica-conteudo li::before {
   content: '•'; /* Bullet customizado */
   position: absolute;
   left: 0;
