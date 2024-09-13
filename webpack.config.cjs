@@ -12,6 +12,7 @@
     'programa-mulheres',
     'programa-equipes',
     'para-mulheres',
+    'para-equipes',
     'manifesto',
     'depoimentos',
     'blog'

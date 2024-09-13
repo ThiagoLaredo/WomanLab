@@ -58,15 +58,15 @@
   position: relative;
 }
 
-#text-to-highlight-deep, #text-to-highlight-action  {
+#text-to-highlight  {
   font: 300 1rem 'OpenSans', sans-serif;
   color: var(--roxo);
   padding: 8px 12px;
   z-index: 3;
 }
 
-#text-to-highlight-deep strong, #text-to-highlight-action strong  {
-  font: 400 1rem 'OpenSans', sans-serif;
+#text-to-highlight strong  {
+  font: 600 1rem 'OpenSans', sans-serif;
 }
 
 .highlight {
