@@ -106,15 +106,15 @@ export default class MenuMobile {
   // }
 
      // Função para adicionar evento de clique a um link
-     addLinkEventListener(link) {
-      link.addEventListener('click', (event) => {
-        if (this.isMobile()) {
-          this.closeMenu(); // Fecha o menu
-  
-          // Comportamento padrão de redirecionamento agora será permitido
-        }
-      });
-    }
+  addLinkEventListener(link) {
+    link.addEventListener('click', (event) => {
+      if (this.isMobile()) {
+        this.closeMenu(); // Fecha o menu
+
+        // Comportamento padrão de redirecionamento agora será permitido
+      }
+    });
+  }
 
   animateMenuItems() {
     // Seleciona todos os itens do menu principal que você deseja animar
