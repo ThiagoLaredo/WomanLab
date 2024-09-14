@@ -29,23 +29,25 @@ import "../css/embreve.css";
 let serviceLoader; // Variável global para armazenar a instância de ServiceLoader
 
 function setupServiceLinks(serviceLoader) {
-  const serviceLinks = document.querySelectorAll('a[href*="programa-mulheres.html"], a[href*="programa-equipes.html"]');
+  const serviceLinks = document.querySelectorAll('a[href*="programa-mulheres.html"]');
   serviceLinks.forEach(link => {
       link.addEventListener('click', (event) => {
           event.preventDefault(); // Impede o comportamento padrão do link
           const serviceId = link.hash.substring(1); // Obtém o hash da URL (ID do serviço)
 
-          // Redireciona ou carrega o serviço dinamicamente
-          if (window.location.pathname.includes(link.getAttribute('href').split('#')[0])) {
-              // Se já estamos na página adequada, apenas carrega o serviço dinamicamente
+          // Carrega o serviço dinamicamente se já estiver na página correta
+          if (window.location.pathname.includes('programa-mulheres.html')) {
+              console.log('Already on Programa Mulheres page, loading service dynamically:', serviceId);
               serviceLoader.loadService(serviceId);
           } else {
-              // Caso contrário, redireciona para a página com o hash apropriado
-              window.location.href = `${link.getAttribute('href').split('#')[0]}#${serviceId}`;
+              // Redireciona para 'programa-mulheres.html' com o hash apropriado
+              console.log('Redirecting to Programa Mulheres page with hash:', serviceId);
+              window.location.href = `programa-mulheres.html#${serviceId}`;
           }
       });
   });
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log("DOM completamente carregado.");
@@ -56,18 +58,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const subMenu = new SubMenu('#menu');
 
   // Cria uma instância de ServiceLoader com os dados importados
-  const serviceLoader = new ServiceLoader(servicesData);
+  serviceLoader = new ServiceLoader(servicesData);
   setupServiceLinks(serviceLoader); // Configura os links dos serviços
 
   const serviceId = window.location.hash.substring(1);
+  console.log('Current service ID from hash on page load:', serviceId);
   if (serviceId) {
+      console.log('Loading service based on initial hash:', serviceId);
       serviceLoader.loadService(serviceId);
   }
 
   window.addEventListener('hashchange', () => {
       const newServiceId = window.location.hash.substring(1);
+      console.log('Hash changed, new service ID:', newServiceId);
       if (newServiceId && serviceLoader) {
-          console.log('Hash mudou, carregando novo serviço com ID:', newServiceId);
+          console.log('Loading new service based on hash change:', newServiceId);
           serviceLoader.loadService(newServiceId);
       }
   });
@@ -75,5 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Inicializa as animações após o carregamento completo dos recursos
 window.addEventListener('load', () => {
+  console.log('Initializing static animations after full page load');
   initStaticAnimations(); // Assumindo que esta função já está definida
 });
