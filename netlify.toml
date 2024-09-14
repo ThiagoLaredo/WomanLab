@@ -1,6 +1,10 @@
 [build]
+  command = "npm install && npm run build" # Garante a instalação antes do build
   publish = "dist"
-  command = "npm run build"
+
+[build.environment]
+  NODE_ENV = "production"
+  NODE_VERSION = "16" # Especifica a versão do Node.js para o build
 
 [context.production.environment]
   NODE_ENV = "production"
