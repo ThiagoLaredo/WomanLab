@@ -33,6 +33,8 @@ import "../css/menu-mobile.css";
 import "../css/cores.css";
 import "../css/componentes.css";
 import "../css/embreve.css";
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]');
   menuMobile.init();
@@ -43,14 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function setupLoaders() {
-  const pageType = window.location.pathname.includes('programa-mulheres.html') ? 'programaMulheres' : 'programaEquipes'; // Ajusta para usar as chaves corretas do JSON
+  const pageType = window.location.pathname.includes('programa-mulheres.html') ? 'programaMulheres' : 'programaEquipes';
   
-  // Certifique-se de passar os dados do JSON corretos para cada loader
   let serviceLoader;
   if (pageType === 'programaMulheres') {
-      serviceLoader = new ProgramasMulheresLoader(servicesData[pageType]); // Passa os dados da chave correta do JSON
+      serviceLoader = new ProgramasMulheresLoader(servicesData[pageType]); // Certifique-se de que estamos passando a chave correta do JSON
   } else {
-      serviceLoader = new ProgramasEquipesLoader(servicesData[pageType]); // Passa os dados da chave correta do JSON
+      serviceLoader = new ProgramasEquipesLoader(servicesData[pageType]);
   }
   
   setupServiceLinks(serviceLoader, pageType);
