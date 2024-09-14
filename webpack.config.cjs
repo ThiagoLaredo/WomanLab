@@ -89,7 +89,9 @@
       new CopyWebpackPlugin({
         patterns: [
           { from: 'src/img', to: 'img' },
-          { from: 'src/services.json', to: 'services.json' }
+          { from: 'src/programaEquipes.json', to: 'programaEquipes.json' },
+          { from: 'src/programaMulheres.json', to: 'programaMulheres.json' }
+
         ]
       }),
     ],
