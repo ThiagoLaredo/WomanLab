@@ -2,6 +2,7 @@ import MenuMobile from './modules/menu-mobile.js';
 import { initStaticAnimations } from './modules/animations.js';
 import { SubMenu } from './modules/subMenu.js';
 import { ServiceLoader } from './modules/ServiceLoader.js';
+import servicesData from '../services.json';
 
 import "../css/global.css";
 import "../css/header.css";
@@ -27,50 +28,52 @@ import "../css/embreve.css";
 
 let serviceLoader; // Variável global para armazenar a instância de ServiceLoader
 
-// Função para inicializar o carregador de serviços
-function initializeServiceLoader(data) {
-  serviceLoader = new ServiceLoader(data); // Cria uma nova instância de ServiceLoader
+function setupServiceLinks(serviceLoader) {
+  const serviceLinks = document.querySelectorAll('a[href*="programa-mulheres.html"], a[href*="programa-equipes.html"]');
+  serviceLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+          event.preventDefault(); // Impede o comportamento padrão do link
+          const serviceId = link.hash.substring(1); // Obtém o hash da URL (ID do serviço)
 
-  const serviceId = window.location.hash.substring(1); // Captura o ID do serviço do hash da URL
-  if (serviceId) {
-    serviceLoader.loadService(serviceId);
-  } else {
-    console.info('Nenhum Service ID encontrado na URL. Carregando conteúdo padrão...');
-  }
+          // Redireciona ou carrega o serviço dinamicamente
+          if (window.location.pathname.includes(link.getAttribute('href').split('#')[0])) {
+              // Se já estamos na página adequada, apenas carrega o serviço dinamicamente
+              serviceLoader.loadService(serviceId);
+          } else {
+              // Caso contrário, redireciona para a página com o hash apropriado
+              window.location.href = `${link.getAttribute('href').split('#')[0]}#${serviceId}`;
+          }
+      });
+  });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log("DOM completamente carregado.");
 
-  const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]', '[data-menu="instagram"]');
+  const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]');
   menuMobile.init();
 
   const subMenu = new SubMenu('#menu');
 
-  // Use fetch para carregar o JSON
-  fetch('./services.json')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Erro ao carregar o JSON: ' + response.statusText);
-      }
-      return response.json();
-    })
-    .then(data => {
-      initializeServiceLoader(data); // Inicializa o carregador de serviços com os dados carregados
-    })
-    .catch(error => {
-      console.error('Erro ao carregar o JSON:', error);
-    });
+  // Cria uma instância de ServiceLoader com os dados importados
+  const serviceLoader = new ServiceLoader(servicesData);
+  setupServiceLinks(serviceLoader); // Configura os links dos serviços
 
-  // Ouve por mudanças no hash da URL para atualizar o conteúdo dinamicamente
+  const serviceId = window.location.hash.substring(1);
+  if (serviceId) {
+      serviceLoader.loadService(serviceId);
+  }
+
   window.addEventListener('hashchange', () => {
-    const newServiceId = window.location.hash.substring(1);
-    if (newServiceId && serviceLoader) {
-      console.log('Hash mudou, carregando novo serviço com ID:', newServiceId);
-      serviceLoader.loadService(newServiceId);
-    }
+      const newServiceId = window.location.hash.substring(1);
+      if (newServiceId && serviceLoader) {
+          console.log('Hash mudou, carregando novo serviço com ID:', newServiceId);
+          serviceLoader.loadService(newServiceId);
+      }
   });
+});
 
-  // Inicializa as animações para o conteúdo estático
-  initStaticAnimations();
+// Inicializa as animações após o carregamento completo dos recursos
+window.addEventListener('load', () => {
+  initStaticAnimations(); // Assumindo que esta função já está definida
 });
