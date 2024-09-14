@@ -1,33 +1,5 @@
 {
-  "services": [
-    {
-      "id": "programa-spt-basico",
-      "title": "Programa SPT Básico",
-      "description": "Para todos os tamanhos de times",
-      "stepsTitle": "3 Etapas",
-      "steps": [
-        "Conexão: Sensibilização sobre o tema, com fatos e dados para demonstrar a importância de SPT",
-        "Desenvolvimento: Desenvolvimento de liderança humanizada",
-        "Crescimento: Construção de planos de melhoria baseada nas dores atuais do time"
-      ],
-      "image": "./img/spt-basico.svg"
-    },
-    {
-      "id": "programa-spt-integral",
-      "title": "Programa SPT Integral",
-      "description": "Para times a partir de 5 pessoas.",
-      "stepsTitle": "7 Etapas",
-      "steps": [
-        "Conceitos e Sensibilização",
-        "Assessment",
-        "Análise de Resultados e Definição de Prioridades",
-        "Aprofundamento nas Prioridades",
-        "Roda de Conversa e Revisão",
-        "Reassessment",
-        "Encerramento e Avaliação Final"
-      ],
-      "image": "./img/spt-integral.svg"
-    },
+  "mulheres": [
     {
       "id": "programa-deep",
       "title": "Programa Deep",
@@ -63,6 +35,36 @@
         "Expiração: Na fase central do programa, focamos em um novo objetivo a cada sessão. Realizamos o diagnóstico da situação atual, desenvolvemos conteúdo e ferramentas, definimos ações concretas e verificamos métricas de progresso.",
         "Renovação: Concluímos o programa revisando todos os aprendizados e ações concluídas. Definimos os próximos passos com base no progresso alcançado, com o objetivo de que as participantes estejam preparadas para continuar avançando."
       ]
+    }
+  ],
+  "equipes": [
+    {
+      "id": "programa-spt-basico",
+      "title": "Programa SPT Básico",
+      "description": "Para todos os tamanhos de times",
+      "stepsTitle": "3 Etapas",
+      "steps": [
+        "Conexão: Sensibilização sobre o tema, com fatos e dados para demonstrar a importância de SPT",
+        "Desenvolvimento: Desenvolvimento de liderança humanizada",
+        "Crescimento: Construção de planos de melhoria baseada nas dores atuais do time"
+      ],
+      "image": "./img/spt-basico.svg"
+    },
+    {
+      "id": "programa-spt-integral",
+      "title": "Programa SPT Integral",
+      "description": "Para times a partir de 5 pessoas.",
+      "stepsTitle": "7 Etapas",
+      "steps": [
+        "Conceitos e Sensibilização",
+        "Assessment",
+        "Análise de Resultados e Definição de Prioridades",
+        "Aprofundamento nas Prioridades",
+        "Roda de Conversa e Revisão",
+        "Reassessment",
+        "Encerramento e Avaliação Final"
+      ],
+      "image": "./img/spt-integral.svg"
     }
   ]
 }
