@@ -4,14 +4,18 @@ export class ServiceLoader {
   }
 
   loadService(serviceId, pageType) {
-      const serviceData = this.data.find(s => s.id === serviceId);
-      if (serviceData) {
-          this.displayService(serviceData, pageType);
-          this.updateUrlHash(serviceId);  // Atualiza a URL com o hash do serviço após carregar
-      } else {
-          console.error('Service not found:', serviceId);
-      }
-  }
+    if (!this.data || !this.data[pageType]) {
+        console.error('Data not available for page type:', pageType);
+        return;
+    }
+    const serviceData = this.data[pageType].find(s => s.id === serviceId);
+    if (serviceData) {
+        this.displayService(serviceData, pageType);
+        this.updateUrlHash(serviceId);
+    } else {
+        console.error('Service not found:', serviceId);
+    }
+}
 
   displayService(serviceData, pageType) {
       if (pageType === 'mulheres') {
