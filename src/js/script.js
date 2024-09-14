@@ -20,52 +20,30 @@ import "../css/menu-mobile.css";
 import "../css/cores.css";
 import "../css/componentes.css";
 import "../css/embreve.css";
-
 import MenuMobile from './modules/menu-mobile.js';
 import { initStaticAnimations } from './modules/animations.js';
 import { SubMenu } from './modules/subMenu.js';
 import { ProgramasMulheresLoader } from './modules/programasMulheresLoader.js';
 import { ProgramasEquipesLoader } from './modules/programasEquipesLoader.js';
 
-// Função para carregar JSON dinamicamente
-async function loadJsonData(url) {
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            console.error('Erro ao carregar o JSON:', response.statusText);
-            return null;
-        }
-        return await response.json();
-    } catch (error) {
-        console.error('Erro ao buscar o JSON:', error);
-        return null;
-    }
-}
+// Importando diretamente os arquivos JSON
+import mulheresData from '../programaMulheres.json';
+import equipesData from '../programaEquipes.json';
 
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
     const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]');
     menuMobile.init();
     const subMenu = new SubMenu('#menu');
     initStaticAnimations();
 
-    // Corrigindo a lógica de verificação de página
-    const isProgramaMulheresPage = window.location.pathname.includes('programa-mulheres.html');
-    const isProgramaEquipesPage = window.location.pathname.includes('programa-equipes.html');
+    const pathname = window.location.pathname;
+    const isProgramaMulheresPage = pathname.includes('programa-mulheres.html');
+    const isProgramaEquipesPage = pathname.includes('programa-equipes.html');
 
     if (isProgramaMulheresPage) {
-        const data = await loadJsonData('./programaMulheres.json');
-        if (data && Array.isArray(data)) {
-            setupMulheresLoader(data);
-        } else {
-            console.error('Data loaded is not an array:', data);
-        }
+        setupMulheresLoader(mulheresData);
     } else if (isProgramaEquipesPage) {
-        const data = await loadJsonData('./programaEquipes.json');
-        if (data && Array.isArray(data)) {
-            setupEquipesLoader(data);
-        } else {
-            console.error('Data loaded is not an array:', data);
-        }
+        setupEquipesLoader(equipesData);
     } else {
         console.error('Página desconhecida. Não foi possível determinar o loader.');
     }
