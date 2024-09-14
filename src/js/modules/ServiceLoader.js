@@ -1,24 +1,24 @@
 export class ServiceLoader {
   constructor(data) {
-    this.data = data; // Carrega os dados do JSON
+      this.data = data;
   }
 
   loadService(serviceId) {
-    if (!serviceId) {
-      console.error('Service ID is undefined or null');
-      return;
-    }
+      if (!serviceId) {
+          console.error('Service ID is undefined or null');
+          return;
+      }
 
-    const serviceData = this.data.services.find(s => s.id === serviceId);
-    if (serviceData) {
-      this.displayService(serviceData, serviceId);
-      this.updateUrlHash(serviceId); // Atualiza a URL com o hash do serviço
-    } else {
-      console.error('Service not found:', serviceId);
-    }
+      const serviceData = this.data.services.find(s => s.id === serviceId);
+      if (serviceData) {
+          this.displayService(serviceData);
+          this.updateUrlHash(serviceId);  // Atualiza a URL com o hash do serviço
+      } else {
+          console.error('Service not found:', serviceId);
+      }
   }
 
-  displayService(serviceData, serviceId) {
+  displayService(serviceData) {
     const isProgramaMulheresPage = window.location.pathname.includes('programa-mulheres.html');
     const isProgramaEquipesPage = window.location.pathname.includes('programa-equipes.html');
 
