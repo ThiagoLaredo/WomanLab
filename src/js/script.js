@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initStaticAnimations();
 
     const pathname = window.location.pathname;
-    const isProgramaMulheresPage = pathname.includes('programa-mulheres.html');
-    const isProgramaEquipesPage = pathname.includes('programa-equipes.html');
+    const isProgramaMulheresPage = pathname.includes('programa-mulheres');
+    const isProgramaEquipesPage = pathname.includes('programa-equipes');
 
     if (isProgramaMulheresPage) {
         setupMulheresLoader(mulheresData);
