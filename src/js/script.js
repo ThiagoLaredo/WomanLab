@@ -1,8 +1,8 @@
 import MenuMobile from './modules/menu-mobile.js';
 import { initStaticAnimations } from './modules/animations.js';
 import { SubMenu } from './modules/subMenu.js';
-import { ServiceLoader } from './modules/ServiceLoader.js';
-import servicesData from '../services.json';
+import { ServiceLoader } from './modules/ServiceLoader.js'; // Certifique-se que o caminho está correto
+import servicesData from '../services.json'; // Verifique se o caminho está correto
 
 import "../css/global.css";
 import "../css/header.css";
@@ -26,60 +26,54 @@ import "../css/cores.css";
 import "../css/componentes.css";
 import "../css/embreve.css";
 
-let serviceLoader; // Variável global para armazenar a instância de ServiceLoader
+// Configura links para carregar conteúdo dinamicamente
+function setupServiceLinks(serviceLoader, pageType) {
+    const pageSelector = pageType === 'mulheres' ? 'programa-mulheres.html' : 'programa-equipes.html';
+    const serviceLinks = document.querySelectorAll(`a[href*="${pageSelector}"]`);
 
-function setupServiceLinks(serviceLoader) {
-  const serviceLinks = document.querySelectorAll('a[href*="programa-mulheres.html"]');
-  serviceLinks.forEach(link => {
-      link.addEventListener('click', (event) => {
-          event.preventDefault(); // Impede o comportamento padrão do link
-          const serviceId = link.hash.substring(1); // Obtém o hash da URL (ID do serviço)
-
-          // Carrega o serviço dinamicamente se já estiver na página correta
-          if (window.location.pathname.includes('programa-mulheres.html')) {
-              console.log('Already on Programa Mulheres page, loading service dynamically:', serviceId);
-              serviceLoader.loadService(serviceId);
-          } else {
-              // Redireciona para 'programa-mulheres.html' com o hash apropriado
-              console.log('Redirecting to Programa Mulheres page with hash:', serviceId);
-              window.location.href = `programa-mulheres.html#${serviceId}`;
-          }
-      });
-  });
+    serviceLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const serviceId = link.hash.substring(1);
+            if (window.location.pathname.includes(pageSelector)) {
+                serviceLoader.loadService(serviceId, pageType);
+            } else {
+                window.location.href = `${pageSelector}#${serviceId}`;
+            }
+        });
+    });
 }
 
+// Carrega dados específicos para o tipo de página
+function loadServiceData(pageType) {
+    return servicesData[pageType];
+}
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("DOM completamente carregado.");
+    const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]');
+    menuMobile.init();
 
-  const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]');
-  menuMobile.init();
+    const subMenu = new SubMenu('#menu');
 
-  const subMenu = new SubMenu('#menu');
+    const pageType = window.location.pathname.includes('programa-mulheres.html') ? 'mulheres' : 'equipes';
+    const data = loadServiceData(pageType);
+    const serviceLoader = new ServiceLoader(data);
+    setupServiceLinks(serviceLoader, pageType);
 
-  // Cria uma instância de ServiceLoader com os dados importados
-  serviceLoader = new ServiceLoader(servicesData);
-  setupServiceLinks(serviceLoader); // Configura os links dos serviços
+    const serviceId = window.location.hash.substring(1);
+    if (serviceId) {
+        serviceLoader.loadService(serviceId, pageType);
+    }
 
-  const serviceId = window.location.hash.substring(1);
-  console.log('Current service ID from hash on page load:', serviceId);
-  if (serviceId) {
-      console.log('Loading service based on initial hash:', serviceId);
-      serviceLoader.loadService(serviceId);
-  }
-
-  window.addEventListener('hashchange', () => {
-      const newServiceId = window.location.hash.substring(1);
-      console.log('Hash changed, new service ID:', newServiceId);
-      if (newServiceId && serviceLoader) {
-          console.log('Loading new service based on hash change:', newServiceId);
-          serviceLoader.loadService(newServiceId);
-      }
-  });
+    window.addEventListener('hashchange', () => {
+        const newServiceId = window.location.hash.substring(1);
+        if (newServiceId && serviceLoader) {
+            serviceLoader.loadService(newServiceId, pageType);
+        }
+    });
 });
 
 // Inicializa as animações após o carregamento completo dos recursos
 window.addEventListener('load', () => {
-  console.log('Initializing static animations after full page load');
-  initStaticAnimations(); // Assumindo que esta função já está definida
+    initStaticAnimations();
 });
