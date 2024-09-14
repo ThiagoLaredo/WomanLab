@@ -25,7 +25,7 @@ import { initStaticAnimations } from './modules/animations.js';
 import { SubMenu } from './modules/subMenu.js';
 import { ProgramasMulheresLoader } from './modules/programasMulheresLoader.js';
 import { ProgramasEquipesLoader } from './modules/programasEquipesLoader.js';
-import servicesData from '../services.json'; // Importa o JSON diretamente aqui
+import servicesData from '../services.json'; // Certifique-se que este caminho está correto
 
 document.addEventListener('DOMContentLoaded', () => {
     const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]');
@@ -33,11 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const subMenu = new SubMenu('#menu');
     initStaticAnimations();
 
-    // Chama a função apropriada com base na página atual
+    // Determine qual loader usar com base na página atual
     if (window.location.pathname.includes('programa-mulheres.html')) {
         setupMulheresLoader(servicesData.programaMulheres); // Passa apenas os dados de 'programaMulheres'
     } else if (window.location.pathname.includes('programa-equipes.html')) {
         setupEquipesLoader(servicesData.programaEquipes); // Passa apenas os dados de 'programaEquipes'
+    } else {
+        console.error('Página desconhecida. Não foi possível determinar o loader.');
     }
 });
 
