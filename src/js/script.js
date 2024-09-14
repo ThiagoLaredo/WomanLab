@@ -25,6 +25,11 @@ import { initStaticAnimations } from './modules/animations.js';
 import { SubMenu } from './modules/subMenu.js';
 import { ProgramasMulheresLoader } from './modules/programasMulheresLoader.js';
 import { ProgramasEquipesLoader } from './modules/programasEquipesLoader.js';
+import MenuMobile from './modules/menu-mobile.js';
+import { initStaticAnimations } from './modules/animations.js';
+import { SubMenu } from './modules/subMenu.js';
+import { ProgramasMulheresLoader } from './modules/programasMulheresLoader.js';
+import { ProgramasEquipesLoader } from './modules/programasEquipesLoader.js';
 
 // Função para carregar JSON dinamicamente
 async function loadJsonData(url) {
@@ -47,16 +52,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     const subMenu = new SubMenu('#menu');
     initStaticAnimations();
 
-    // Verifica qual página está aberta e carrega o JSON correspondente
-    if (window.location.pathname.includes('programa-mulheres.html')) {
-        const data = await loadJsonData('./programaMulheres.json'); // Certifique-se que o caminho está correto
-        if (data) {
+    // Corrigindo a lógica de verificação de página
+    const isProgramaMulheresPage = window.location.pathname.includes('programa-mulheres.html');
+    const isProgramaEquipesPage = window.location.pathname.includes('programa-equipes.html');
+
+    if (isProgramaMulheresPage) {
+        const data = await loadJsonData('./programaMulheres.json');
+        if (data && Array.isArray(data)) {
             setupMulheresLoader(data);
+        } else {
+            console.error('Data loaded is not an array:', data);
         }
-    } else if (window.location.pathname.includes('programa-equipes.html')) {
-        const data = await loadJsonData('./programaEquipes.json'); // Certifique-se que o caminho está correto
-        if (data) {
+    } else if (isProgramaEquipesPage) {
+        const data = await loadJsonData('./programaEquipes.json');
+        if (data && Array.isArray(data)) {
             setupEquipesLoader(data);
+        } else {
+            console.error('Data loaded is not an array:', data);
         }
     } else {
         console.error('Página desconhecida. Não foi possível determinar o loader.');
@@ -112,4 +124,3 @@ function setupServiceLinks(loader, pageSelector) {
         });
     });
 }
-  
