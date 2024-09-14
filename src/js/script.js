@@ -20,11 +20,7 @@ import "../css/menu-mobile.css";
 import "../css/cores.css";
 import "../css/componentes.css";
 import "../css/embreve.css";
-import MenuMobile from './modules/menu-mobile.js';
-import { initStaticAnimations } from './modules/animations.js';
-import { SubMenu } from './modules/subMenu.js';
-import { ProgramasMulheresLoader } from './modules/programasMulheresLoader.js';
-import { ProgramasEquipesLoader } from './modules/programasEquipesLoader.js';
+
 import MenuMobile from './modules/menu-mobile.js';
 import { initStaticAnimations } from './modules/animations.js';
 import { SubMenu } from './modules/subMenu.js';
