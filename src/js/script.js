@@ -1,8 +1,17 @@
+
+
+
+
+
+
 import MenuMobile from './modules/menu-mobile.js';
 import { initStaticAnimations } from './modules/animations.js';
 import { SubMenu } from './modules/subMenu.js';
-import { ServiceLoader } from './modules/ServiceLoader.js'; 
-import servicesData from '../services.json'; 
+import servicesData from '../services.json'; // Importa o JSON com os dados de serviços
+import { ProgramasMulheresLoader } from './modules/programasMulheresLoader.js';
+import { ProgramasEquipesLoader } from './modules/programasEquipesLoader.js';
+
+
 import "../css/global.css";
 import "../css/header.css";
 import "../css/introducao.css";
@@ -24,55 +33,54 @@ import "../css/menu-mobile.css";
 import "../css/cores.css";
 import "../css/componentes.css";
 import "../css/embreve.css";
-
-// Configura links para carregar conteúdo dinamicamente
-function setupServiceLinks(serviceLoader, pageType) {
-    const pageSelector = pageType === 'mulheres' ? 'programa-mulheres.html' : 'programa-equipes.html';
-    const serviceLinks = document.querySelectorAll(`a[href*="${pageSelector}"]`);
-
-    serviceLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            const serviceId = link.hash.substring(1);
-            if (window.location.pathname.includes(pageSelector)) {
-                serviceLoader.loadService(serviceId, pageType);
-            } else {
-                window.location.href = `${pageSelector}#${serviceId}`;
-            }
-        });
-    });
-}
-
-// Carrega dados específicos para o tipo de página
-function loadServiceData(pageType) {
-    return servicesData[pageType];
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-    const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]');
-    menuMobile.init();
+  const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]');
+  menuMobile.init();
+  const subMenu = new SubMenu('#menu');
+  initStaticAnimations();
 
-    const subMenu = new SubMenu('#menu');
-
-    const pageType = window.location.pathname.includes('programa-mulheres.html') ? 'mulheres' : 'equipes';
-    const data = loadServiceData(pageType);
-    const serviceLoader = new ServiceLoader(data);
-    setupServiceLinks(serviceLoader, pageType);
-
-    const serviceId = window.location.hash.substring(1);
-    if (serviceId) {
-        serviceLoader.loadService(serviceId, pageType);
-    }
-
-    window.addEventListener('hashchange', () => {
-        const newServiceId = window.location.hash.substring(1);
-        if (newServiceId && serviceLoader) {
-            serviceLoader.loadService(newServiceId, pageType);
-        }
-    });
+  setupLoaders();
 });
 
-// Inicializa as animações após o carregamento completo dos recursos
-window.addEventListener('load', () => {
-    initStaticAnimations();
-});
+function setupLoaders() {
+  const pageType = window.location.pathname.includes('programa-mulheres.html') ? 'programaMulheres' : 'programaEquipes'; // Ajusta para usar as chaves corretas do JSON
+  
+  // Certifique-se de passar os dados do JSON corretos para cada loader
+  let serviceLoader;
+  if (pageType === 'programaMulheres') {
+      serviceLoader = new ProgramasMulheresLoader(servicesData[pageType]); // Passa os dados da chave correta do JSON
+  } else {
+      serviceLoader = new ProgramasEquipesLoader(servicesData[pageType]); // Passa os dados da chave correta do JSON
+  }
+  
+  setupServiceLinks(serviceLoader, pageType);
+
+  const serviceId = window.location.hash.substring(1);
+  if (serviceId) {
+      serviceLoader.loadService(serviceId);
+  }
+
+  window.addEventListener('hashchange', () => {
+      const newServiceId = window.location.hash.substring(1);
+      if (newServiceId) {
+          serviceLoader.loadService(newServiceId);
+      }
+  });
+}
+
+function setupServiceLinks(serviceLoader, pageType) {
+  const pageSelector = pageType === 'programaMulheres' ? 'programa-mulheres.html' : 'programa-equipes.html';
+  const serviceLinks = document.querySelectorAll(`a[href*="${pageSelector}"]`);
+
+  serviceLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+          event.preventDefault();
+          const serviceId = link.hash.substring(1);
+          if (window.location.pathname.includes(pageSelector)) {
+              serviceLoader.loadService(serviceId);
+          } else {
+              window.location.href = `${pageSelector}#${serviceId}`;
+          }
+      });
+  });
+}

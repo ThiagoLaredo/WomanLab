@@ -1,5 +1,5 @@
 {
-  "mulheres": [
+  "programaMulheres": [
     {
       "id": "programa-deep",
       "title": "Programa Deep",
@@ -29,7 +29,7 @@
         "Técnicas e ferramentas práticas para construção conjunta de soluções"
       ],
       "duration": "Duração do Programa: <strong>8h, sessões de 1h a 1h30</strong>",
-      "contentImage":"./img/action-figure.svg",
+      "contentImage": "./img/action-figure.svg",
       "contentSteps": [
         "Inspiração: Iniciamos com o alinhamento de expectativas e a definição de objetivos e metas claras. Esta etapa estabelece a base para o trabalho a ser desenvolvido.",
         "Expiração: Na fase central do programa, focamos em um novo objetivo a cada sessão. Realizamos o diagnóstico da situação atual, desenvolvemos conteúdo e ferramentas, definimos ações concretas e verificamos métricas de progresso.",
@@ -37,7 +37,7 @@
       ]
     }
   ],
-  "equipes": [
+  "programaEquipes": [
     {
       "id": "programa-spt-basico",
       "title": "Programa SPT Básico",
