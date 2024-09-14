@@ -1,6 +1,7 @@
+// programasEquipesLoader.js
 export class ProgramasEquipesLoader {
     constructor(data) {
-        this.data = data; // Recebe dados específicos para 'programaEquipes'
+        this.data = data; // Certifique-se de que 'data' é um array de objetos
     }
 
     loadService(serviceId) {

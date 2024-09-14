@@ -1,6 +1,7 @@
+// programasMulheresLoader.js
 export class ProgramasMulheresLoader {
     constructor(data) {
-        this.data = data; // Recebe dados específicos para 'programaMulheres'
+        this.data = data; // Certifique-se de que 'data' é um array de objetos
     }
 
     loadService(serviceId) {
@@ -14,8 +15,8 @@ export class ProgramasMulheresLoader {
     }
 
     displayService(serviceData) {
-        document.getElementById('serviceIcon').src = serviceData.icon;
         document.getElementById('serviceTitle').textContent = serviceData.title;
+        document.getElementById('serviceIcon').src = serviceData.icon;
         document.getElementById('serviceDescription').innerHTML = serviceData.description.map(item => `<li>${item}</li>`).join('');
         document.getElementById('text-to-highlight').innerHTML = serviceData.duration;
         document.getElementById('contentImage').src = serviceData.contentImage;

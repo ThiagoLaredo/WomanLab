@@ -25,19 +25,39 @@ import { initStaticAnimations } from './modules/animations.js';
 import { SubMenu } from './modules/subMenu.js';
 import { ProgramasMulheresLoader } from './modules/programasMulheresLoader.js';
 import { ProgramasEquipesLoader } from './modules/programasEquipesLoader.js';
-import servicesData from '../services.json'; // Certifique-se que este caminho está correto
 
-document.addEventListener('DOMContentLoaded', () => {
+// Função para carregar JSON dinamicamente
+async function loadJsonData(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            console.error('Erro ao carregar o JSON:', response.statusText);
+            return null;
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Erro ao buscar o JSON:', error);
+        return null;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
     const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]');
     menuMobile.init();
     const subMenu = new SubMenu('#menu');
     initStaticAnimations();
 
-    // Determine qual loader usar com base na página atual
+    // Verifica qual página está aberta e carrega o JSON correspondente
     if (window.location.pathname.includes('programa-mulheres.html')) {
-        setupMulheresLoader(servicesData.programaMulheres); // Passa apenas os dados de 'programaMulheres'
+        const data = await loadJsonData('./programaMulheres.json'); // Certifique-se que o caminho está correto
+        if (data) {
+            setupMulheresLoader(data);
+        }
     } else if (window.location.pathname.includes('programa-equipes.html')) {
-        setupEquipesLoader(servicesData.programaEquipes); // Passa apenas os dados de 'programaEquipes'
+        const data = await loadJsonData('./programaEquipes.json'); // Certifique-se que o caminho está correto
+        if (data) {
+            setupEquipesLoader(data);
+        }
     } else {
         console.error('Página desconhecida. Não foi possível determinar o loader.');
     }
@@ -92,3 +112,4 @@ function setupServiceLinks(loader, pageSelector) {
         });
     });
 }
+  
