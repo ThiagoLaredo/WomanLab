@@ -8,19 +8,19 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server.mjs",
     "dev": "webpack serve --mode development --open",
-    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "build": "webpack --mode production",
     "preinstall": "npx npm-force-resolutions"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ThiagoLaredo/WomanLab.git"
+    "url": "git+https://github.com/ThiagoLaredo/redway.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ThiagoLaredo/WomanLab.git/issues"
+    "url": "https://github.com/ThiagoLaredo/redway.git/issues"
   },
-  "homepage": "https://github.com/ThiagoLaredo/WomanLab.git#readme",
+  "homepage": "https://github.com/ThiagoLaredo/redway.git#readme",
   "devDependencies": {
     "@babel/core": "^7.24.9",
     "@babel/plugin-transform-runtime": "^7.24.7",
