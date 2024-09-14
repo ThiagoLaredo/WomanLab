@@ -1,9 +1,8 @@
 import MenuMobile from './modules/menu-mobile.js';
 import { initStaticAnimations } from './modules/animations.js';
 import { SubMenu } from './modules/subMenu.js';
-import { ServiceLoader } from './modules/ServiceLoader.js'; // Certifique-se que o caminho está correto
-import servicesData from '../services.json'; // Verifique se o caminho está correto
-
+import { ServiceLoader } from './modules/ServiceLoader.js'; 
+import servicesData from '../services.json'; 
 import "../css/global.css";
 import "../css/header.css";
 import "../css/introducao.css";
