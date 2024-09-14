@@ -1,6 +1,6 @@
 export class ProgramasMulheresLoader {
     constructor(data) {
-        this.data = data; // Recebe os dados específicos para "mulheres"
+        this.data = data; // Dados são recebidos do script principal
     }
 
     loadService(serviceId) {

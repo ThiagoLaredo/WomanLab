@@ -1,17 +1,4 @@
 
-
-
-
-
-
-import MenuMobile from './modules/menu-mobile.js';
-import { initStaticAnimations } from './modules/animations.js';
-import { SubMenu } from './modules/subMenu.js';
-import servicesData from '../services.json'; // Importa o JSON com os dados de serviços
-import { ProgramasMulheresLoader } from './modules/programasMulheresLoader.js';
-import { ProgramasEquipesLoader } from './modules/programasEquipesLoader.js';
-
-
 import "../css/global.css";
 import "../css/header.css";
 import "../css/introducao.css";
@@ -33,55 +20,73 @@ import "../css/menu-mobile.css";
 import "../css/cores.css";
 import "../css/componentes.css";
 import "../css/embreve.css";
-
+import MenuMobile from './modules/menu-mobile.js';
+import { initStaticAnimations } from './modules/animations.js';
+import { SubMenu } from './modules/subMenu.js';
+import { ProgramasMulheresLoader } from './modules/programasMulheresLoader.js';
+import { ProgramasEquipesLoader } from './modules/programasEquipesLoader.js';
+import servicesData from '../services.json'; // Importa o JSON diretamente aqui
 
 document.addEventListener('DOMContentLoaded', () => {
-  const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]');
-  menuMobile.init();
-  const subMenu = new SubMenu('#menu');
-  initStaticAnimations();
+    const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]');
+    menuMobile.init();
+    const subMenu = new SubMenu('#menu');
+    initStaticAnimations();
 
-  setupLoaders();
+    // Chama a função apropriada com base na página atual
+    if (window.location.pathname.includes('programa-mulheres.html')) {
+        setupMulheresLoader(servicesData.programaMulheres); // Passa apenas os dados de 'programaMulheres'
+    } else if (window.location.pathname.includes('programa-equipes.html')) {
+        setupEquipesLoader(servicesData.programaEquipes); // Passa apenas os dados de 'programaEquipes'
+    }
 });
 
-function setupLoaders() {
-  const pageType = window.location.pathname.includes('programa-mulheres.html') ? 'programaMulheres' : 'programaEquipes';
-  
-  let serviceLoader;
-  if (pageType === 'programaMulheres') {
-      serviceLoader = new ProgramasMulheresLoader(servicesData[pageType]); // Certifique-se de que estamos passando a chave correta do JSON
-  } else {
-      serviceLoader = new ProgramasEquipesLoader(servicesData[pageType]);
-  }
-  
-  setupServiceLinks(serviceLoader, pageType);
+function setupMulheresLoader(data) {
+    const loader = new ProgramasMulheresLoader(data);
+    setupServiceLinks(loader, 'programa-mulheres.html');
 
-  const serviceId = window.location.hash.substring(1);
-  if (serviceId) {
-      serviceLoader.loadService(serviceId);
-  }
+    const serviceId = window.location.hash.substring(1);
+    if (serviceId) {
+        loader.loadService(serviceId);
+    }
 
-  window.addEventListener('hashchange', () => {
-      const newServiceId = window.location.hash.substring(1);
-      if (newServiceId) {
-          serviceLoader.loadService(newServiceId);
-      }
-  });
+    window.addEventListener('hashchange', () => {
+        const newServiceId = window.location.hash.substring(1);
+        if (newServiceId) {
+            loader.loadService(newServiceId);
+        }
+    });
 }
 
-function setupServiceLinks(serviceLoader, pageType) {
-  const pageSelector = pageType === 'programaMulheres' ? 'programa-mulheres.html' : 'programa-equipes.html';
-  const serviceLinks = document.querySelectorAll(`a[href*="${pageSelector}"]`);
+function setupEquipesLoader(data) {
+    const loader = new ProgramasEquipesLoader(data);
+    setupServiceLinks(loader, 'programa-equipes.html');
 
-  serviceLinks.forEach(link => {
-      link.addEventListener('click', (event) => {
-          event.preventDefault();
-          const serviceId = link.hash.substring(1);
-          if (window.location.pathname.includes(pageSelector)) {
-              serviceLoader.loadService(serviceId);
-          } else {
-              window.location.href = `${pageSelector}#${serviceId}`;
-          }
-      });
-  });
+    const serviceId = window.location.hash.substring(1);
+    if (serviceId) {
+        loader.loadService(serviceId);
+    }
+
+    window.addEventListener('hashchange', () => {
+        const newServiceId = window.location.hash.substring(1);
+        if (newServiceId) {
+            loader.loadService(newServiceId);
+        }
+    });
+}
+
+function setupServiceLinks(loader, pageSelector) {
+    const serviceLinks = document.querySelectorAll(`a[href*="${pageSelector}"]`);
+
+    serviceLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const serviceId = link.hash.substring(1);
+            if (window.location.pathname.includes(pageSelector)) {
+                loader.loadService(serviceId);
+            } else {
+                window.location.href = `${pageSelector}#${serviceId}`;
+            }
+        });
+    });
 }
