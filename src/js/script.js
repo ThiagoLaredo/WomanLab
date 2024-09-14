@@ -1,5 +1,5 @@
 import MenuMobile from './modules/menu-mobile.js';
-import { initStaticAnimations, animateDynamicContent } from './modules/animations.js';
+import { initStaticAnimations } from './modules/animations.js';
 import { SubMenu } from './modules/subMenu.js';
 import { ServiceLoader } from './modules/ServiceLoader.js';
 
