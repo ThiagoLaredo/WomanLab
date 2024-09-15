@@ -48,31 +48,29 @@ function setupServiceLinks(serviceLoader, page) {
 
 // Função principal de inicialização
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM completamente carregado.");
+  console.log("DOM completamente carregado.");
 
-    // Inicializa o menu mobile
-    const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]');
-    menuMobile.init();
+  const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]');
+  menuMobile.init();
 
-    // Inicializa o submenu
-    const subMenu = new SubMenu('#menu');
+  const subMenu = new SubMenu('#menu');
 
-    // Obtém o pathname da URL atual
-    const pathname = window.location.pathname.toLowerCase();
+  const pathname = window.location.pathname.toLowerCase();
 
-    if (pathname.endsWith('programa-mulheres.html')) {
-        console.log('Initializing loader for "programa-mulheres.html".');
-        const loader = new ProgramasMulheresLoader(mulheresData);
-        setupServiceLinks(loader, 'programa-mulheres.html');
-        handleInitialLoad(loader);
-    } else if (pathname.endsWith('programa-equipes.html')) {
-        console.log('Initializing loader for "programa-equipes.html".');
-        const loader = new ProgramasEquipesLoader(equipesData);
-        setupServiceLinks(loader, 'programa-equipes.html');
-        handleInitialLoad(loader);
-    } else {
-        console.error('Página desconhecida. Não foi possível determinar o loader.');
-    }
+  // Verifica se a página é 'programa-mulheres' ou 'programa-equipes' sem sufixo '.html'
+  if (pathname.includes('programa-mulheres')) {
+      console.log('Initializing loader for "programa-mulheres".');
+      const loader = new ProgramasMulheresLoader(mulheresData);
+      setupServiceLinks(loader, 'programa-mulheres');
+      handleInitialLoad(loader);
+  } else if (pathname.includes('programa-equipes')) {
+      console.log('Initializing loader for "programa-equipes".');
+      const loader = new ProgramasEquipesLoader(equipesData);
+      setupServiceLinks(loader, 'programa-equipes');
+      handleInitialLoad(loader);
+  } else {
+      console.error('Página desconhecida. Não foi possível determinar o loader.');
+  }
 });
 
 // Função para carregar o serviço inicial com base no hash da URL
