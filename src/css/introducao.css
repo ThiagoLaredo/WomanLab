@@ -10,6 +10,7 @@
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;  
+  position: relative;
 }
 
 .introducao-texto {
@@ -41,7 +42,7 @@
   opacity: 40%;
   border-radius: 50%;
   z-index: 1;
-  top: 55%;
+  top: 58%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
