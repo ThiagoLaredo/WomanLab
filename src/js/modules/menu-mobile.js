@@ -40,7 +40,8 @@ export default class MenuMobile {
       }
     }
   }
-  
+
+
   closeMenu() {
     if (this.isMobile()) {
       console.log('Closing menu on mobile');
