@@ -22,6 +22,7 @@ import "../css/componentes.css";
 import "../css/embreve.css";
 import MenuMobile from './modules/menu-mobile.js';
 import { SubMenu } from './modules/subMenu.js';
+import { initStaticAnimations } from './modules/animations.js';
 import { ProgramasMulheresLoader } from './modules/programasMulheresLoader.js';
 import { ProgramasEquipesLoader } from './modules/programasEquipesLoader.js';
 import mulheresData from '../programaMulheres.json';
@@ -54,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
   menuMobile.init();
 
   const subMenu = new SubMenu('#menu');
-
+  initStaticAnimations();
   const pathname = window.location.pathname.toLowerCase();
 
   // Verifica se a página é 'programa-mulheres' ou 'programa-equipes' sem sufixo '.html'

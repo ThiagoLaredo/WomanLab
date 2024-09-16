@@ -23,21 +23,14 @@
   gap: 20px;
 }
 
-.programa__texto h2 {
+#serviceTitle {
   font: 600 1.4rem/1.8 'OpenSans', sans-serif;
   color: var(--roxo);
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
-/* .programa__texto ul {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font: 300 1rem/1.2 'OpenSans', sans-serif;
-} */
-
-.programa__texto li {
+#serviceDescription li {
   font: 300 1rem/1.6 OpenSans,sans-serif;
   color: var(--roxo); /* Cor suave e legível */
   margin-bottom: 0.5rem; /* Espaçamento entre as respostas */
@@ -45,7 +38,7 @@
   padding-left: 1.5rem;
 }
 
-.programa__texto li::before {
+#serviceDescription li::before {
   content: '\2022'; /* Ponto como marcador */
   font-size: 1rem;
   color: #537322; /* Cor correspondente à barra da pergunta */
@@ -88,43 +81,23 @@
   gap: 60px;
 }
 
-.programa__conteudo__img {
+#contentImage {
   flex: 1;
   display: block;
   height: auto;
   max-width: 40vw;
 }
 
-.programa__conteudo__lista {
-  flex: 1;
-}
 
-.programa__conteudo__lista {
+#contentSteps {
   font: 300 1rem/1.4 'OpenSans', sans-serif;
   color: var(--roxo);
   display: flex;
   flex-direction: column;
-  gap: 20px
-}
-
-.programa__circles {
-  display: flex;
+  gap: 20px;
   flex: 1;
 }
 
-.programa__circle {
-  width: 160px; 
-  height: 160px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: 0 5px; 
-  font-family: Arial, sans-serif; 
-  color: var(--textwhite);
-  background-color: var(--verde-claro);
-}
 
 @media (max-width: 768px) { 
 

@@ -5,9 +5,9 @@
     "description": "Para todos os tamanhos de times",
     "stepsTitle": "3 Etapas",
     "steps": [
-      "Conexão: Sensibilização sobre o tema, com fatos e dados para demonstrar a importância de SPT",
-      "Desenvolvimento: Desenvolvimento de liderança humanizada",
-      "Crescimento: Construção de planos de melhoria baseada nas dores atuais do time"
+      "<strong>Conexão:</strong> Sensibilização sobre o tema, com fatos e dados para demonstrar a importância de SPT",
+      "<strong>Desenvolvimento:</strong> Desenvolvimento de liderança humanizada",
+      "<strong>Crescimento:</strong> Construção de planos de melhoria baseada nas dores atuais do time"
     ],
     "image": "./img/spt-basico.svg"
   },

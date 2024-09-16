@@ -1,15 +1,22 @@
-
-.seguranca-psicologica-programa {
-  padding: 80px 20px;
+.pg-seguranca-psicologica {
   display: flex;
+  padding: 80px 20px;
   gap: 80px;
 }
 
-.seguranca-psicologica-conteudo {
+.seguranca-psicologica-programa {
+  display: flex;
+  flex-direction: column;
+}
+
+.equipesText {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
   flex: 1;
 }
 
-.seguranca-psicologica-conteudo h2 {
+#equipesTitle {
   color: var(--roxo);
   font: 600 1.6rem/1.2 OpenSans,sans-serif;
   text-transform: uppercase;
@@ -17,31 +24,29 @@
 }
 
 
-.seguranca-psicologica-conteudo p {
+#equipesDescription {
   color: var(--roxo);
   font: 300 1rem/1.2 OpenSans,sans-serif;
-  margin-bottom: 40px;
 }
 
-.seguranca-psicologica-conteudo h3 {
+#equipesStepsTitle {
   color: var(--verde-claro);
   font: 600 1rem/1.2 OpenSans,sans-serif;
   text-transform: uppercase;
   margin-bottom: 20px;
 }
 
-.seguranca-psicologica-conteudo li {
+#equipesSteps li {
   position: relative;
   padding-left: 30px; /* Espaço à esquerda para o bullet customizado */
   font: 400 1rem/1.4 OpenSans,sans-serif;
   align-items: center;
   color: var(--roxo);
-  display: flex;
   font: 400 1rem/1.6 OpenSans,sans-serif;
   margin-bottom: .8rem;
 }
 
-.seguranca-psicologica-conteudo li::before {
+#equipesSteps li::before {
   content: '•'; /* Bullet customizado */
   position: absolute;
   left: 0;
@@ -55,4 +60,19 @@
   flex: 1;
   width: 20%; /* Diminui a imagem para 20% do espaço disponível */
   max-width: 480px; /* Define um tamanho máximo em pixels, opcional */
+}
+
+@media (max-width: 768px) { 
+  .pg-seguranca-psicologica {
+    display: flex;
+   flex-direction: column;
+   gap: 40px
+  }
+
+  .svg-seguranca-psicologica-programa {
+    flex: 1;
+    width: 100%; 
+    max-width: none; 
+  }
+
 }
