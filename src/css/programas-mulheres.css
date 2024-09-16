@@ -125,8 +125,8 @@
     height: 100px;
   }
 
-  .programa__conteudo__img {
-    max-width: 60vw;
+  #contentImage {
+    max-width: 90vw;
   }
 
   .programa__texto ul, .programa__conteudo ol {

@@ -108,7 +108,7 @@
     text-align: center;
     z-index: 1;
     height: 100vh;
-    background-color: var(--rosa);
+    background-color: var(--bg-cinza);
   }
 
   .js [data-menu="list"].active, .js [data-menu="list"].submenu.active {
