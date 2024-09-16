@@ -72,7 +72,7 @@
   background-color: var(--rosa);
   pointer-events: none; /* Isso impede que a div de highlight intercepte cliques. */
   z-index: -1;
-  border-radius: 6px;
+  border-radius: 12px;
 }
 
 .programa__conteudo {

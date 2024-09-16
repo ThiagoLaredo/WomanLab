@@ -21,8 +21,7 @@ import "../css/componentes.css";
 import "../css/embreve.css";
 
 import MenuMobile from './modules/menu-mobile.js';
-import { SubMenu } from './modules/subMenu.js';
-import { initStaticAnimations } from './modules/animations.js';
+import { initPageOpenAnimations, initScrollAnimations } from './modules/animations.js';
 import { ProgramasMulheresLoader } from './modules/programasMulheresLoader.js';
 import { ProgramasEquipesLoader } from './modules/programasEquipesLoader.js';
 import mulheresData from '../programaMulheres.json';
@@ -59,9 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('MenuMobile failed to initialize');
     }
 
-
-  // Inicializa as animações estáticas
-  initStaticAnimations();
+  initPageOpenAnimations();
+    initScrollAnimations();
 
   const pathname = window.location.pathname.toLowerCase();
 
