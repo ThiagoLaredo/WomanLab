@@ -93,10 +93,6 @@
     bottom: -5px; 
   }
 
-  .introducao .wave-bottom-intro {
-   display: none; 
-  }
-
   .introducao-texto.pg-interna {
     transform: translateY(50px); 
   }
