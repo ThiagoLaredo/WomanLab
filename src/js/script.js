@@ -1,4 +1,3 @@
-
 import "../css/global.css";
 import "../css/header.css";
 import "../css/introducao.css";
@@ -20,6 +19,7 @@ import "../css/menu-mobile.css";
 import "../css/cores.css";
 import "../css/componentes.css";
 import "../css/embreve.css";
+
 import MenuMobile from './modules/menu-mobile.js';
 import { SubMenu } from './modules/subMenu.js';
 import { initStaticAnimations } from './modules/animations.js';
@@ -33,9 +33,8 @@ function setupServiceLinks(serviceLoader, page) {
     const serviceLinks = document.querySelectorAll(`a[href*="${page}"]`);
     serviceLinks.forEach(link => {
         link.addEventListener('click', (event) => {
-            event.preventDefault(); // Impede o comportamento padrão do link
-            const serviceId = link.hash.substring(1); // Obtém o hash da URL (ID do serviço)
-
+            event.preventDefault();
+            const serviceId = link.hash.substring(1);
             if (window.location.pathname.includes(page)) {
                 console.log('Already on the correct page, loading service dynamically:', serviceId);
                 serviceLoader.loadService(serviceId);
@@ -49,29 +48,34 @@ function setupServiceLinks(serviceLoader, page) {
 
 // Função principal de inicialização
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("DOM completamente carregado.");
+    console.log("DOM completamente carregado.");
 
-  const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]');
-  menuMobile.init();
+    // Inicializa o menu mobile
+    const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]', '[data-menu="instagram"]');
+    if (menuMobile) {
+        console.log('MenuMobile initialized successfully');
+        menuMobile.init();
+    } else {
+        console.error('MenuMobile failed to initialize');
+    }
 
-  const subMenu = new SubMenu('#menu');
-  initStaticAnimations();
-  const pathname = window.location.pathname.toLowerCase();
+    const subMenu = new SubMenu('#menu');
+    initStaticAnimations();
+    const pathname = window.location.pathname.toLowerCase();
 
-  // Verifica se a página é 'programa-mulheres' ou 'programa-equipes' sem sufixo '.html'
-  if (pathname.includes('programa-mulheres')) {
-      console.log('Initializing loader for "programa-mulheres".');
-      const loader = new ProgramasMulheresLoader(mulheresData);
-      setupServiceLinks(loader, 'programa-mulheres');
-      handleInitialLoad(loader);
-  } else if (pathname.includes('programa-equipes')) {
-      console.log('Initializing loader for "programa-equipes".');
-      const loader = new ProgramasEquipesLoader(equipesData);
-      setupServiceLinks(loader, 'programa-equipes');
-      handleInitialLoad(loader);
-  } else {
-      console.error('Página desconhecida. Não foi possível determinar o loader.');
-  }
+    if (pathname.includes('programa-mulheres')) {
+        console.log('Initializing loader for "programa-mulheres".');
+        const loader = new ProgramasMulheresLoader(mulheresData);
+        setupServiceLinks(loader, 'programa-mulheres');
+        handleInitialLoad(loader);
+    } else if (pathname.includes('programa-equipes')) {
+        console.log('Initializing loader for "programa-equipes".');
+        const loader = new ProgramasEquipesLoader(equipesData);
+        setupServiceLinks(loader, 'programa-equipes');
+        handleInitialLoad(loader);
+    } else {
+        console.info('Nenhum loader necessário para esta página.');
+    }
 });
 
 // Função para carregar o serviço inicial com base no hash da URL
@@ -84,7 +88,6 @@ function handleInitialLoad(loader) {
         console.info('Nenhum Service ID encontrado na URL. Carregando conteúdo padrão...');
     }
 
-    // Adiciona um listener para o evento de mudança de hash
     window.addEventListener('hashchange', () => {
         const newServiceId = window.location.hash.substring(1);
         if (newServiceId) {
