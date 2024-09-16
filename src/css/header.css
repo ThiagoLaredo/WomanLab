@@ -72,9 +72,9 @@ ul[data-menu="list"] {
 .submenu {
   display: none; /* Esconde o submenu por padrão */
   position: absolute; /* Usar absolute no desktop */
-  background-color: var(--rosa);
+  background-color: var(--bg-cinza);
   list-style: none;
-  padding: 0;
+  padding: 20px;
   margin: 0;
   z-index: 1; /* Garante que o submenu esteja acima dos itens adjacentes */
   border-radius: 12px;
@@ -85,18 +85,21 @@ ul[data-menu="list"] {
 
 .submenu li {
   margin: 0;
-  padding: 10px 20px;
+  padding: 0; /* Remove o padding da <li> */
 }
 
 .submenu li a {
   color: var(--roxo);
   text-decoration: none;
   display: block;
+  padding: 10px 20px; /* Mova o padding para o <a> */
 }
 
 .submenu li a:hover {
-  background-color: #f5f5f5;
+  background-color: #fff;
+  border-radius: 12px;
 }
+
 
 .sub-menu-programas,
 .sub-menu-programas li,
@@ -107,7 +110,7 @@ ul[data-menu="list"] {
 }
 
 .sub-menu-programas li a {
-  font: 200 1rem/1.4 'OpenSans', sans-serif;
+  font: 600 0.8rem/1.4 'OpenSans', sans-serif;
   margin: 0;
 }
 
@@ -182,7 +185,7 @@ ul[data-menu="list"] {
     display: none; /* Esconde o submenu por padrão no mobile */
     position: relative; /* Usar relative no mobile */
     border-radius: 0px;
-    background-color: #EFD6CE;
+    background-color: #fff;
     padding: 5px 0;
   }
 
@@ -190,10 +193,22 @@ ul[data-menu="list"] {
     padding: 0;
   }
 
+  .sub-menu-programas li a {
+    font-weight: 200;
+  }
+
   .submenu.active {
     display: flex !important; /* Mostra o submenu quando ativo no mobile */
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 10px;
   }
+
+  .has-submenu, .sub-menu-programas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
 }

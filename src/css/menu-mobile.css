@@ -108,7 +108,7 @@
     text-align: center;
     z-index: 1;
     height: 100vh;
-    background-color: var(--rosa);
+    background-color: var(--bg-cinza);
   }
 
   .js [data-menu="list"].active, .js [data-menu="list"].submenu.active {
@@ -122,7 +122,7 @@
   }
 
   .js [data-menu="list"] a, .js [data-menu="list"] span, .js [data-menu="list"] .submenu a  {
-    font-size: 24px;
+    font-size: 20px;
     line-height: 1;
     width: 100vw;
   }
