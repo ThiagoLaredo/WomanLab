@@ -1,7 +1,7 @@
 import gsap from "gsap";
 
 export default class MenuMobile {
-  constructor(logoMobile, menuButton, menuList, contatoMobile, linkedinMobile, instagramMobile,  events) {
+  constructor(logoMobile, menuButton, menuList, contatoMobile, linkedinMobile, instagramMobile, events) {
     this.logoMobile = document.querySelector(logoMobile);
     this.menuButton = document.querySelector(menuButton);
     this.menuList = document.querySelector(menuList);
@@ -13,6 +13,7 @@ export default class MenuMobile {
     this.menuOpened = false; // Flag para controle de estado
     this.openMenu = this.openMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
+    this.handleSubmenuClick = this.handleSubmenuClick.bind(this); // Vincula o método ao contexto da classe
   }
 
   isMobile() {
@@ -41,7 +42,6 @@ export default class MenuMobile {
     }
   }
 
-
   closeMenu() {
     if (this.isMobile()) {
       console.log('Closing menu on mobile');
@@ -54,7 +54,62 @@ export default class MenuMobile {
       this.toggleMenuAnimation(false);
     }
   }
-  
+
+  handleSubmenuClick() {
+    const submenuItems = this.menuList.querySelectorAll('.has-submenu > span');
+    submenuItems.forEach(item => {
+      const parent = item.closest('.has-submenu');
+      const submenu = parent ? parent.querySelector('.submenu') : null;
+      
+      // Verifica se o elemento de seta já existe, caso contrário, cria um novo SVG
+      let arrow = item.querySelector('.submenu-arrow');
+      if (!arrow) {
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('class', 'submenu-arrow');
+        svg.setAttribute('width', '20');
+        svg.setAttribute('height', '20');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        svg.setAttribute('fill', 'none');
+        svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', 'M8 10l4 4 4-4');
+        path.setAttribute('stroke', 'currentColor');
+        path.setAttribute('stroke-width', '2');
+        path.setAttribute('stroke-linecap', 'round');
+        path.setAttribute('stroke-linejoin', 'round');
+        svg.appendChild(path);
+
+        item.appendChild(svg);
+        arrow = svg; // Atualiza a referência da seta para o SVG recém-criado
+      }
+
+      if (submenu && arrow) {
+        // Lógica para alternar submenu no clique apenas no mobile
+        item.addEventListener('click', (e) => {
+          if (this.isMobile()) {
+            e.preventDefault();
+            e.stopPropagation(); // Evita o fechamento ao clicar no item do submenu
+
+            // Alterna entre abrir e fechar o submenu
+            const isActive = submenu.classList.contains('active');
+            submenu.classList.toggle('active', !isActive);
+            arrow.classList.toggle('open', !isActive);
+          }
+        });
+
+        // Lógica para alternar rotação da seta no hover para desktop
+        if (!this.isMobile()) {
+          item.addEventListener('mouseover', () => {
+            arrow.classList.add('open'); // Rotaciona a seta para cima no hover
+          });
+          item.addEventListener('mouseout', () => {
+            arrow.classList.remove('open'); // Retorna a seta ao estado normal
+          });
+        }
+      }
+    });
+  }
 
   addMenuMobileEvents() {
     this.menuButton.addEventListener('click', this.openMenu);
@@ -81,80 +136,40 @@ export default class MenuMobile {
     }
   }
 
-  // Função para adicionar evento de clique a um link
-  // addLinkEventListener(link) {
-  //   link.addEventListener('click', (event) => {
-  //     // Checa se está em um dispositivo móvel
-  //     if (this.isMobile()) {
-  //       event.preventDefault(); // Previne a navegação padrão apenas em dispositivos móveis
-  //       this.menuList.classList.remove(this.activeClass); // Fecha o menu
-  //       this.menuButton.classList.remove(this.activeClass); // Altera o botão do menu para o estado não ativo
-
-  //       // Extrai o ID do href do link para mobile ou desktop
-  //       const modifiedTargetId = `mobile-${link.getAttribute('href').substring(1)}`;
-  //       const targetSection = document.getElementById(modifiedTargetId);
-
-  //       if (targetSection) {
-  //         // Calcula o offsetTop considerando a altura de um possível cabeçalho fixo
-  //         const offsetTop = targetSection.offsetTop - (document.querySelector('.header')?.offsetHeight || 0);
-  //         window.scrollTo({
-  //           top: offsetTop,
-  //           behavior: 'smooth'
-  //         });
-  //       }
-  //     } // Não é necessário um else, pois a navegação padrão em desktop deve funcionar
-  //   });
-  // }
-
-     // Função para adicionar evento de clique a um link
   addLinkEventListener(link) {
     link.addEventListener('click', (event) => {
       if (this.isMobile()) {
         this.closeMenu(); // Fecha o menu
-
-        // Comportamento padrão de redirecionamento agora será permitido
       }
     });
   }
 
   animateMenuItems() {
-    // Seleciona todos os itens do menu principal que você deseja animar
+    // Animação para os itens do menu principal
     const menuItems = document.querySelectorAll('.menu li');
-    const totalItems = menuItems.length + 2; // +2 para email e Instagram
-
-    // Animação para cada item do menu principal
     menuItems.forEach((item, index) => {
       gsap.fromTo(item, 
         { opacity: 0, y: 10 }, 
         { opacity: 1, y: 0, duration: 0.5, ease: "power1.out", delay: 0.1 + index * 0.1,
           onComplete: function() {
-            gsap.set(item, { clearProps: "all" }); // Limpa os estilos aplicados pela animação
+            gsap.set(item, { clearProps: "all" });
           }
         }
       );
     });
 
-    // Animação para o email e Instagram com delay baseado no último item do menu
+    // Animação para email e Instagram
     gsap.fromTo(this.contatoMobile, 
       { opacity: 0, y: 10 }, 
-      { opacity: 1, y: 0, duration: 0.5, ease: "power1.out", delay: 0.1 + menuItems.length * 0.1,
-        onComplete: () => console.log('Email animation complete')
-      }
-    );
+      { opacity: 1, y: 0, duration: 0.5, ease: "power1.out", delay: 0.1 + menuItems.length * 0.1 });
 
-    gsap.fromTo( this.linkedinMobile, 
+    gsap.fromTo(this.linkedinMobile, 
       { opacity: 0, y: 10 }, 
-      { opacity: 1, y: 0, duration: 0.5, ease: "power1.out", delay: 0.1 + (menuItems.length + 1) * 0.1,
-        onComplete: () => console.log('Linkedin animation complete')
-      }
-    );
+      { opacity: 1, y: 0, duration: 0.5, ease: "power1.out", delay: 0.1 + (menuItems.length + 1) * 0.1 });
 
-    gsap.fromTo( this.instagramMobile, 
+    gsap.fromTo(this.instagramMobile, 
       { opacity: 0, y: 10 }, 
-      { opacity: 1, y: 0, duration: 0.5, ease: "power1.out", delay: 0.1 + (menuItems.length + 1) * 0.1,
-        onComplete: () => console.log('Linkedin animation complete')
-      }
-    );
+      { opacity: 1, y: 0, duration: 0.5, ease: "power1.out", delay: 0.1 + (menuItems.length + 1) * 0.1 });
   }
 
   toggleMenuAnimation(show) {
@@ -166,7 +181,7 @@ export default class MenuMobile {
         visibility: 'visible',
         ease: 'power1.inOut',
         onStart: function() {
-          menuList.style.display = 'flex'; // Mude para flex para iniciar a animação
+          menuList.style.display = 'flex';
         }
       });
     } else {
@@ -176,17 +191,18 @@ export default class MenuMobile {
         visibility: 'hidden',
         ease: 'power1.inOut',
         onComplete: function() {
-          menuList.style.display = 'none'; // Esconde novamente após animar
+          menuList.style.display = 'none';
         }
       });
     }
   }
 
   init() {
-    if (this.logoMobile && this.menuButton && this.menuList  && this.contatoMobile && this.linkedinMobile && this.instagramMobile) {
+    if (this.logoMobile && this.menuButton && this.menuList && this.contatoMobile && this.linkedinMobile && this.instagramMobile) {
       this.addMenuMobileEvents();
       this.addLinkClickEvents(); 
     }
+    this.handleSubmenuClick(); // Garante que a seta é sempre criada
     return this;
   }
 }
