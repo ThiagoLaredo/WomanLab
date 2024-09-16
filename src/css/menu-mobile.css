@@ -43,7 +43,7 @@
     padding: 0.8rem 0.8rem;
     border-radius: 8px;
     text-transform: uppercase;
-    font-family: 'Hind', monospace;
+    font-family: 'OpenSans', sans-serif;
     font-weight: bold;
     color: #fff;
     cursor: pointer;
@@ -111,29 +111,28 @@
     background-color: var(--rosa);
   }
 
-  .js [data-menu="list"].active{
+  .js [data-menu="list"].active, .js [data-menu="list"].submenu.active {
     display: flex;
     visibility: visible; 
     opacity: 1; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
   }
 
-  .js [data-menu="list"] a {
+  .js [data-menu="list"] a, .js [data-menu="list"] span, .js [data-menu="list"] .submenu a  {
     font-size: 24px;
-    width: 100%;
     line-height: 1;
     width: 100vw;
   }
 
   .js [data-menu="list"] li {
-    width: 100%;
+    /* width: 100%; */
     position: relative;
   }
 
-  .js [data-menu="list"] li::after {
+  /* .js [data-menu="list"] li::after {
     content: "";
     display: block;
     width: 100%;
@@ -142,7 +141,7 @@
     border-radius: 5px;
     background: rgba(52, 40, 64, 0.2);
     position: relative;
-  }
+  } */
 
   .js [data-menu="list"] li:last-child::after {
     display: none;
@@ -154,8 +153,8 @@
 
   [data-menu="contato-mobile"].active  {
     position: fixed;
-    font: 500 1rem "Hind", sans-serif;
-    color: var(--bg);
+    font: 500 1rem 'OpenSans', sans-serif;
+    color: var(--roxo);
     display: block;
     bottom: 0;
     left: 0;
@@ -166,8 +165,8 @@
 
   [data-menu="linkedin"].active {
     position: fixed;
-    font: 500 1rem "Hind", sans-serif;
-    color: var(--bg);
+    font: 500 1rem 'OpenSans', sans-serif;
+    color: var(--roxo);
     display: block;
     bottom: 0;
     right: 0;
@@ -177,8 +176,8 @@
   }
   [data-menu="instagram"].active {
     position: fixed;
-    font: 500 1rem "Hind", sans-serif;
-    color: var(--bg);
+    font: 500 1rem 'OpenSans', sans-serif;
+    color: var(--roxo);
     display: block;
     bottom: 0;
     right: 40px;

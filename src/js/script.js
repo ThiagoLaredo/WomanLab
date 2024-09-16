@@ -50,7 +50,7 @@ function setupServiceLinks(serviceLoader, page) {
 document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM completamente carregado.");
 
-    // Inicializa o menu mobile
+    // Inicializa o menu mobile com submenu integrado
     const menuMobile = new MenuMobile('[data-menu="logo"]', '[data-menu="button"]', '[data-menu="list"]', '[data-menu="contato-mobile"]', '[data-menu="linkedin"]', '[data-menu="instagram"]');
     if (menuMobile) {
         console.log('MenuMobile initialized successfully');
@@ -59,9 +59,11 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('MenuMobile failed to initialize');
     }
 
-    const subMenu = new SubMenu('#menu');
-    initStaticAnimations();
-    const pathname = window.location.pathname.toLowerCase();
+
+  // Inicializa as animações estáticas
+  initStaticAnimations();
+
+  const pathname = window.location.pathname.toLowerCase();
 
     if (pathname.includes('programa-mulheres')) {
         console.log('Initializing loader for "programa-mulheres".');
