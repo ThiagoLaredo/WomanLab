@@ -42,7 +42,7 @@
   opacity: 40%;
   border-radius: 50%;
   z-index: 1;
-  top: 58%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
