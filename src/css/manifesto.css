@@ -1,8 +1,9 @@
-/* #manifesto {
-  background-color: var(--bg-cinza);
-} */
-.manifesto {
+/* .manifesto-background {
   padding: 80px 20px;
+  background-color: #fff;
+  position: relative;
+}
+.manifesto {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -10,16 +11,82 @@
 }
 
 .manifesto-texto {
-  background-color: #fff;
-  padding: 2rem;
   border-radius: 16px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
 .manifesto-texto p {
-  font: 300 1rem/1.4 'OpenSans', sans-serif;
+  font: 300 1rem/1.6 'OpenSans', sans-serif;
   color: var(--roxo);
+} */
+
+.manifesto-background {
+  padding: 80px 20px;
+  background-color: #fff; /* Consider adding a subtle texture or gradient if appropriate */
+  position: relative;
+}
+
+.manifesto {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centralize para melhorar a estética */
+  justify-content: center;
+  max-width: 800px; /* Limita a largura máxima para um comprimento de linha ideal */
+  margin: auto; /* Centraliza na página */
+  position: relative;
+}
+
+.manifesto-texto {
+  border-radius: 16px;
+  padding: 20px; /* Adiciona padding para espaço interno */
+  /* background: rgba(240, 240, 255, 0.8);  */
+  background-color: var(--bg-cinza);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra leve para elevação visual */
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  position: relative;
+}
+
+/* Detalhe no canto superior esquerdo */
+.manifesto-texto::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 50px;
+  height: 50px;
+  border-top: 4px solid var(--verde-claro); /* Linha verde no topo */
+  border-left: 4px solid var(--verde-claro); /* Linha verde na esquerda */
+  border-radius: 16px 0 0 0; /* Arredonda o canto */
+}
+
+/* Detalhe no canto inferior direito */
+.manifesto-texto::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  width: 50px;
+  height: 50px;
+  border-bottom: 4px solid var(--verde-claro); /* Linha verde no fundo */
+  border-right: 4px solid var(--verde-claro); /* Linha verde na direita */
+  border-radius: 0 0 16px 0; /* Arredonda o canto */
+}
+
+.manifesto-texto p {
+  font: 300 1rem/1.8 'OpenSans', sans-serif;
+  color: var(--roxo); /* Cor suave que é fácil nos olhos */
+  text-align: justify; /* Justifica o texto para uma aparência uniforme */
+}
+
+.grade-manifesto {
+  position: absolute;
+    bottom: -10vh;  
+    right: 5vw;  
+    width: 160px;  
+    height: 160px;  
+    z-index: 10;  
 }

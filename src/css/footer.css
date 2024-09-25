@@ -1,6 +1,7 @@
 footer {
   background-color: var(--roxo);
   padding: 80px 0;
+  position: relative;
 }
 
 .rodape {
@@ -104,6 +105,15 @@ footer {
   clear: both;
 }
 
+.grade-footer {
+  position: absolute;
+    top: -70px;  
+    right: 40px;  
+    width: 140px;  
+    height: 140px;  
+    z-index: 10;  
+}
+
 @media (max-width: 768px) { 
 
   footer {
@@ -131,6 +141,15 @@ footer {
     float: none;
     width: 90%; /* Ajusta a largura considerando o espaçamento */
     box-sizing: border-box;
+  }
+
+  .grade-footer {
+    position: absolute;
+      top: -40px;  
+      right: 20px;  
+      width: 80px;  
+      height: 80px;  
+      z-index: 10;  
   }
   
 

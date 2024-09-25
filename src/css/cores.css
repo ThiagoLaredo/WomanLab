@@ -1,8 +1,8 @@
 :root {
   --textwhite: #F8F8F8;
   --text: #2D2D2D;
-  /* --bg-cinza: #F7F7F7; */
   --bg-cinza: #f5f5fa;
+  /* --bg-cinza: rgba(240, 240, 255, 0.8); */
   --bg-branco: #fff;
   --roxo: #342840;
   --verde-escuro: #405919;
