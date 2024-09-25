@@ -27,6 +27,8 @@ import { ProgramasEquipesLoader } from './modules/programasEquipesLoader.js';
 import mulheresData from '../programaMulheres.json';
 import equipesData from '../programaEquipes.json';
 
+
+
 // Função para configurar os links dos serviços
 function setupServiceLinks(serviceLoader, page) {
     const serviceLinks = document.querySelectorAll(`a[href*="${page}"]`);
@@ -77,6 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
         console.info('Nenhum loader necessário para esta página.');
     }
 });
+
+
 
 // Função para carregar o serviço inicial com base no hash da URL
 function handleInitialLoad(loader) {

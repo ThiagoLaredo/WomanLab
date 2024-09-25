@@ -11,7 +11,7 @@
 
 .construcao-programas h2 {
   color: var(--roxo);
-  font: 600 1.6rem/1.2 OpenSans,sans-serif;
+  font: 600 1.6rem/1.2 'OpenSans',sans-serif;
   text-transform: uppercase;
   margin-bottom: 40px;
 }
@@ -19,11 +19,11 @@
 .construcao-programas li {
   position: relative;
   padding-left: 30px; /* Espaço à esquerda para o bullet customizado */
-  font: 400 1rem/1.6 OpenSans,sans-serif;
+  font: 400 1rem/1.6 'OpenSans',sans-serif;
   align-items: center;
   color: var(--roxo);
   display: flex;
-  font: 400 1rem/1.6 OpenSans,sans-serif;
+  font: 400 1rem/1.6 'OpenSans',sans-serif;
   margin-bottom: .5rem;
 }
 
@@ -57,7 +57,7 @@
 
 .seguranca-psicologica h2 {
   color: var(--roxo);
-  font: 600 1.6rem/1.2 OpenSans,sans-serif;
+  font: 600 1.6rem/1.2 'OpenSans',sans-serif;
   text-transform: uppercase;
 }
 
@@ -72,7 +72,7 @@
 }
 
 .seguranca-psicologica-lista li a  {
-  font: 400 1.2rem/1.6 OpenSans, sans-serif;
+  font: 400 1.2rem/1.6 'OpenSans', sans-serif;
   align-items: center;
   color: var(--roxo);
   position: relative; /* Necessário para o pseudo-elemento 'after' */
@@ -113,7 +113,7 @@
   }
 
   .construcao-programas h2, .seguranca-psicologica h2 {
-    font: 600 1.4rem/1.2 OpenSans,sans-serif;
+    font: 600 1.4rem/1.2 'OpenSans',sans-serif;
   }
 
   .svg-processo {
@@ -127,6 +127,6 @@
   }
 
   .seguranca-psicologica-lista li a  {
-      font: 400 1rem/1.6 OpenSans, sans-serif;
+      font: 400 1rem/1.6 'OpenSans', sans-serif;
   }
 }

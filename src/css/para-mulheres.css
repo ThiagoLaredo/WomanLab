@@ -80,7 +80,7 @@
 }
 
 .pg-servico-lista li {
-  font: 400 1rem/1.6 OpenSans,sans-serif;
+  font: 400 1rem/1.6 'OpenSans',sans-serif;
   color: var(--roxo);
   display: flex;
   align-items: center;
@@ -120,7 +120,7 @@
 }
 
 .pg-servicos-respostas li {
-  font: 300 1rem/1.6 OpenSans,sans-serif;
+  font: 300 1rem/1.6 'OpenSans',sans-serif;
   color: var(--roxo); /* Cor suave e legível */
   margin-bottom: 0.5rem; /* Espaçamento entre as respostas */
   position: relative;

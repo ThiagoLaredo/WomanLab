@@ -18,7 +18,7 @@
 
 #equipesTitle {
   color: var(--roxo);
-  font: 600 1.6rem/1.2 OpenSans,sans-serif;
+  font: 600 1.6rem/1.2 'OpenSans',sans-serif;
   text-transform: uppercase;
   margin-bottom: 5px;
 }
@@ -26,12 +26,12 @@
 
 #equipesDescription {
   color: var(--roxo);
-  font: 300 1rem/1.2 OpenSans,sans-serif;
+  font: 300 1rem/1.2 'OpenSans',sans-serif;
 }
 
 #equipesStepsTitle {
   color: var(--verde-claro);
-  font: 600 1rem/1.2 OpenSans,sans-serif;
+  font: 600 1rem/1.2 'OpenSans',sans-serif;
   text-transform: uppercase;
   margin-bottom: 20px;
 }
@@ -39,10 +39,10 @@
 #equipesSteps li {
   position: relative;
   padding-left: 30px; /* Espaço à esquerda para o bullet customizado */
-  font: 400 1rem/1.4 OpenSans,sans-serif;
+  font: 400 1rem/1.4 'OpenSans',sans-serif;
   align-items: center;
   color: var(--roxo);
-  font: 400 1rem/1.6 OpenSans,sans-serif;
+  font: 400 1rem/1.6 'OpenSans',sans-serif;
   margin-bottom: .8rem;
 }
 
