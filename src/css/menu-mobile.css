@@ -106,7 +106,7 @@
     top: 0;
     right: 0px;
     text-align: center;
-    z-index: 1;
+    z-index: 3;
     height: 100vh;
     background-color: var(--bg-cinza);
   }

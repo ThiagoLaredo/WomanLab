@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
 gsap.registerPlugin(ScrollTrigger);
 
 export const initPageOpenAnimations = () => {
-    gsap.set([".header", "[data-menu='logo']", "#menu > li > a", "#menu > li > span", ".social-icons-header a", ".img-circulo", ".introducao-texto h1", "[data-menu='button']"], { opacity: 0 });
+    gsap.set([".header", "[data-menu='logo']", "#menu > li > a", "#menu > li > span", ".social-icons-header a", ".img-circulo", ".introducao-texto h1"], { opacity: 0 });
 
     gsap.to(".header", { duration: 1, opacity: 1, ease: "power1.inOut" });
     gsap.to("[data-menu='logo']", { duration: 1, delay: 0.5, opacity: 1, ease: "power1.inOut" });
@@ -17,14 +17,6 @@ export const initPageOpenAnimations = () => {
         opacity: 1, 
         stagger: 0.2, 
         ease: "power1.out" 
-    });
-
-     // Anima o menu hambúrguer
-    gsap.to("[data-menu='button']", {
-        duration: 0.5, 
-        delay: 1,  // Anima após os links do menu
-        opacity: 1, 
-        ease: "power1.inOut"
     });
     
     gsap.to(".social-icons-header a", { duration: 0.5, delay: 2, opacity: 1, stagger: 0.2, ease: "power1.inOut" });
