@@ -1,27 +1,3 @@
-/* .manifesto-background {
-  padding: 80px 20px;
-  background-color: #fff;
-  position: relative;
-}
-.manifesto {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.manifesto-texto {
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.manifesto-texto p {
-  font: 300 1rem/1.6 'OpenSans', sans-serif;
-  color: var(--roxo);
-} */
-
 .manifesto-background {
   padding: 80px 20px;
   background-color: #fff; /* Consider adding a subtle texture or gradient if appropriate */
@@ -89,4 +65,8 @@
     width: 160px;  
     height: 160px;  
     z-index: 10;  
+}
+
+.manifesto.container {
+  padding: 0 10px;
 }
