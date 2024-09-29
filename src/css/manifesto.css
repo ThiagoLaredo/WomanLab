@@ -1,25 +1,27 @@
+
+
+/* Estilos para a seção de manifesto */
 .manifesto-background {
   padding: 80px 20px;
-  background-color: #fff; /* Consider adding a subtle texture or gradient if appropriate */
+  background-color: #fff;
   position: relative;
 }
 
 .manifesto {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centralize para melhorar a estética */
+  align-items: center;
   justify-content: center;
-  max-width: 800px; /* Limita a largura máxima para um comprimento de linha ideal */
-  margin: auto; /* Centraliza na página */
+  max-width: 800px;
+  margin: auto;
   position: relative;
 }
 
 .manifesto-texto {
   border-radius: 16px;
-  padding: 20px; /* Adiciona padding para espaço interno */
-  /* background: rgba(240, 240, 255, 0.8);  */
+  padding: 20px;
   background-color: var(--bg-cinza);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra leve para elevação visual */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -30,41 +32,73 @@
 .manifesto-texto::before {
   content: '';
   position: absolute;
-  top: -4px;
-  left: -4px;
-  width: 50px;
-  height: 50px;
-  border-top: 4px solid var(--verde-claro); /* Linha verde no topo */
-  border-left: 4px solid var(--verde-claro); /* Linha verde na esquerda */
-  border-radius: 16px 0 0 0; /* Arredonda o canto */
+  top: -10px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  border-top: 4px solid var(--verde-claro);
+  border-left: 4px solid var(--verde-claro);
+  border-radius: 0 0 10px 0;
 }
 
 /* Detalhe no canto inferior direito */
 .manifesto-texto::after {
   content: '';
   position: absolute;
-  bottom: -4px;
-  right: -4px;
-  width: 50px;
-  height: 50px;
-  border-bottom: 4px solid var(--verde-claro); /* Linha verde no fundo */
-  border-right: 4px solid var(--verde-claro); /* Linha verde na direita */
-  border-radius: 0 0 16px 0; /* Arredonda o canto */
+  bottom: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  border-bottom: 4px solid var(--verde-claro);
+  border-right: 4px solid var(--verde-claro);
+  border-radius: 10px 0 0 0;
 }
 
 .manifesto-texto p {
-  font: 300 1rem/1.8 'OpenSans', sans-serif;
-  color: var(--roxo); /* Cor suave que é fácil nos olhos */
-  text-align: justify; /* Justifica o texto para uma aparência uniforme */
+  font: 300 1rem/1.8 'Open Sans', sans-serif;
+  color: var(--roxo);
+  text-align: justify;
+}
+
+/* Destaques no texto */
+.manifesto-texto p strong {
+  font-weight: bold;
+  color: var(--verde);
+}
+
+.manifesto-texto p em {
+  font-style: italic;
+  color: var(--azul);
+}
+
+.manifesto-texto p u {
+  text-decoration: underline;
+  color: var(--vermelho);
+}
+
+/* Citações estilizadas */
+.manifesto-texto blockquote {
+  margin: 20px 0;
+  padding: 10px 20px;
+  background-color: var(--bg-cinza-claro);
+  border-left: 4px solid var(--verde);
+  font-style: italic;
+  color: var(--roxo-escuro);
+}
+
+/* Ícones ou imagens pequenas */
+.manifesto-texto p img {
+  vertical-align: middle;
+  margin-right: 8px;
 }
 
 .grade-manifesto {
   position: absolute;
-    bottom: -10vh;  
-    right: 5vw;  
-    width: 160px;  
-    height: 160px;  
-    z-index: 10;  
+  bottom: -10vh;
+  right: 5vw;
+  width: 160px;
+  height: 160px;
+  z-index: 10;
 }
 
 .manifesto.container {

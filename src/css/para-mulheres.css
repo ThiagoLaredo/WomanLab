@@ -88,17 +88,12 @@
 }
 
 .pg-servico-lista li::before {
-  content: '';
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  background-color: #537322; /* Cor de fundo para fallback */
-  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23ffffff" class="bi bi-check" viewBox="0 0 16 16"><path d="M13.485 1.535a.75.75 0 0 1 1.06 1.06l-8 8a.75.75 0 0 1-1.06 0l-4-4a.75.75 0 0 1 1.06-1.06L6 8.939l7.485-7.404z"/></svg>') no-repeat center;
-  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23ffffff" class="bi bi-check" viewBox="0 0 16 16"><path d="M13.485 1.535a.75.75 0 0 1 1.06 1.06l-8 8a.75.75 0 0 1-1.06 0l-4-4a.75.75 0 0 1 1.06-1.06L6 8.939l7.485-7.404z"/></svg>') no-repeat center;
-  background-color: #537322; /* Cor do ícone */
-  margin-right: 0.5rem; /* Espaço entre o ícone e o texto */
+  content: '✔'; /* Adiciona um ícone de checkmark */
+  color: var(--verde-claro); /* Cor do ícone */
+  margin-right: 8px; /* Espaçamento entre o ícone e o texto */
+  font-size: 1.2em; /* Tamanho do ícone */
+  vertical-align: middle; /* Alinhamento vertical */
 }
-
 .pg-servicos-pq-fazer {
   flex: 2;  
 }

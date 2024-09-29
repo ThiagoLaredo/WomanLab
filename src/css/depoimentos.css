@@ -77,7 +77,6 @@
   display: inline-block; /* Garante que o espaçamento e borda funcionem bem */
 }
 
-
 /* Estilo para o slide ativo (com aspas grandes) */
 .swiper-slide-active {
   position: relative; /* Necessário para os pseudo-elementos se posicionarem em relação ao slide */
@@ -101,8 +100,6 @@
   right: 0px;
   height: 80px;
 }
-
-
 
 /* Botões de navegação */
 .swiper-button-next,
@@ -179,7 +176,7 @@
 
 
 .parceiros-background {
-  background-color: #fff;
+  background-color: var(--bg-cinza);
   padding: 80px 20px;
   position: relative;
 }
@@ -187,7 +184,7 @@
 .parceiros {
  display: flex;
  flex-direction: column;
- gap: 20px;
+ gap: 24px;
 }
 
 .parceiros h2 {
@@ -197,6 +194,12 @@
   text-transform: uppercase;
 }
 
+.logos-parceiros {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
 .logos-parceiros img {
   width: 20%;
   height: auto;

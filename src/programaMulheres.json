@@ -4,10 +4,12 @@
     "title": "Programa Deep",
     "icon": "./img/programa-deep-verde.png",
     "description": [
+      "Base Antroposófica: alinhamento do pensar, sentir e querer",
       "Foco em autoconhecimento para alcançar objetivos",
-      "Processo orientado por perguntas, não por respostas prontas"
+      "Orientado por perguntas, não por respostas prontas",
+      "Coaching Executivo"
     ],
-    "duration": "Duração do Programa: <strong>12 sessões de 1h</strong>",
+    "duration": "Duração do Programa: <strong>12 sessões de 1h individual</strong>",
     "contentImage": "./img/deep.png",
     "contentSteps": [
       "<strong>Mapeamento da Intenção:</strong> Identificamos e mapeamos as intenções e expectativas, estabelecendo uma base clara para a jornada do programa.",
@@ -27,7 +29,7 @@
       "Orientações específicas para desafios profissionais e pessoais",
       "Técnicas e ferramentas práticas para construção conjunta de soluções"
     ],
-    "duration": "Duração do Programa: <strong>8h, sessões de 1h a 1h30</strong>",
+    "duration": "Duração do Programa: <strong>8h, sessões de 1h a 1h30 individual</strong>",
     "contentImage": "./img/action-figure.svg",
     "contentSteps": [
       "<strong>Inspiração:</strong> Iniciamos com o alinhamento de expectativas e a definição de objetivos e metas claras. Esta etapa estabelece a base para o trabalho a ser desenvolvido.",
