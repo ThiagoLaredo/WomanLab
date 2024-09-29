@@ -4,74 +4,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// export const initPageOpenAnimations = () => {
-//     gsap.set([".header", "[data-menu='logo']", "[data-menu='button']", "#menu > li > a", "#menu > li > span", ".social-icons-header a", ".img-circulo", ".introducao-texto h1"], { opacity: 0 });
-
-//     gsap.to(".header", { duration: 1, opacity: 1, ease: "power1.inOut" });
-//     gsap.to("[data-menu='logo']", { duration: 1, delay: 0.5, opacity: 1, ease: "power1.inOut" });
-//     gsap.to("[data-menu='button']", { duration: 1, delay: 0.7, opacity: 1, ease: "power1.inOut" });
-
-    
-//     // Anima apenas os links e spans de primeiro nível, incluindo o <span>Serviços</span>
-//     gsap.to("#menu > li > a, #menu > li > span", { 
-//         duration: 0.5, 
-//         delay: 1, 
-//         opacity: 1, 
-//         stagger: 0.2, 
-//         ease: "power1.out" 
-//     });
-    
-//     gsap.to(".social-icons-header a", { duration: 0.5, delay: 2, opacity: 1, stagger: 0.2, ease: "power1.inOut" });
-
-//     const h1 = document.querySelector('.wave-text');
-//     if (h1) {
-//         h1.innerHTML = h1.textContent.split('').map(letter => `<span>${letter}</span>`).join('');
-//         gsap.set(h1, { opacity: 1 });
-//     }
-
-//     const introducao = document.querySelector(".introducao");
-//     if (introducao) {
-//         gsap.fromTo(introducao, {
-//             clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
-//             opacity: 0
-//         }, {
-//             clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-//             opacity: 1,
-//             duration: 1.5,
-//             ease: "power2.out",
-//             onComplete: () => introducao.style.clipPath = 'none'
-//         });
-//     }
-
-//     const imgCirculo = document.querySelector(".img-circulo");
-//     if (imgCirculo) {
-//         gsap.to(imgCirculo, {
-//             duration: 1,
-//             delay: 2,
-//             opacity: 0.5,
-//             scale: 1,
-//             ease: "back.out(1.7)"
-//         });
-//     }
-
-//     const waveTextSpans = document.querySelectorAll(".introducao-texto h1 span");
-//     if (waveTextSpans.length > 0) {
-//         gsap.from(waveTextSpans, {
-//             duration: 0.5,
-//             opacity: 0,
-//             ease: "power1.inOut",
-//             y: -20,
-//             stagger: {
-//                 each: 0.04,
-//                 from: "start",
-//                 yoyo: true,
-//                 repeat: 0
-//             },
-//             delay: 2
-//         });
-//     }
-// };
-
 export const initPageOpenAnimations = () => {
     gsap.set([".header", "[data-menu='logo']", "[data-menu='button']", "#menu > li > a", "#menu > li > span", ".social-icons-header a", ".img-circulo", ".introducao-texto h1"], { opacity: 0 });
 
@@ -176,7 +108,7 @@ export const initScrollAnimations = () => {
     
       // Anima os outros elementos internos, mas exclui os que estão dentro da .depoimento-card
       const elementsToAnimate = section.querySelectorAll(
-        'h2, p, img, h3, h4, ul, ol, li, .programa__circle, button, #contact-form, #send-button'
+        'h2, p, img, h3, h4, ul, ol, li, a, .empresa-badge, .voce-badge, .programa__circle, button, #contact-form, #send-button'
       );
     
       // Filtra os elementos para garantir que os dentro de .depoimento-card sejam excluídos
@@ -241,7 +173,7 @@ export const initScrollAnimations = () => {
     }, {
       opacity: 1,  // Anima para opacidade 1 (visível)
       stagger: {
-        each: 0.01,  // Aparece um círculo a cada 0.05 segundos
+        each: 0.003,  // Aparece um círculo a cada 0.05 segundos
         from: "end",  // Anima de cima para baixo
       },
       duration: 0.1,  // Duração de cada animação

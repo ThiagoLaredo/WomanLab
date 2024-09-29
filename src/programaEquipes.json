@@ -15,13 +15,12 @@
     "id": "programa-spt-integral",
     "title": "Programa SPT Integral",
     "description": "Para times a partir de 5 pessoas.",
-    "stepsTitle": "7 Etapas",
+    "stepsTitle": "6 Etapas",
     "steps": [
       "Conceitos e Sensibilização",
       "Assessment",
       "Análise de Resultados e Definição de Prioridades",
       "Aprofundamento nas Prioridades",
-      "Roda de Conversa e Revisão",
       "Reassessment",
       "Encerramento e Avaliação Final"
     ],

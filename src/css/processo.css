@@ -26,7 +26,7 @@
 
 
 .servicos h3 {
-  font: 600 1.4rem/1.2 'OpenSans', sans-serif;
+  font: 600 1.6rem/1.4 'OpenDyslexic', sans-serif;
   color: var(--textwhite);
   max-width: 30ch;
   text-align: center;
@@ -41,19 +41,6 @@
   position: relative;
   justify-content: center;
 }
-
-/* .voce::before {
-  content: ""; 
-  position: absolute;
-  top: 50%; 
-  left: 50%; 
-  width: 700px; 
-  height: 700px; 
-  background-color: var(--lilas-claro); 
-  border-radius: 50%; 
-  transform: translate(-50%, -50%); 
-  z-index: -1; 
-} */
 
 .circle-lilas-claro {
   position: absolute;
@@ -89,11 +76,13 @@
 
 
 .voce-badge, .empresa-badge {
-  font: normal 1rem/1.2 'OpenDyslexic', sans-serif;
+  font: 400 0.8rem/1.2 'Open Sans', sans-serif;
   color: var(--textwhite);
   background-color: var(--lilas-escuro);
   border-radius: 100px;
   padding: 8px 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
 }
 
 .programas-voce {
@@ -130,7 +119,7 @@
 }
 
 .programa-titulo h4 {
-  font: 600 1rem 'OpenSans', sans-serif;
+  font: 400 1rem 'OpenSans', sans-serif;
   color: var(--textwhite);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -174,7 +163,6 @@
   fill: currentColor;
 }
 
-
 .empresas {
   display: flex;
   flex-direction: column;
@@ -184,20 +172,9 @@
   flex: 1;
 }
 
-
 .empresa-badge {
   background-color: var(--lilas-claro);
 }
-
-.grade {
-  position: absolute;
-    bottom: -15vh;  
-    right: 20vw;  
-    width: 200px;  
-    height: 200px;  
-    z-index: 10;  
-}
-
 
 @media (max-width: 768px) { 
 

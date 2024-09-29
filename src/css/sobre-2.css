@@ -21,7 +21,7 @@
 .valores h2 {
   font: 600 2rem/1.2 'OpenSans', sans-serif;
   color: var(--roxo);
-  max-width: 22ch;
+  max-width: 28ch;
 }
 
 .valores p {
