@@ -135,7 +135,7 @@ async function renderBlogPosts(page = 1) {
         <h2>${post.title.rendered}</h2>
         ${imageUrl ? `<img src="${imageUrl}" alt="${post.title.rendered}">` : ''}
         <p>${post.excerpt.rendered}</p>
-        <a href="${post.link}" target="_blank">Leia mais</a>
+        <a href="${post.link}">Leia mais</a>
       `;
       
       postsContainer.appendChild(postElement);
