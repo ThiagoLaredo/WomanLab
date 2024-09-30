@@ -1,7 +1,7 @@
 [
   {
     "id": "programa-spt-basico",
-    "title": "Programa SPT Básico",
+    "title": "Programa Segurança Psicológica de Times Básico",
     "description": "Para todos os tamanhos de times",
     "stepsTitle": "3 Etapas",
     "steps": [
@@ -13,8 +13,8 @@
   },
   {
     "id": "programa-spt-integral",
-    "title": "Programa SPT Integral",
-    "description": "Para times a partir de 5 pessoas.",
+    "title": "Programa Segurança Psicológica de Times Integral",
+    "description": "Para times de 5 a 13 pessoas.",
     "stepsTitle": "6 Etapas",
     "steps": [
       "Conceitos e Sensibilização",
