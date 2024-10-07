@@ -1,4 +1,3 @@
-// programasMulheresLoader.js
 export class ProgramasMulheresLoader {
     constructor(data) {
         this.data = data; // Certifique-se de que 'data' é um array de objetos
@@ -22,8 +21,14 @@ export class ProgramasMulheresLoader {
         document.getElementById('contentImage').src = serviceData.contentImage;
         document.getElementById('contentImage').alt = `Imagem do conteúdo do serviço ${serviceData.title}`;
         document.getElementById('contentSteps').innerHTML = serviceData.contentSteps.map(step => `<li>${step}</li>`).join('');
+        // Atualizar título da página e descrição do meta
+        document.title = serviceData.title; // Muda o título da aba do navegador
+        document.querySelector('meta[name="description"]').setAttribute("content", serviceData.description.join(', ')); // Atualiza a meta descrição com uma descrição concatenada
+         // Atualizar título da página e descrição do meta
+        document.title = serviceData.metaTitle; // Muda o título da aba do navegador para o metaTitle
+        document.querySelector('meta[name="description"]').setAttribute("content", serviceData.metaDescription);
     }
-
+    
     updateUrlHash(serviceId) {
         window.location.hash = serviceId;
     }

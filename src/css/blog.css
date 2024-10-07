@@ -46,7 +46,8 @@
 
 .pagination-button {
   padding: 10px 15px;
-  margin: 6px;
+  margin: 8px;
+  margin-bottom: 16px;
   border: none;
   background-color: var(--lilas-claro);
   font-weight: bold;
