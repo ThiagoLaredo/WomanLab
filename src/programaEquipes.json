@@ -1,8 +1,8 @@
 [
   {
     "id": "programa-spt-basico",
-    "title": "Programa Segurança Psicológica de Times Básico",
-    "description": "Para todos os tamanhos de times",
+    "title": "Programa SPT Básico",
+    "description": "Segurança Psicológica de times. Para todos os tamanhos de times.",
     "stepsTitle": "3 Etapas",
     "steps": [
       "<strong>Conexão:</strong> Sensibilização sobre o tema, com fatos e dados para demonstrar a importância de SPT",
@@ -13,8 +13,8 @@
   },
   {
     "id": "programa-spt-integral",
-    "title": "Programa Segurança Psicológica de Times Integral",
-    "description": "Para times de 5 a 13 pessoas.",
+    "title": "Programa SPT Integral",
+    "description": "Segurança Psicológica de times. Para times de 5 a 12 pessoas.",
     "stepsTitle": "6 Etapas",
     "steps": [
       "Conceitos e Sensibilização",
@@ -24,6 +24,6 @@
       "Reassessment",
       "Encerramento e Avaliação Final"
     ],
-    "image": "./img/spt-integral.svg"
+    "image": "./img/spt-integral.webp"
   }
 ]

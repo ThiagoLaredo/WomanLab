@@ -59,7 +59,8 @@
 .svg-seguranca-psicologica-programa {
   flex: 1;
   width: 20%; /* Diminui a imagem para 20% do espaço disponível */
-  max-width: 480px; /* Define um tamanho máximo em pixels, opcional */
+  height: auto;
+  object-fit: contain; /* Mantém as proporções da imagem */
 }
 
 @media (max-width: 768px) { 
