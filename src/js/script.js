@@ -104,7 +104,7 @@ function handleInitialLoad(loader) {
 }
 
 let currentPage = 1; // Página inicial
-const postsPerPage = 5; // Número de posts por página
+const postsPerPage = 6; // Número de posts por página
 
 // Função para renderizar posts
 async function renderBlogPosts(page = 1) {
