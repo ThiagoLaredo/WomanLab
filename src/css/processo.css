@@ -26,7 +26,7 @@
 
 
 .servicos h3 {
-  font: 600 1.6rem/1.4 'OpenDyslexic', sans-serif;
+  font: 600 1.8rem/1.4 'OpenDyslexic', sans-serif;
   color: var(--textwhite);
   max-width: 30ch;
   text-align: center;
@@ -76,7 +76,7 @@
 
 
 .voce-badge, .empresa-badge {
-  font: 400 0.8rem/1.2 'Open Sans', sans-serif;
+  font: 500 1rem/1 'Open Sans', sans-serif;
   color: var(--textwhite);
   background-color: var(--lilas-escuro);
   border-radius: 100px;
