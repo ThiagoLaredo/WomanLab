@@ -21,6 +21,9 @@ export class ProgramasEquipesLoader {
         document.getElementById('equipesSteps').innerHTML = serviceData.steps.map(step => `<li>${step}</li>`).join('');
         document.getElementById('equipesImage').src = serviceData.image;
         document.getElementById('equipesImage').alt = `Imagem do serviço ${serviceData.title}`;
+        // Atualizar título da página e descrição do meta
+        document.title = serviceData.metaTitle; // Muda o título da aba do navegador para o metaTitle
+        document.querySelector('meta[name="description"]').setAttribute("content", serviceData.metaDescription);
     }
 
     updateUrlHash(serviceId) {
