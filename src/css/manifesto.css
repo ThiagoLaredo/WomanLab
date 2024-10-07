@@ -105,3 +105,10 @@
 .manifesto.container {
   padding: 0 10px;
 }
+
+.proposito h3 {
+  font: 700 1.2rem/1.4 'Open Sans', sans-serif;
+  margin-bottom: 10px;
+  color: var(--roxo);
+  text-align: center;
+}
