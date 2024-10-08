@@ -37,10 +37,12 @@
   display: flex;
   gap: 10px;
   align-items: center;
+  justify-content: flex-start;
+
 }
 
 .selos img {
-  max-width: 200px;
+  max-width: 140px;
   height: auto;
 }
 
