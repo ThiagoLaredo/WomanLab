@@ -200,11 +200,10 @@
   gap: 40px;
   flex-wrap: wrap;
 }
-.logos-parceiros img {
+.logos-parceiros img a {
   width: 12%;
   height: auto;
 }
-
 
 /* Responsividade */
 @media (max-width: 768px) {
