@@ -4,7 +4,7 @@
   justify-content: center;
   height: 100vh;
   width: 100%;
-  background: url('../img/capa-womanlab.webp') no-repeat center center;
+  background: url('../img/capa-index-1920w.webp') no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -49,6 +49,11 @@
 
 @media (max-width: 768px) { 
 
+  .introducao {
+    background: url('../img/index/capa-index-720w.webp') no-repeat center center;
+    background-attachment: scroll;
+  }
+
   .img-circulo {
     width: 90vw; /* 50% da largura da viewport */
     height: 90vw; /* Mantém a proporção para formar um círculo perfeito */
@@ -60,3 +65,10 @@
   }
 }
 
+@media (min-width: 769px) and (max-width: 1919px) {
+  .introducao {
+    background: url('../img/index/capa-index-1024w.webp') no-repeat center center;
+    background-size: cover;
+    background-position: center;
+  }
+}
