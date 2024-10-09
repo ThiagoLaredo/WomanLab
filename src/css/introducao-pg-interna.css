@@ -97,29 +97,29 @@
     transform: translateY(30px); 
   }
 
+  .introducao.pg-interna {
+    height: 50vh;
+    background-attachment: scroll;
+  }
+
   .introducao.pg-interna.mulheres {
     background-image: url('../img/mulheres/drone-720w.webp');
-    background-attachment: scroll;
   }
 
   .introducao.pg-interna.equipes {
     background-image: url('../img/equipes/onda-720w.webp');
-    background-attachment: scroll;
   }
 
   .introducao.pg-interna.depoimentos-img {
     background-image: url('../img/depoimentos/mar-720w.webp');
-    background-attachment: scroll;
   }
 
   .introducao.pg-interna.blog-img {
     background-image: url('../img/blog/fundo-720w.webp');
-    background-attachment: scroll;
   }
 
   .introducao.pg-interna.manifesto-img {
-    background-image: url('../img/manifesto/manifesto-720w.jpg');
-    background-attachment: scroll;
+    background-image: url('../img/manifesto/manifesto-720w.webp');
   }
 }
 
@@ -138,7 +138,7 @@
     background-image: url('../img/blog/fundo-1024w.webp');
   }
   .introducao.pg-interna.manifesto-img {
-    background-image: url('../img/manifesto/manifesto-1024w.jpg');
+    background-image: url('../img/manifesto/manifesto-1024w.webp');
   }
 }
 
@@ -157,7 +157,6 @@
     background-image: url('../img/blog/fundo-1920w.webp');
   }
   .introducao.pg-interna.manifesto-img {
-    background-image: url('../img/manifesto/manifesto-1920w.jpg');
+    background-image: url('../img/manifesto/manifesto-1920w.webp');
   }
 }
-

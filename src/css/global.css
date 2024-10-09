@@ -105,6 +105,11 @@ img {
   transition: box-shadow 0.3s ease, transform 0.3s ease; /* Adiciona transição suave */
 }
 
+.whatsapp-float.hidden {
+  opacity: 0; /* Torna o ícone invisível */
+  pointer-events: none; /* Desativa os eventos de clique */
+}
+
 /* Efeito de hover */
 .whatsapp-float:hover {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Sombra mais pronunciada ao passar o mouse */

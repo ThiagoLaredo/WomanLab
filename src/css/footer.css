@@ -89,9 +89,11 @@ footer {
   cursor: pointer;
   border-radius: 6px;
   font: 800 1rem/0.8 'OpenSans', sans-serif;
-  /* transition: opacity 0.3s ease;  */
   opacity: 1;
   text-transform: uppercase;
+  display: flex; /* Usa flexbox para centralizar o conteúdo */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
 }
 
 #send-button:hover {
@@ -117,20 +119,30 @@ footer {
 @media (max-width: 768px) { 
 
   footer {
-    padding: 60px 0;
+    padding: 60px 0 120px 0;
   }
   
   .rodape {
     flex-direction: column;
     gap: 60px;
+    align-items: center;
+  }
+
+  .contatos-sociais {
+    width: 100%;
+    align-items: center;
   }
 
   #logo-rodape {
-    width: 80%;
+    width: 50%;
   }
 
   #contact-form {
     width: 90vw;
+  }
+
+  .form h2 {
+    text-align: center;
   }
 
   .form-field {
@@ -139,8 +151,17 @@ footer {
 
   .half-width, .half-width-1 {
     float: none;
-    width: 90%; /* Ajusta a largura considerando o espaçamento */
+    width: 100%; /* Ajusta a largura considerando o espaçamento */
     box-sizing: border-box;
+  }
+
+  .form-field input[type=email], .form-field input[type=text] {
+    text-align: center;
+  }
+
+  #send-button {
+    margin: 0 auto; /* Centraliza o botão horizontalmente */
+    width: calc(100% - 44px); /* Ajusta a largura para caber no contêiner, considerando o padding */
   }
 
   .grade-footer {

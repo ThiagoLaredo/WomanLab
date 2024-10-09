@@ -60,6 +60,7 @@
   padding: 24px 12px;
   border-radius: 50px;
   text-align: center;
+  min-height: 60px;
 }
 
 .lista-principios li:nth-child(1),
@@ -81,6 +82,15 @@
   .sobre-2 {
     flex-direction: column;
     gap: 40px;
+  }
+
+  .valores h2 {
+   text-align: center;
+    max-width: none;
+  }
+
+  .principios-conteudo h3 {
+    text-align: center;
   }
 
   .lista-principios li {
