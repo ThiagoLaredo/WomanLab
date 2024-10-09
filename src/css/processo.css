@@ -199,6 +199,16 @@
 
   .programas-voce {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .programa-voce, .programa-action {
+    align-items: center;
+    text-align: center;
+  }
+
+  .btn-programa {
+    align-self: center;
   }
 
   .empresas {
