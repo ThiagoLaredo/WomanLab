@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center; /* Centraliza o conteúdo horizontalmente */
   align-items: center; /* Centraliza o conteúdo verticalmente */
-  height: 50vh; /* Ajusta a altura para 50% da altura da tela */
+  height: 60vh; /* Ajusta a altura para 50% da altura da tela */
   width: 100%;
   background-size: cover;
   background-attachment: fixed;
@@ -96,4 +96,56 @@
   .introducao-texto.pg-interna {
     transform: translateY(30px); 
   }
+
+  .introducao.pg-interna.mulheres {
+    background-image: url('../img/mulheres/drone-720w.webp');
+    background-attachment: scroll;
+  }
+
+  .introducao.pg-interna.equipes {
+    background-image: url('../img/equipes/onda-720w.webp');
+    background-attachment: scroll;
+  }
+
+  .introducao.pg-interna.depoimentos-img {
+    background-image: url('../img/depoimentos/mar-720w.webp');
+    background-attachment: scroll;
+  }
+  .introducao.pg-interna.blog-img {
+    background-image: url('../img/blog/fundo-720w.webp');
+    background-attachment: scroll;
+  }
 }
+
+/* Para tablets e dispositivos intermediários, carrega a imagem de 1024w */
+@media (min-width: 721px) and (max-width: 1023px) {
+  .introducao.pg-interna.mulheres {
+    background-image: url('../img/mulheres/drone-1024w.webp');
+  }
+  .introducao.pg-interna.depoimentos-img {
+    background-image: url('../img/depoimentos/mar-1024w.webp');
+  }
+  .introducao.pg-interna.equipes {
+    background-image: url('../img/equipes/onda-1024w.webp');
+  }
+  .introducao.pg-interna.blog-img {
+    background-image: url('../img/blog/fundo-1024w.webp');
+  }
+}
+
+/* Para desktops e telas maiores, carrega a imagem de 1980w */
+@media (min-width: 1024px) {
+  .introducao.pg-interna.mulheres {
+    background-image: url('../img/mulheres/drone-1920w.webp');
+  }
+  .introducao.pg-interna.depoimentos-img {
+    background-image: url('../img/depoimentos/mar-1920w.webp');
+  }
+  .introducao.pg-interna.equipes {
+    background-image: url('../img/equipes/onda-1920w.webp');
+  }
+  .introducao.pg-interna.blog-img {
+    background-image: url('../img/blog/fundo-1920w.webp');
+  }
+}
+
