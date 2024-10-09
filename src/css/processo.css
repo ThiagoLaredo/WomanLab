@@ -119,7 +119,7 @@
 }
 
 .programa-icone-times {
-  width: 14%;
+  width: 12%;
   height: auto;
 }
 
@@ -243,6 +243,11 @@
 
   .programa-icone {
     width: 40%;
+  }
+
+  .programa-icone-times {
+    width: 12%;
+    height: auto;
   }
   
 

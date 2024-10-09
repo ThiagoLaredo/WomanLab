@@ -67,6 +67,7 @@
   width: 40px;
   height: 40px;
 }
+
 .pg-servico h3 {
   font: 600 1.4rem/2 'OpenSans', sans-serif;
   letter-spacing: 2px;
@@ -154,4 +155,16 @@
 .btn-pg-servico:hover {
   background-color: var(--verde-escuro);
   transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+
+  .pg-servico-titulo {
+  flex-direction: column;
+  }
+
+  .pg-servico-icone {
+    width: 64px;
+    height: 64px;
+  }
 }

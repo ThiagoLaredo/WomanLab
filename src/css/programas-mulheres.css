@@ -120,6 +120,10 @@
     flex-direction: column;
   }
 
+  #text-to-highlight  {
+    text-align: center;
+  }
+
   .programa__circle {
     width: 100px; 
     height: 100px;

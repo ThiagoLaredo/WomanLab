@@ -61,44 +61,43 @@
   text-transform: uppercase;
 }
 
-.seguranca-psicologica-lista  {
+.seguranca-psicologica-lista {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 
 .seguranca-psicologica li {
   padding: 0;
 }
 
-.seguranca-psicologica-lista li a  {
+.seguranca-psicologica-lista li a {
   font: 600 1rem/1.6 'OpenSans', sans-serif;
-  align-items: center;
+  display: flex; /* Adiciona flexbox para centralizar o conteúdo */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: space-between; /* Espaça o texto e o ícone */
   color: var(--roxo);
-  position: relative; /* Necessário para o pseudo-elemento 'after' */
+  position: relative;
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
   cursor: pointer;
-  /* overflow: hidden; */
   text-decoration: none;
-  width: 100%;
-  padding: 10px 30px 10px 15px;
-  transition: transform 0.2s ease-in-out; /* Transições para transformações e mudanças de cor */
+  width: auto; /* Define a largura automática para desktop */
+  max-width: 300px; /* Define uma largura máxima para desktop */
+  padding: 10px 15px; /* Ajusta o padding para um espaçamento uniforme */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Adiciona transição para a sombra */
 }
-
 
 .seguranca-psicologica-lista li a::after {
   content: url('../img/seta-direita-lilas.svg');
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   width: 24px;
   height: 24px;
 }
 
 .seguranca-psicologica-lista li a:hover {
-  transform: translateX(-3px); /* Efeito de mover o item para a direita no hover */
+  transform: translateX(3px); /* Efeito de mover o item para a direita no hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .2); /* Adiciona uma sombra mais pronunciada no hover */
 }
 
 @media (max-width: 768px) {
@@ -114,6 +113,7 @@
 
   .construcao-programas h2, .seguranca-psicologica h2 {
     font: 600 1.4rem/1.2 'OpenSans',sans-serif;
+    text-align: center;
   }
 
   .svg-processo {
@@ -126,7 +126,9 @@
     left: 50%;
   }
 
-  .seguranca-psicologica-lista li a  {
-      font: 400 1rem/1.6 'OpenSans', sans-serif;
+  .seguranca-psicologica-lista li a {
+    width: 100%; /* Garante que o link ocupe 100% do contêiner no mobile */
+    margin: 0 auto; /* Centraliza o link horizontalmente */
+    max-width: none;
   }
 }
