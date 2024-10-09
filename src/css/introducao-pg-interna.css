@@ -111,8 +111,14 @@
     background-image: url('../img/depoimentos/mar-720w.webp');
     background-attachment: scroll;
   }
+
   .introducao.pg-interna.blog-img {
     background-image: url('../img/blog/fundo-720w.webp');
+    background-attachment: scroll;
+  }
+
+  .introducao.pg-interna.manifesto-img {
+    background-image: url('../img/manifesto/manifesto-720w.jpg');
     background-attachment: scroll;
   }
 }
@@ -131,6 +137,9 @@
   .introducao.pg-interna.blog-img {
     background-image: url('../img/blog/fundo-1024w.webp');
   }
+  .introducao.pg-interna.manifesto-img {
+    background-image: url('../img/manifesto/manifesto-1024w.jpg');
+  }
 }
 
 /* Para desktops e telas maiores, carrega a imagem de 1980w */
@@ -146,6 +155,9 @@
   }
   .introducao.pg-interna.blog-img {
     background-image: url('../img/blog/fundo-1920w.webp');
+  }
+  .introducao.pg-interna.manifesto-img {
+    background-image: url('../img/manifesto/manifesto-1920w.jpg');
   }
 }
 
