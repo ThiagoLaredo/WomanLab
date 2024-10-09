@@ -114,7 +114,12 @@
 }
 
 .programa-icone {
-  width: 15%;
+  width: 20%;
+  height: auto;
+}
+
+.programa-icone-times {
+  width: 14%;
   height: auto;
 }
 
@@ -207,16 +212,23 @@
     text-align: center;
   }
 
+  .programa-titulo {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .btn-programa {
     align-self: center;
   }
 
   .empresas {
     flex: 1;
+    width: 100%;
   }
 
   .programas-voce p, .empresas p {
     max-width: none;
+    text-align: center;
   }
 
   .voce::before {
@@ -228,6 +240,11 @@
   .voce, .empresas {
     padding: 20px;
   }
+
+  .programa-icone {
+    width: 40%;
+  }
+  
 
   .circle-lilas-escuro,  .circle-lilas-claro {
     width: 100%;

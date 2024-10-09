@@ -121,6 +121,14 @@
   .introducao.pg-interna.manifesto-img {
     background-image: url('../img/manifesto/manifesto-720w.webp');
   }
+
+  .introducao-texto.pg-interna {
+    align-items: center;
+  }
+  
+  .wave-text.pg-interna {
+    text-align: center;
+  }
 }
 
 /* Para tablets e dispositivos intermediários, carrega a imagem de 1024w */
