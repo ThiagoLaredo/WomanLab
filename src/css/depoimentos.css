@@ -200,10 +200,11 @@
   gap: 40px;
   flex-wrap: wrap;
 }
-.logos-parceiros img a {
-  width: 12%;
-  height: auto;
+
+.logos-parceiros img {
+ border-radius: 10px;
 }
+
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -265,7 +266,7 @@
     padding: 60px 20px;
   }
 
-  .logos-parceiros img {
+  /* .logos-parceiros img {
     width: 100%;
-  }
+  } */
 }
