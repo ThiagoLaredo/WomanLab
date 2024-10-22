@@ -61,6 +61,7 @@ img {
   src: url('../fonts/OpenDyslexic-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -68,6 +69,7 @@ img {
   src: url('../fonts/OpenDyslexic-Bold.otf') format('opentype');
   font-weight: bold; /* ou use 700 se preferir */
   font-style: normal;
+  font-display: swap;
 }
 
 .visually-hidden {
