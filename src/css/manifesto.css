@@ -106,9 +106,20 @@
   padding: 0 10px;
 }
 
+.proposito {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
 .proposito h3 {
-  font: 700 1.2rem/1.4 'Open Sans', sans-serif;
+  font: 700 1.2rem/1.4 'OpenDyslexic', sans-serif;
   margin-bottom: 10px;
   color: var(--roxo);
   text-align: center;
+  background-color: var(--rosa);
+  padding: 10px 20px;
+  border-radius: 50px;
+  display: inline-flex;
 }
