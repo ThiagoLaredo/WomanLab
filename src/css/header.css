@@ -20,11 +20,6 @@
   gap: 10px;
 }
 
-[data-menu="logo"] {
-  width: 25%;
-  height: auto;
-}
-
 .header-direita,
 .social-icons-header {
   display: flex;
