@@ -94,10 +94,11 @@ footer {
   display: flex; /* Usa flexbox para centralizar o conteúdo */
   align-items: center; /* Centraliza verticalmente */
   justify-content: center; /* Centraliza horizontalmente */
+  transition: background-color 0.3s ease; /* Adiciona transição suave para a cor de fundo */
 }
 
 #send-button:hover {
-  opacity: 0.7; /* Reduz a opacidade quando o mouse está sobre o botão */
+  background-color: #fff;
 }
 
 /* Clearfix */
