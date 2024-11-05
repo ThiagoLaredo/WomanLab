@@ -28,8 +28,7 @@ import { ProgramasEquipesLoader } from './modules/programasEquipesLoader.js';
 import { fetchWordPressPosts } from './modules/wpApi.js';
 import mulheresData from '../programaMulheres.json';
 import equipesData from '../programaEquipes.json';
-
-
+import FormHandler from './modules/formHandler.js';
 
 // Função para configurar os links dos serviços
 function setupServiceLinks(serviceLoader, page) {
@@ -63,7 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
   initPageOpenAnimations();
-    initScrollAnimations();
+  initScrollAnimations();
+  new FormHandler('.contact-form');
 
   const pathname = window.location.pathname.toLowerCase();
 
