@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initPageOpenAnimations();
   initScrollAnimations();
-  new FormHandler('.contact-form');
+  new FormHandler('#contact-form');
 
   const pathname = window.location.pathname.toLowerCase();
 
